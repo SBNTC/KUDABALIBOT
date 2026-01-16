@@ -1,0 +1,709 @@
+[
+  {
+    "name": "Goldust Spa, Canggu",
+    "description": "Это единственный спа-салон на Бали, предлагающий омолаживающую процедуру «24-каратная золотая маска для лица».",
+    "address": "Jl. Pantai Batu Bolong Gg. Nyepi, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Glo Day Spa & Salon, Canggu",
+    "description": "Этот спа-салон получил награду World Luxury Spa в 2021 году за качество своих услуг.",
+    "address": "Jl. Subak Sari No.90, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Akoya Spa @ Viceroy Bali, Ubud",
+    "description": "Спа-салон расположен в знаменитом отеле Viceroy Bali и предлагает исключительные виды на долину.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Spring Spa, Uluwatu",
+    "description": "Это самый большой спа-салон новозеландского бренда Spring Spa.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Bulgari Spa, Uluwatu",
+    "description": "Элитный спа-салон предлагает широкий спектр процедур, включая массаж горячими камнями и балийскую рефлексотерапию.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Como Shambhala Retreat, Canggu",
+    "description": "Это серьёзный оздоровительный центр, где помимо спа-процедур можно заняться йогой, медитацией и фитнесом.",
+    "address": "Jl. Pantai Batu Mejan, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Prana Spa, Seminyak",
+    "description": "Огромный спа-салон, отлично подходящий для отдыха большой компанией.",
+    "address": "Jl. Kunti I, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Spa Alila, Seminyak",
+    "description": "Спа-салон находится в ультрароскошном комплексе Alila Villas и предлагает услуги высшего класса.",
+    "address": "Jl. Taman Ganesha Jl. Petitenget No.9, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indo",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Spa Bali Ubud @ Mandapa, Ubud",
+    "description": "Спа-салон расположен в отеле Mandapa, Ritz-Carlton Reserve, который считается одним из лучших курортов Бали.",
+    "address": "Jl. Raya Kedewatan, Kedewatan, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Ubud Traditional Spa, Ubud",
+    "description": "Популярный среди местных жителей и экспатов спа-салон, возможно, имеет лучшие отзывы на всём Бали.",
+    "address": "Jalan Rsi Markandya I Payogan, Kedewatan, Kec. Gianyar, Kabupaten Gianyar, Bali 80571, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Shankha Spa @ Hyatt Regency, Sanur",
+    "description": "Потрясающий пятизвёздочный спа-салон на восточном побережье Бали.",
+    "address": "Jl. Danau Tamblingan No.89, Sanur, Denpasar Selatan, Denpasar City, Bali 80228, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292951",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292721",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292710",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Nest Beachside Spa, Sanur",
+    "description": "Пляжный спа-салон, где перед процедурами можно насладиться вином и закусками.",
+    "address": "Jl. Setapak, Sanur, Denpasar Selatan, Kota Denpasar, Bali 80228, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292951",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292721",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292710",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Spa @ Maya, Sanur",
+    "description": "Особенно приятен их пакет «Seaside Escape», включающий массаж, уход за лицом и ногами.",
+    "address": "Jl. Danau Tamblingan No.89M, Sanur, Denpasar Selatan, Kota Denpasar, Bali 80228, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292951",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292721",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292710",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Koa Shala, Sanur",
+    "description": "Один из лучших спа-салонов в Сануре, предлагающий идеальную атмосферу спокойствия и уединения.",
+    "address": "Jl. Danau Tamblingan No.77A, Sanur, Denpasar Selatan, Kota Denpasar, Bali, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292951",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292721",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292710",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Chantara Wellness & Spa, Sanur",
+    "description": "Этот спа-центр предлагает не только релаксацию, но и комплексные оздоровительные программы.",
+    "address": "Jl. Danau Poso No.104, Sanur, Denpasar Selatan, Kota Denpasar, Bali, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292951",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292721",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292710",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Zahra Spa, Nusa Dua",
+    "description": "Имея почти 10 000 положительных отзывов в сети, этот спа-салон по праву считается одним из лучших на Бали.",
+    "address": "Jl. Nusa Dua, Benoa, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292953",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292898",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Sacred River Spa – Ubud",
+    "description": "Преображающее исцеление чакр и успокаивающие душу ритуалы в святилище на берегу реки.",
+    "address": "Jl Raya Sayan, Sayan, UbudPhone",
+    "price": "IDR 2,800,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Kahyangan Spa – Seminyak",
+    "description": "Вдохновленные Бали ритуалы с видом на океан и небесные массажи для полного блаженства души и тела.",
+    "address": "Jl Kayu Aya, SeminyakPhone",
+    "price": "IDR 900,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "AMO Spa – Canggu",
+    "description": "Современный спа-салон для восстановления с кислородными процедурами для лица, IV-терапией и роскошным маникюром-педикюром.",
+    "address": "Jl Pantai Batu Bolong No. 69, CangguWhatsApp",
+    "price": "IDR 400,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Bodyworks Spa – Seminyak",
+    "description": "Знаменитый спа-салон в марокканском стиле, предлагающий традиционные балийские массажи и яванские ритуалы.",
+    "address": "Jl Lebak Sari No. 3, Petitenget, SeminyakPhone",
+    "price": "IDR 650,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "LYAG – Umalas",
+    "description": "Научно обоснованные массажи и сенсорные опыты в черной комнате в самом футуристическом спа Бали.",
+    "address": "Jl Bumbak No. 101",
+    "price": "IDR 1,000,000"
+  },
+  {
+    "name": "Spring Spa Uluwatu",
+    "description": "Стильный минималистичный спа, любимый знаменитостями, сочетающий роскошные процедуры с океанским спокойствием.",
+    "address": "Jl Raya Labuansait No. 10, UluwatuWhatsApp",
+    "price": "IDR 310,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Bvlgari Spa",
+    "description": "Ультрароскошное убежище на скале, сочетающее европейские техники с балийскими целительными практиками.",
+    "address": "Jl Goa Lempeh, Banjar Dinas Kangin, UluwatuWhatsApp",
+    "price": "IDR 3,000,000"
+  },
+  {
+    "name": "Our Spa",
+    "description": "Современный спа-салон с экспертными процедурами для лица, ритуалами для волос L’Oréal и атмосферой, достойной бранча.",
+    "address": "Jl Labuansait No. 39, UluwatuWhatsApp",
+    "price": "IDR 225,000"
+  },
+  {
+    "name": "The Istana Spa",
+    "description": "Высокотехнологичный центр биохакинга с криотерапией, сенсорными камерами и передовыми wellness-процедурами.",
+    "address": "Jl Pantai Suluban, PecatuWhatsApp",
+    "price": "IDR 150,000"
+  },
+  {
+    "name": "Six Senses Spa",
+    "description": "Холистический ретрит на утесе, предлагающий детокс-программы, йогу и терапии с использованием местных продуктов.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Goldust Spa",
+    "description": "Знаменит своей 24-каратной золотой маской для лица и гламурными спа-вечеринками в самой ослепительной обстановке Чангу.",
+    "address": "Jl Batu Bolong, Gang Nyepi, CangguWhatsApp",
+    "price": "IDR 320,000"
+  },
+  {
+    "name": "Glo Day Spa & Salon",
+    "description": "Отмеченный наградами экологичный салон, предлагающий идеальные услуги для волос, красоты и массажа.",
+    "address": "Jl Subak Sari No. 90",
+    "price": "IDR 325,000"
+  },
+  {
+    "name": "Therapy Day Spa",
+    "description": "Устойчивые, растительные оздоровительные ритуалы для осознанного и свободного от токсинов восстановления.",
+    "address": "Jl Pantai Pererenan No. 99, Pererenan",
+    "price": "IDR 360,000"
+  },
+  {
+    "name": "COMO Shambhala Retreat",
+    "description": "Роскошный оздоровительный ретрит, сочетающий холистические терапии с осознанным движением и исцелением.",
+    "address": "Jl Pantai Batu Mejan, Echo Beach",
+    "price": "IDR 850,000"
+  },
+  {
+    "name": "AWAY Spa",
+    "description": "Круглосуточный роскошный спа-салон для путешественников, с кислородными комнатами и бьюти-процедурами.",
+    "address": "Jl Petitenget, Seminyak",
+    "price": "IDR 1,900,000"
+  },
+  {
+    "name": "Prana Spa Bali by Impiana",
+    "description": "Вдохновлённый Марокко спа-дворец с аюрведическими ритуалами и роскошными процедурами для пар.",
+    "address": "Jl Kunti I No. 118X, Seminyak",
+    "price": "IDR 750,000"
+  },
+  {
+    "name": "Spa Alila Seminyak",
+    "description": "Элегантный спа-салон на берегу океана, сочетающий современную роскошь с натуральным балийским оздоровлением.",
+    "address": "Jl Taman Ganesha No. 9, Petitenget",
+    "price": "IDR 880,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Sundari Wellness",
+    "description": "Отмеченный наградами холистический спа-салон, сочетающий передовой уход за кожей и традиционное исцеление.",
+    "address": "Jl Petitenget No. 7, Kerobokan",
+    "price": "IDR 550,000",
+    "verified": true
+  },
+  {
+    "name": "Taksu Spa & Wellness Center",
+    "description": "Священные масла, опытные терапевты и энергия джунглей для глубокого духовного обновления.",
+    "address": "Jl Goutama Selatan, Ubud",
+    "price": "IDR 450,000"
+  },
+  {
+    "name": "OmTara Spa by Clarins",
+    "description": "Роскошный спа-салон Clarins с процедурами для лица на растительной основе и передовыми бьюти-ритуалами.",
+    "address": "Jl Taman Sari, Banjar Tanggayuda, Ubud",
+    "price": "IDR 950,000"
+  },
+  {
+    "name": "Akoya Spa",
+    "description": "Роскошный спа-салон в Viceroy Bali, сочетающий современные техники с вневременным балийским спокойствием.",
+    "address": "Jl Lanyahan, Banjar Nagi, Ubud",
+    "price": "IDR 1,000,000"
+  },
+  {
+    "name": "Fivelements Retreat",
+    "description": "Отмеченный наградами экологичный оздоровительный ретрит с растительными ритуалами и священными церемониями исцеления.",
+    "address": "",
+    "price": "IDR 1,550,000"
+  },
+  {
+    "name": "Jaens Spa Center",
+    "description": "Доступный роскошный спа-салон с фирменными балийскими массажами и успокаивающими оздоровительными ритуалами.",
+    "address": "Jl Raya Pengosekan, Ubud",
+    "price": "IDR 635,000"
+  },
+  {
+    "name": "Svaha Spa",
+    "description": "Стильный спа-салон с выездом по острову, предлагающий бамбуковые массажи и романтичные пакеты с цветочными ваннами.",
+    "address": "",
+    "price": "IDR 800,000"
+  },
+  {
+    "name": "Shankha Spa",
+    "description": "Пятизвёздочный балийский оздоровительный оазис со спа-виллами, саунами и гидротерапевтическими бассейнами.",
+    "address": "Jl Danau Tamblingan No. 89, Sanur",
+    "price": "IDR 1,300,000"
+  },
+  {
+    "name": "Koa Shala",
+    "description": "Тропический ретрит для йоги и спа с натуральными массажами и спокойным садовым окружением.",
+    "address": "Jl Danau Tamblingan No. 77A, Sanur",
+    "price": "IDR 420,000"
+  },
+  {
+    "name": "The beach clubs you need to visit in 2025",
+    "description": "Мы протестировали лучшие пляжные клубы Бали для вашего списка желаний на 2025 год.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Consider yourself a foodie?",
+    "description": "Это лучшие рестораны высокой кухни на Бали для настоящих гурманов.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Espace Spa",
+    "description": "Спа высокого уровня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "spas"
+  },
+  {
+    "name": "Putri Ubud Spa 2",
+    "description": "Традиционный балийский спа",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "spas",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Cantika Zest",
+    "description": "Натуральная косметика, спа",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "spas"
+  },
+  {
+    "name": "Karsa Spa",
+    "description": "Спа с видом на рисовые поля",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "spas",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3179260",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3097922",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3095112",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Spring Spa Canggu",
+    "description": "Современный спа в Чангу",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "spas",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Lotus Massage Therapy Canggu",
+    "description": "Массаж, доступные цены",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "spas",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Balinese SPA Club",
+    "description": "Традиционные процедуры",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "spas"
+  },
+  {
+    "name": "Bodyworks Spa",
+    "description": "Популярный спа, массаж",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "spas",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2768747",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Estetica Belle",
+    "description": "Косметология, уход",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "spas"
+  }
+]

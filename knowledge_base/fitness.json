@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Avenue Fitness",
+    "description": "Современный фитнес-зал",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "fitness"
+  },
+  {
+    "name": "Victory Fitness Club",
+    "description": "Тренажёрный зал",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "fitness"
+  },
+  {
+    "name": "Wanderlust Fitness Village",
+    "description": "Фитнес на природе",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "fitness"
+  },
+  {
+    "name": "Body Factory Bali",
+    "description": "Кроссфит, функциональный тренинг",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "fitness"
+  }
+]

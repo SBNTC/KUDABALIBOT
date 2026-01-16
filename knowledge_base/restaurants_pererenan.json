@@ -1,0 +1,188 @@
+[
+  {
+    "name": "Bar Vera",
+    "description": "Бистро и винный бар. Вино, ужин, стильная атмосфера.",
+    "address": "Jl. Pantai Pererenan",
+    "price": "350k-700k",
+    "mentions": [
+      {
+        "chat": "БалиЧат | Балифорум",
+        "link": "https://t.me/balichat/3281708"
+      }
+    ]
+  },
+  {
+    "name": "WOODS",
+    "description": "Джаз и глобальная кухня. Спокойная обстановка для ужина.",
+    "address": "Jl. Dalem Lingsir",
+    "price": "250k-500k",
+    "mentions": [
+      {
+        "chat": "BALI FM: новости жизни Бали",
+        "link": "https://t.me/balifm_media/3450"
+      },
+      {
+        "link": "https://t.me/balichat/2947679",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/222888",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Tribal",
+    "description": "Коворкинг и кафе. Место для работы и нетворкинга.",
+    "address": "Gg. Tribal",
+    "price": "150k-250k",
+    "mentions": [
+      {
+        "chat": "БалиЧат Танцы | Балифорум",
+        "link": "https://t.me/balidances/84132"
+      },
+      {
+        "chat": "БалиЧат Танцы | Балифорум",
+        "link": "https://t.me/balidances/84278"
+      }
+    ]
+  },
+  {
+    "name": "Honey Kitchen",
+    "description": "Кафе для бранча. Завтраки и поздние завтраки.",
+    "address": "Jl. Pantai Pererenan",
+    "price": "150k-250k"
+  },
+  {
+    "name": "RiZE",
+    "description": "Индийская кухня и бранч. Доса и индийский завтрак.",
+    "address": "Jl. Pantai Pererenan",
+    "price": "120k-200k"
+  },
+  {
+    "name": "Fuego",
+    "description": "Аргентинский гриль. Стейки и мясные блюда.",
+    "address": "Jl. Dalem Lingsir",
+    "price": "300k-600k"
+  },
+  {
+    "name": "Pescado",
+    "description": "Испанская кухня. Паэлья и морепродукты.",
+    "address": "Jl. Pantai Pererenan",
+    "price": "200k-400k"
+  },
+  {
+    "name": "Touché",
+    "description": "Ресторан на весь день. Завтраки и модные ланчи.",
+    "address": "Jl. Pantai Pererenan",
+    "price": "150k-300k"
+  },
+  {
+    "name": "Roots",
+    "description": "Здоровая еда и салат-бар. ЗОЖ, веганские блюда, обеды.",
+    "address": "Jl. Pantai Pererenan",
+    "price": "120k-200k",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3030643",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/340857",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Boheme",
+    "description": "Ресторан с бассейном. Расслабленная атмосфера у воды.",
+    "address": "Jl. Pantai Pererenan",
+    "price": "200k-400k"
+  },
+  {
+    "name": "Warung Yess",
+    "description": "Местная индонезийская кухня. Недорогая еда от местных.",
+    "address": "Jl. Pantai Pererenan",
+    "price": "30k-80k"
+  },
+  {
+    "name": "The Shady Pig",
+    "description": "Мясной ресторан, стейки, бургеры",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_pererenan",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2814981",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Kinoa Pererenan",
+    "description": "Здоровая еда, боулы, смузи",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_pererenan"
+  },
+  {
+    "name": "WOODS PERERENAN",
+    "description": "Джаз, уютная атмосфера, коктейли",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_pererenan"
+  },
+  {
+    "name": "ACME Pererenan",
+    "description": "Кафе и бар, бранчи",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_pererenan"
+  },
+  {
+    "name": "Pescado Bali Pererenan",
+    "description": "Испанская кухня, морепродукты, паэлья",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_pererenan"
+  },
+  {
+    "name": "Touché Cafe & Restaurant",
+    "description": "Модный бранч, завтраки весь день",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_pererenan"
+  },
+  {
+    "name": "Honey,",
+    "description": "Кафе для бранча, уютное место",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_pererenan"
+  },
+  {
+    "name": "Shelter Restaurant",
+    "description": "Middle Eastern, гриль, топовое место",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_pererenan",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3289767",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/160909",
+        "chat": "balidating"
+      }
+    ]
+  }
+]

@@ -1,0 +1,547 @@
+[
+  {
+    "name": "Nyang Nyang Beach",
+    "description": "Дикий пляж, мало людей, красивый. 15 минут спуска пешком.",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/263983",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/263973",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/263877",
+        "chat": "balichatsurfing"
+      }
+    ]
+  },
+  {
+    "name": "Padang Padang Beach",
+    "description": "Известный пляж из фильма Ешь Молись Люби, сёрфинг",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293035",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293032",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3291312",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Balangan Beach",
+    "description": "Белый песок, сёрф-спот, варунги на пляже",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/263910",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/262859",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260846",
+        "chat": "balichatsurfing"
+      }
+    ]
+  },
+  {
+    "name": "Dreamland Beach",
+    "description": "Белый песок, волны, красивый вид на скалы",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293205",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/258467",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/257670",
+        "chat": "balichatsurfing"
+      }
+    ]
+  },
+  {
+    "name": "Bingin Beach",
+    "description": "Сёрф-спот, атмосфера старого Бали, варунги",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/258513",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balisurfer/149963",
+        "chat": "balisurfer"
+      },
+      {
+        "link": "https://t.me/balichat/3177630",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3049182",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3025673",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Melasti Beach",
+    "description": "Белоснежный песок, фотогеничный, чистый",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3291531",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3291396",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3290627",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Pantai Batu Bolong",
+    "description": "Главный пляж Чангу, закаты, сёрфинг",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3284759",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2894782",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2698650",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Karma Beach",
+    "description": "Приватный пляж, доступ платный, красиво",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3173312",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3163702",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3123269",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Jimbaran Beach",
+    "description": "Морепродукты на закате, рыбные рестораны на песке",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3291957",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3291805",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Sanur Beach",
+    "description": "Спокойный пляж, семьи, снорклинг, восход",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292951",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292721",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292710",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Nusa Dua Beach",
+    "description": "Чистый пляж, отели 5 звёзд, спокойно",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292953",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292898",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Amed Beach",
+    "description": "Снорклинг, дайвинг, тихо, чёрный песок",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3295517",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3257829",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3246127",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Pemuteran Beach",
+    "description": "Север Бали, лучший дайвинг, рифы",
+    "verified": true
+  },
+  {
+    "name": "Padang Bai Beach",
+    "description": "Порт на Гили, снорклинг в Blue Lagoon рядом",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3253451",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3197062",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3166242",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Keramas Beach",
+    "description": "Сёрф-спот, чёрный песок, ночной сёрфинг",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3152943",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3143913",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3121959",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Diamond Beach",
+    "description": "Нуса Пенида, открыточный вид, лестница вниз",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3212645",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3121930",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3120084",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Geger Beach",
+    "description": "Спокойный пляж в Нуса Дуа, мало людей",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3266491",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3266277",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3263108",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Berawa Beach",
+    "description": "Популярный пляж Чангу, сёрфинг, закаты",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3288487",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260391",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Echo Beach",
+    "description": "Сёрф-спот Чангу, варунги, закаты",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/261157",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/429461",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balichat/3281607",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2877822",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2848931",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Seminyak Beach",
+    "description": "Пляж Семиньяка, бич-клабы, закаты",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Kuta Beach",
+    "description": "Туристический пляж, сёрфинг для начинающих",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293229",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293207",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Double Six Beach",
+    "description": "Пляж у Семиньяка, бич-бары",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3189408",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/115446",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/260187",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Green Bowl Beach",
+    "description": "Скрытый пляж, 300 ступеней вниз, мало людей",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/76328",
+        "chat": "balichatsurfing"
+      }
+    ]
+  },
+  {
+    "name": "Suluban Beach",
+    "description": "Пляж у Улувату, через пещеру, сёрфинг",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3191340",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3093790",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2979303",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Blue Lagoon Beach",
+    "description": "Снорклинг, спокойная вода, рядом с Паданг Бай",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3077844",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2888794",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2565006",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Virgin Beach",
+    "description": "Белый песок, восток Бали, спокойно",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3256309",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3234624",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3151566",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Bias Tugel Beach",
+    "description": "Скрытый пляж рядом с Паданг Бай",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3176958",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3124157",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3086669",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Lovina Beach",
+    "description": "Чёрный песок, дельфины на рассвете",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3295882",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3227263",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3177552",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Uluwatu Beach",
+    "description": "Легендарный сёрф-спот, для опытных, красивые скалы",
+    "verified": false,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  }
+]

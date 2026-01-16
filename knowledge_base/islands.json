@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Nusa Penida",
+    "description": "Остров с драматичными видами, дикая природа",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "islands",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292251",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292246",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Nusa Ceningan",
+    "description": "Маленький остров, спокойно",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "islands"
+  },
+  {
+    "name": "Nusa Lembongan",
+    "description": "Снорклинг, мангровые леса",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "islands",
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/262088",
+        "chat": "Бали Чат Сёрфинг | БалиФо"
+      },
+      {
+        "link": "https://t.me/balichat/3272078",
+        "chat": "БалиЧат | Балифорум"
+      },
+      {
+        "link": "https://t.me/balichat/3274170",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "Pulau Menjangan",
+    "description": "Лучший дайвинг и снорклинг",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "islands"
+  },
+  {
+    "name": "Gili Islands",
+    "description": "Три острова без транспорта",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "islands",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293036",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293032",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293023",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Flores",
+    "description": "Остров с драконами Комодо",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "islands"
+  }
+]

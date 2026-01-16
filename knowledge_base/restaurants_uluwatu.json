@@ -1,0 +1,501 @@
+[
+  {
+    "name": "Bartolo",
+    "description": "Стильные европейские блюда, сезонное меню и выдающиеся коктейли.",
+    "address": "Jl Melasti Labuan Sait, Uluwatu",
+    "price": ""
+  },
+  {
+    "name": "Hidden Gem Uluwatu",
+    "description": "Уединённый стейк-хаус на вершине холма со средиземноморскими и азиатскими вкусами и более чем 50 винами бокалами.",
+    "address": "Jl Labuansait, Gg Puncak Sekapa II, Pecatu, Uluwatu",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Waatu",
+    "description": "Ужин на краю скалы с блюдами на огне из местных продуктов, якитори и креативными коктейлями.",
+    "address": "Jl Pantai Selatan Gau, Ungasan",
+    "price": ""
+  },
+  {
+    "name": "Zali",
+    "description": "Ливанский ресторан с шикарным интерьером, полезными рецептами и блюдами для компании.",
+    "address": "Jl Labuansait, Suluban, Pecatu",
+    "price": ""
+  },
+  {
+    "name": "BB52",
+    "description": "Бургер-бар с собственной выпечкой булочек, сытными гарнирами и ночными заказами на вынос.",
+    "address": "Jl Labuansait No. 8, Pecatu",
+    "price": ""
+  },
+  {
+    "name": "Mana Uluwatu",
+    "description": "Ресторан на скале с видом на океан, бассейном и коктейлями на закате.",
+    "address": "Jl Pantai Suluban, Uluwatu",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Teja Uluwatu",
+    "description": "Стейки на углях, выдержанные морепродукты и блюда, приготовленные на огне, недалеко от скал.",
+    "address": "Jl Mamo, Pecatu, Uluwatu",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Yuki",
+    "description": "Атмосферный японский идзакая с копчёными шашлычками, сашими и прогрессивными коктейлями.",
+    "address": "Jl Labuansait, Pecatu",
+    "price": "rp,",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2274849",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Masonry Uluwatu",
+    "description": "Средиземноморские блюда для компании из дровяной печи, медленно приготовленное мясо и авторские коктейли.",
+    "address": "Jl Labuansait No. 10, Pecatu",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "KALA",
+    "description": "Греческая кухня в рустикально-современном стиле с мезе, блюдами на гриле и натуральными винами.",
+    "address": "Jl Labuansait, Pecatu",
+    "price": ""
+  },
+  {
+    "name": "Tacos Aqui",
+    "description": "Яркая мексиканская кантина с тако, домашними сальсами, живой музыкой и атмосферой праздника.",
+    "address": "Jl Labuansait No. 69, Pecatu",
+    "price": ""
+  },
+  {
+    "name": "Lola’s Cantina Mexicana",
+    "description": "Калифорнийско-мексиканские блюда с маргаритой, тако и танцами после наступления темноты.",
+    "address": "Jl Labuansait No. 10, Pecatu",
+    "price": ""
+  },
+  {
+    "name": "Ulu Fish Market",
+    "description": "Непринуждённый гриль-бар с морепродуктами в японско-перуанском стиле.",
+    "address": "Jl Labuansait No. 10, Pecatu",
+    "price": ""
+  },
+  {
+    "name": "Ulu Garden",
+    "description": "Ресторан под открытым небом в саду, где готовят из балийских продуктов, с живой музыкой и местной атмосферой.",
+    "address": "Jl Pantai Padang Padang, Pecatu",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2749557",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Shaka Riki",
+    "description": "Свежий японский ресторан с суши и сашими.",
+    "address": "Jl Labuansait No. 34, Pecatu",
+    "price": ""
+  },
+  {
+    "name": "The 22 Top Choices Of Uluwatu Restaurant",
+    "description": "Это скрытая жемчужина отлично подходит для завтрака, но будьте осторожны — поблизости обезьяны.",
+    "address": "Jl. Goa Lempeh Jl. Raya Uluwatu Pecatu No.27A, Pecatu, South Kuta, Badung Regency, Bali 80361, Indon",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Uluwatu Cafes",
+    "description": "Это скрытая жемчужина, отлично подходящая для завтрака. Рядом могут появиться обезьянки, которые будут наблюдать за вашей трапезой (персонал не даст им забрать вашу еду).",
+    "address": "Jl. Goa Lempeh Jl. Raya Uluwatu Pecatu No.27A, Pecatu, South Kuta, Badung Regency, Bali 80361, Indon",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "BAMBU Kitchen",
+    "description": "Это скрытая жемчужина, отлично подходящая для завтрака. Рядом могут появиться обезьянки, которые будут наблюдать за вашей трапезой (персонал не даст им забрать вашу еду).",
+    "address": "Jl. Goa Lempeh Jl. Raya Uluwatu Pecatu No.27A, Pecatu, South Kuta, Badung Regency, Bali 80361, Indon",
+    "price": ""
+  },
+  {
+    "name": "Land’s End Cafe",
+    "description": "Это один из лучших ресторанов в Улувату, который сочетает отличное соотношение цены и качества еды.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "The Cashew Tree",
+    "description": "Заведение среднего ценового сегмента, чрезвычайно популярное на Бали. Здесь подают вкусную смесь западной и местной кухни.",
+    "address": "Jl. Pantai Bingin No.9, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "HQ Uluwatu",
+    "description": "Выделяется среди других ресторанов Улувату доступными ценами на пиццу из дровяной печи и бургеры.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Watu Steakhouse, Six Senses Uluwatu",
+    "description": "Отличное место, где стейки подают с восхитительными соусами, которые делают их особенными.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Temple Bar & Grill",
+    "description": "Если вы ищете стейки и бургеры по доступной цене, вам стоит заглянуть сюда.",
+    "address": "Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Tarabelle",
+    "description": "Этот ресторан славится своими пончиками, но в меню представлено гораздо больше блюд.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Sugar Rock",
+    "description": "Здесь отличный выбор блюд, в том числе одни из лучших морепродуктов на Бали.",
+    "address": "Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Gooseberry Restaurant",
+    "description": "Это заведение входит в число самых популярных ресторанов Улувату с момента своего открытия.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Bartolo Bali",
+    "description": "Здесь делают акцент на неторопливую, качественную трапезу, поэтому стоит набраться терпения — ожидание того стоит.",
+    "address": "Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "District 6",
+    "description": "Ресторан известен своей пиццей из дровяной печи и специальными предложениями в счастливые часы. Также есть веганские и вегетарианские опции.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Ours",
+    "description": "Самое сложное здесь — выбрать блюдо, так как меню переполнено соблазнительными вариантами.",
+    "address": "Jl. Labuansait, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "The Cave By Chef Ryan Clift",
+    "description": "Ресторан, который часто мелькает в Instagram и TikTok благодаря своему потрясающему внешнему виду.",
+    "address": "Jl Pura Goa Lempeh, Banjar Dinas Kangin, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indon",
+    "price": ""
+  },
+  {
+    "name": "El Mercat",
+    "description": "Одно из лучших ресторанов среднего класса в Улувату. Подают испанскую и средиземноморскую кухню в очень приятном пространстве.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Mana Uluwatu Restaurant & Bar",
+    "description": "Мексиканский ресторан с захватывающим видом на океан.",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Warung Bejana Uluwatu",
+    "description": "Их балийская еда очень популярна среди туристов, и если прийти слишком поздно, можно застать большое скопление людей.",
+    "address": "Jl. Raya Uluwatu Pecatu, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80364, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Sangkar Restaurant",
+    "description": "Это не место для бюджетного ужина, являясь частью комплекса Bulgari Resort. Скорее всего, сюда захочется надеть что-то нарядное.",
+    "address": "Jl. Goa Lempeh, Banjar Dinas Kangin, Uluwatu, Kabupaten Badung, Bali 80364, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Rocka at Six Senses, Uluwatu",
+    "description": "Идеальное место для романтического ужина на Бали, чтобы произвести впечатление на особенного человека.",
+    "address": "Jl. Goa Lempeh, Pecatu, South Kuta, Badung Regency, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "La Barraca Bali",
+    "description": "Покорил сердца тем, что всю пасту готовят с нуля, как и положено хорошему итальянскому ресторану.",
+    "address": "Jl. Labuansait No.10, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Filini Restaurant",
+    "description": "Ресторан в Radisson Blu оказался лучше ожиданий от сетевого заведения. Нравится атмосфера у бассейна — расслабленная и веселая.",
+    "address": "Jl. Pemutih, Labuan Sait, Badung Regency, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Padang Breeze",
+    "description": "Если хочется веселого барбекю из морепродуктов каждый вечер, то вам сюда. Основная публика — бэкпэкеры, но еда здесь вкусная.",
+    "address": "Jl. Labuansait, padang padang, uluwatu, Badung Regency, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3297723",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293675",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3289366",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "A FINNS Global Limited Company",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/446367",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balidating/429474",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balidating/429461",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "The CLOUDS Uluwatu",
+    "description": "Ресторан на скалах, закаты",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_uluwatu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Le Cliff Bali",
+    "description": "Fine dining на утёсе",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_uluwatu"
+  },
+  {
+    "name": "Suka Espresso Uluwatu",
+    "description": "Австралийское кафе, завтраки после сёрфа",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_uluwatu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Sundays Beach Club",
+    "description": "Бич-клаб, день у океана",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_uluwatu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3031953",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2667670",
+        "chat": "balichat"
+      }
+    ]
+  }
+]

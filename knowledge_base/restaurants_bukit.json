@@ -1,0 +1,124 @@
+[
+  {
+    "name": "Masonry",
+    "description": "Средиземноморская кухня на дровах, идеально для ужина в стильной компании друзей.",
+    "address": "Uluwatu",
+    "price": "120k++"
+  },
+  {
+    "name": "Bartolo",
+    "description": "Европейский бистро и коктейли, отличное место для свидания. Обязательно к посещению.",
+    "address": "Uluwatu",
+    "price": "110k++"
+  },
+  {
+    "name": "Suka Espresso Uluwatu",
+    "description": "Австралийское кафе, популярное для завтрака после серфинга и работы за ноутбуком.",
+    "address": "Uluwatu",
+    "price": "65k++",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "El Kabron",
+    "description": "Испанская кухня и морепродукты, знаменит закатами и паэльей. Подходит для праздника.",
+    "address": "Pecatu",
+    "price": "200k++",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3164672",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3164654",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3081528",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Menega Cafe",
+    "description": "Классический ресторан с морепродуктами на гриле, ужин на песке у заката.",
+    "address": "Jimbaran Bay",
+    "price": "150k++",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3106045",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Sundara",
+    "description": "Заведение высокой кухни с грилем, роскошный вид на закат и сервис уровня 5 звезд.",
+    "address": "Jimbaran Bay",
+    "price": "250k++",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2700036",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2657337",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2337501",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Cuca Flavor",
+    "description": "Тапас и молекулярная кухня, гастрономическое место для свидания (топ-рекомендация!).",
+    "address": "Jimbaran",
+    "price": "680k++"
+  },
+  {
+    "name": "Koral Restaurant",
+    "description": "Ресторан высокой кухни внутри аквариума, ужин с вау-эффектом.",
+    "address": "Nusa Dua, Kempinski",
+    "price": "1500k++",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2225652",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Sundays Beach Club",
+    "description": "Международная кухня, можно провести целый день на пляже, вечером разводят костер.",
+    "address": "Ungasan",
+    "price": "300k++",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3031953",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2667670",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/13801",
+        "chat": "balidating"
+      }
+    ]
+  }
+]

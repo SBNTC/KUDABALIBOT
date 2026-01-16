@@ -1,0 +1,820 @@
+[
+  {
+    "name": "Tropical Nomad Coworking Space – Canggu",
+    "description": "Просторное двухэтажное коворкинг-пространство с пальмами внутри, балконом с видом на рисовые поля и всеми необходимыми офисными удобствами.",
+    "address": "Jl Subak Canggu No. 2, Canggu, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Outpost – Ubud",
+    "description": "Продвинутое пространство для работы с отличными условиями: офисы, стоячие столы, переговорные, сады и даже массажист на месте.",
+    "address": "Jl Raya Nyuh Kuning",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Biliq Bali – Seminyak",
+    "description": "Первый на Бали коворкинг с поминутной оплатой, известный своим бассейном со встроенной подставкой для ноутбука и быстрым Wi-Fi.",
+    "address": "Jl Yudistira No. 3A, Seminyak",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "G88 Coworking – Kerobokan",
+    "description": "Стильный индустриальный коворкинг, расположенный рядом со списанным самолетом, с конференц-залами, балконом и собственной кофейней.",
+    "address": "Jl Raya Kerobokan No. 88, Kerobokan",
+    "price": ""
+  },
+  {
+    "name": "Monday Coworking & Coffee Shop – Ungasan",
+    "description": "Уютное пространство в стиле гостиной, поощряющее общение и collaboration, с фото- и подкаст-студией и свежей выпечкой.",
+    "address": "Jl Toya Ning II, Ungasan, Uluwatu, p.",
+    "price": ""
+  },
+  {
+    "name": "ZIN@Work – Canggu",
+    "description": "Бесплатный открытый коворкинг из бамбука с кондиционируемой комнатой для концентрации, расположенный над популярным кафе.",
+    "address": "Jl Nelayan No. 78F, Canggu, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Tribal Bali – Pererenan",
+    "description": "Первый на Бали коворкинг-хостел, объединяющий работу, проживание и отдых с бассейном, бильярдом и без членских взносов.",
+    "address": "Jl Pantai Pererenan, Gg. Tribal, Pererenan, p.",
+    "price": ""
+  },
+  {
+    "name": "GoWork – Kuta",
+    "description": "Ведущий сетевой коворкинг в Индонезии с современными, наполненными светом workspace, горячими столами и частными офисами.",
+    "address": "Jl Kediri, Tuban, Kuta, p.",
+    "price": "IDR 225,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293229",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293207",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Finns Rec Club – Berawa",
+    "description": "Масштабный lifestyle-хаб для работы и отдыха с коворкингом, спортзалом, теннисом, аквапарком и множеством других активностей.",
+    "address": "Jl Pantai Berawa, Canggu, e. reservations",
+    "price": "IDR 225,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3288487",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260391",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Puco Rooftop – Canggu",
+    "description": "Коворкинг на крыше с эргономичными рабочими местами, высокоскоростным интернетом и панорамным видом на рисовые поля.",
+    "address": "Jl Pantai Berawa No. 88, Canggu, p.",
+    "price": "IDR 225,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Karya CoWorking – Canggu",
+    "description": "Популярный и эффективный коворкинг с общими зонами, частными офисами и простой системой оплаты за день с включенным Wi-Fi и напитками.",
+    "address": "Jl Pantai Berawa No. 88, Canggu, p.",
+    "price": "IDR 225,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Hub Bali – Legian & Nusa Dua",
+    "description": "Сообщество для цифровых кочевников, созданное по запросу, с доступными тарифами, включающими кофе, закуски и офисные услуги.",
+    "address": "Jl Nakula No. 9, Legian",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292953",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292898",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "KE{M}BALI Innovation Hub – Seminyak",
+    "description": "Сообщество-коворкинг, нацеленное на развитие местных талантов через collaboration, с рабочими столами, event-пространством и переговорными.",
+    "address": "Jl Sunset Road No. 28, Seminyak, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Colabo Cafe — Jimbaran",
+    "description": "Часть большого творческого хаба, предлагающая продуктивную среду для работы в кафе на фоне зеленого леса, с регулярными community-мероприятиями.",
+    "address": "Jl Karang Mas, Jimbaran",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3291957",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3291805",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Livit Hub Bali – Sanur",
+    "description": "Имея более 10 лет опыта поддержки цифровых предпринимателей и стартапов, Livit — это хаб для цифровых кочевников и удаленных работников в Сануре. Это сообщество прогрессивных мыслителей, объединенных в коворкинге с кондиционированным помещением и открытой террасой на крыше.",
+    "address": "Jl Bumi Ayu, Gang Pungut Sari, Sanur, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292951",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292721",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292710",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Fine By Satu Satu, Canggu",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Amolas Cafe, Canggu",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "BWork Cafe, Canggu",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Tribal, Pererenan",
+    "description": "",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Ketala Eatery & Lifestyle",
+    "description": "",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Hungry Bird, Canggu",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Noah, Pererenan",
+    "description": "",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Miel Coffee Shop, Canggu",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Blou Cafe, Canggu",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Zin Cafe, Canggu",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Daun Coffee and Roastery, Canggu",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Crate Cafe, Canggu",
+    "description": "Одно из любимых мест, открывается очень рано утром, когда почти всё ещё закрыто. В это время здесь отличные предложения по вкусным завтракам, что делает его выгодным вариантом.",
+    "address": "Jl. Canggu Padang Linjong No.49F, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Kynd Cafe, Seminyak",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Coffee Cartel, Seminyak",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Cafe Kim Soo, Seminyak",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Corner House, Seminyak",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Wyah Art & Creative Space, Ubud",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Keliki Coffee Shop, Ubud",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Kopi Pangeran, Ubud",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Monsieur Spoon, Ubud",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Suka Kopi, Ubud",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Lazy Cats Cafe, Ubud",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Cafe People Point, Amed",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3296434",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295517",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Blue Earth Village, Amed",
+    "description": "Здесь есть потрясающая йога-шала для медитаций и занятий. Рабочая зона полностью бесплатная, с отличным Wi-Fi и вкусной едой, а также открывается невероятный вид на вулкан Агунг.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3296434",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3296259",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295517",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Amed Espresso, Amed",
+    "description": "Кофе в этом продуманно оформленном кафе отличный, а персонал всегда дружелюбен и готов помочь. Однако ближе к вечеру оно превращается в бар и становится шумно, поэтому для работы лучше приходить пораньше.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3296434",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3296259",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295517",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Good Stuff, Amed",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3296434",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3296259",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295517",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Oneway Espresso, Amed",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3296434",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295517",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Tribal Bali Coworking Hostel",
+    "description": "Коворкинг + хостел, комьюнити",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "coworkings"
+  },
+  {
+    "name": "The Flow Bali",
+    "description": "Коворкинг, быстрый интернет",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "coworkings"
+  },
+  {
+    "name": "Outsite Bali - Pererenan",
+    "description": "Коливинг для номадов",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "coworkings"
+  },
+  {
+    "name": "Tropical Nomad Coworking Space",
+    "description": "Коворкинг в центре Чангу",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "coworkings"
+  },
+  {
+    "name": "Genesis Creative Centre",
+    "description": "Креативное пространство",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "coworkings"
+  },
+  {
+    "name": "Outpost Canggu Coworking",
+    "description": "Популярный коворкинг, бассейн",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "coworkings",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Dojo Bali Coworking",
+    "description": "Легендарный коворкинг (закрыт)",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "coworkings"
+  }
+]

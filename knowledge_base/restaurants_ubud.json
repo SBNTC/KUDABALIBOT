@@ -1,0 +1,558 @@
+[
+  {
+    "name": "Mozaic",
+    "description": "Отмеченный наградами ресторан высокой кухни, сочетающий французскую и индонезийскую кухню, с тропическими садами и романтической атмосферой.",
+    "address": "Jl Raya Sanggingan, Ubud",
+    "price": "IDR 1,100,000"
+  },
+  {
+    "name": "Copper Kitchen, Bar & Rooftop",
+    "description": "Ресторан на крыше с азиатской фьюжн-кухней от фермы до стола и захватывающими видами на закат.",
+    "address": "Jl Bisma No. 68, Ubud",
+    "price": "IDR 95,000"
+  },
+  {
+    "name": "Spice by Blake",
+    "description": "Современные индонезийские вкусы и авторские коктейли в стильном и непринужденном заведении.",
+    "address": "Jl Monkey Forest, Ubud",
+    "price": "IDR 120,000"
+  },
+  {
+    "name": "Pasir",
+    "description": "Блюда в средиземноморском стиле со свежими морепродуктами и атмосферой побережья Бали.",
+    "address": "Jl Monkey Forest, Ubud",
+    "price": "IDR 85,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/217528",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Melali Ubud",
+    "description": "Кафе в марокканском стиле, предлагающее полезные боулы, соки и сытные бранчи.",
+    "address": "Jl Sri Wedari No. 58, Tegallantang, Ubud",
+    "price": "IDR 60,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Ibu Susu",
+    "description": "Паназиатские закуски и авторские коктейли в оживленном местном ресторанчике.",
+    "address": "Jl Monkey Forest, Ubud",
+    "price": "IDR 90,000"
+  },
+  {
+    "name": "2 Bulan",
+    "description": "Креативная тайская кухня с яркими вкусами, натуральными винами и домашней лапшой.",
+    "address": "Jl Nyuh Bulan, Mas, Ubud",
+    "price": "IDR 85,000"
+  },
+  {
+    "name": "Nusa By/Suka",
+    "description": "Средиземноморские блюда, приготовленные на дровах, в атмосферном, дизайнерском пространстве.",
+    "address": "Jl Raya Ubud, Ubud",
+    "price": "IDR 120,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3168858",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Sayan House",
+    "description": "Вид на джунгли и закаты, уникальные блюда японско-латиноамериканского фьюжна и коктейли.",
+    "address": "Jl Raya Sayan No. 70, Sayan, Ubud",
+    "price": "IDR 130,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2718323",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Rüsters Restaurant",
+    "description": "Вид на рисовые поля, европейско-азиатская фьюжн-кухня и культура авторского кофе.",
+    "address": "Jl Raya Kengetan No. 44, Ubud",
+    "price": "IDR 85,000"
+  },
+  {
+    "name": "Indus Restaurant",
+    "description": "Индонезийская фьюжн-кухня с захватывающим видом на хребет Кампухан.",
+    "address": "Jl Raya Sanggingan, Ubud",
+    "price": "IDR 95,000"
+  },
+  {
+    "name": "Suka Espresso",
+    "description": "Бранч-кафе в австралийском стиле с отличным кофе и полезными классическими блюдами.",
+    "address": "Jl Raya Pengosekan No. 108, Ubud",
+    "price": "IDR 60,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2834208",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2824458",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Milk & Madu Ubud",
+    "description": "Семейное кафе с авторскими пиццами, сытными бранчами и оживленной атмосферой.",
+    "address": "Jl Suweta No. 3, Ubud",
+    "price": "IDR 45,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Clear Café",
+    "description": "Здоровая вегетарианская кухня со всего мира в спокойной богемной обстановке.",
+    "address": "Jl Hanoman No. 8, Ubud",
+    "price": "IDR 40,000"
+  },
+  {
+    "name": "KAFE",
+    "description": "Экологичное кафе с веганскими органическими блюдами и свежими соками.",
+    "address": "Jalan Hanoman",
+    "price": "IDR 35,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3262395",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Yellow Flower Café",
+    "description": "Органическая балийская еда в уютном, скрытом на склоне холма месте.",
+    "address": "Jl Sanggingan, Ubud",
+    "price": "IDR 65,000"
+  },
+  {
+    "name": "Begawan Biji",
+    "description": "Индонезийская кухня от фермы до стола с видом на рисовые поля и упором на сообщество.",
+    "address": "",
+    "price": "IDR 220,000"
+  },
+  {
+    "name": "Hujan Locale",
+    "description": "Уличная еда азиатской кухни высокого класса от известного шефа Уилла Мейрика.",
+    "address": "Jl Sri Wedari No. 5, Ubud",
+    "price": "IDR 125,000"
+  },
+  {
+    "name": "Restaurant Nusantara",
+    "description": "Аутентичные индонезийские блюда со всего архипелага от отмеченной наградами команды Locavore.",
+    "address": "Jl Dewi Sita No. 9C, Ubud",
+    "price": "IDR 125,000"
+  },
+  {
+    "name": "Chupacabras",
+    "description": "Стейк-хаус в аргентинском стиле с видом на джунгли на открытом воздухе.",
+    "address": "",
+    "price": "IDR 190,000"
+  },
+  {
+    "name": "Pica",
+    "description": "Яркие южноамериканские вкусы и вина в оживленном, уютном пространстве.",
+    "address": "Jl Dewisita, Ubud",
+    "price": "IDR 200,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2933035",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "BatuBara",
+    "description": "Аргентинско-средиземноморский гриль на дровах с премиальными стейками и морепродуктами.",
+    "address": "Jl Raya Pengosekan No. 108, Ubud",
+    "price": "IDR 250,000"
+  },
+  {
+    "name": "Bacari",
+    "description": "Элегантный винный бар с 20 винами по бокалам и креативными тапас.",
+    "address": "Jl Goutama No. 15, Ubud",
+    "price": "IDR 60,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2294597",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Galle Club",
+    "description": "Шри-ланкийские и прибрежные индийские вкусы с яркими специями и сытными карри.",
+    "address": "Jl Nyuh Gading No. 2, Mas, Ubud",
+    "price": "IDR 75,000"
+  },
+  {
+    "name": "Muse Café & Art",
+    "description": "Заведение на крыше с аутентичной индийской кухней, досами и освежающими коктейлями.",
+    "address": "Jl Sri Wedari No. 6b, UbudOpening hours",
+    "price": "IDR 70,000"
+  },
+  {
+    "name": "Zest Ubud",
+    "description": "Креативная веганская еда с пиццей, бургерами и изысканными десертами.",
+    "address": "Jl Raya Penestanan Kelod No. 8, UbudOpening hours",
+    "price": "IDR 78,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Moksa",
+    "description": "Растительная еда из свежих продуктов с собственного пермакультурного огорода.",
+    "address": "Jl Raya Penestanan Kelod No. 8, UbudOpening hours",
+    "price": "IDR 85,000"
+  },
+  {
+    "name": "Alchemy",
+    "description": "Кафе сыроедческой кухни с салатами-суперфудами, смузи-боулами и сырыми десертами.",
+    "address": "Jl Raya Penestanan Kelod No. 8, UbudOpening hours",
+    "price": "IDR 75,000",
+    "mentions": [
+      {
+        "link": "https://t.me/blizkie_eventss/28164",
+        "chat": "Мероприятия для близких н"
+      },
+      {
+        "link": "https://t.me/balidating/444704",
+        "chat": "Знакомства на Бали 🏝 | CH"
+      },
+      {
+        "link": "https://t.me/blizkie_eventss/28147",
+        "chat": "Мероприятия для близких н"
+      }
+    ]
+  },
+  {
+    "name": "The Elephant",
+    "description": "Этичное вегетарианское заведение с коктейлями и панорамным видом на рисовые поля.",
+    "address": "Jl Raya Sanggingan, UbudOpening hours",
+    "price": "IDR 65,000"
+  },
+  {
+    "name": "Locavore NXT",
+    "description": "Многоступенчатый дегустационный сет, посвященный местным продуктам и кулинарным инновациям.",
+    "address": "Jl A. A. Gede Rai, UbudOpening hours",
+    "price": "IDR 1,950,000"
+  },
+  {
+    "name": "Room4Dessert",
+    "description": "Отмеченный наградами гастрономический опыт, где главную роль играют изобретательные десерты и коктейли.",
+    "address": "Jl Sanggingan, UbudOpening hours",
+    "price": "IDR 1,090,000"
+  },
+  {
+    "name": "Apéritif",
+    "description": "Ресторан высокой кухни в стиле 1920-х с дегустационными меню, коктейлями и роскошным винным погребом.",
+    "address": "Jl Lanyahan, Banjar Nagi, UbudOpening hours",
+    "price": "IDR 1,100,000"
+  },
+  {
+    "name": "Kubu",
+    "description": "Ресторан высокой кухни у реки в частных бамбуковых капсулах в отеле Ritz-Carlton.",
+    "address": "Jl Kedewatan, Banjar Kedewatan, UbudOpening hours",
+    "price": "IDR 750,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3186255",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3112609",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3112583",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Api Jiwa",
+    "description": "Уютный омакасе в джунглях с азиатским барбекю от фермы до стола и элементами театральности.",
+    "address": "Jl Raya Dalem, Banjar Triwangsa, Desa Keliki, Tegallalang, UbudOpening hours",
+    "price": "IDR 850,000"
+  },
+  {
+    "name": "Kemukus Restaurant",
+    "description": "",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Sawah Terrace @ Mandapa",
+    "description": "",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "The Grill @ Luxe",
+    "description": "",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Terracotta Restaurant Ubud",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Mozaic Gastronomic Restaurant",
+    "description": "",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Copper Kitchen & Bar",
+    "description": "Ресторан на крыше с концепцией от земли до стола. Идеальное место для романтического ужина с видом на закат.",
+    "address": "Bisma Eight Hotel, Jl. Bisma",
+    "price": "95k++"
+  },
+  {
+    "name": "Sayan House",
+    "description": "Ресторан с японско-латинской кухней. Потрясающий вид на джунгли, знаменитые закаты и авторские коктейли.",
+    "address": "Jl. Raya Sayan No.70",
+    "price": "130k++",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3272479",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2718323",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2548938",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Zest",
+    "description": "Веганский ресторан с креативной кухней. Популярное место для ЗОЖ-тусовки с видом и возможностью поработать.",
+    "address": "Jl. Penestanan Kelod No.8",
+    "price": "78k++",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3165936",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2887410",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2834209",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Clear Cafe",
+    "description": "Кафе со здоровой и вегетарианской едой. Известно красивым интерьером, расслабляющей атмосферой и правилом снимать обувь.",
+    "address": "Jl. Hanoman No.8",
+    "price": "40k++",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3126542",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3098125",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/19521",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Seniman Coffee",
+    "description": "Спешелти-кофейня для настоящих ценителей. Отличное место, чтобы поработать за чашкой качественного кофе.",
+    "address": "Jl. Sri Wedari No.5",
+    "price": "35k++"
+  },
+  {
+    "name": "Warung Biah Biah",
+    "description": "Балийский ресторан в формате тапас. Позволяет попробовать множество местных блюд по очень доступным ценам.",
+    "address": "Jl. Pengosekan",
+    "price": "25k++"
+  },
+  {
+    "name": "Pesona Lounge Ubud",
+    "description": "Лаунж с видом, расслабленная атмосфера",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_ubud",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "L'Osteria Pizza e Cucina Ubud",
+    "description": "Итальянская пицца в Убуде",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_ubud",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Kebun Bistro",
+    "description": "Бистро в саду, органические продукты",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_ubud",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2702469",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Balinese Home Cooking",
+    "description": "Домашняя балийская кухня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_ubud"
+  },
+  {
+    "name": "Montana Del Cafe",
+    "description": "Кафе с видом на рисовые поля",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_ubud",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3046163",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2971119",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Rice Joglo",
+    "description": "Традиционный дом, индонезийская кухня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_ubud"
+  },
+  {
+    "name": "Livingstone",
+    "description": "Колониальный стиль, международная кухня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_ubud",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/369100",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Warung Goûthé",
+    "description": "Французская выпечка в Убуде",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_ubud"
+  }
+]

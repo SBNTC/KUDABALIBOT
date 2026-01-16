@@ -1,0 +1,236 @@
+[
+  {
+    "name": "Aunty Ji's",
+    "description": "Новый ресторан в Кангу, предлагающий современную интерпретацию индийской кухни.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Sa'Mesa",
+    "description": "Итальянский ресторан, известный щедрыми застольями и неограниченным лимончелло.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Dough Darlings",
+    "description": "Пекарня, специализирующаяся на приготовлении впечатляющих пончиков.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Skool Kitchen",
+    "description": "Ресторан на крыше в Кангу с панорамным видом.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Step behind the canvas at Ubud Open Studios",
+    "description": "Загляните за кулисы творческого процесса в открытых студиях Убуда.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Hot New Table: Nusa By/Suka is now grilling in Ubud",
+    "description": "Новый ресторан Nusa By/Suka, где готовят на гриле.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Get a taste of The Med at Chora Ubud",
+    "description": "Ресторан Chora Ubud предлагает блюда средиземноморской кухни.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Escape to the nature-hugged Suara Alam Ubud",
+    "description": "Отель Suara Alam Ubud, окруженный природой.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Try this: AKASA at Jumeirah Bali",
+    "description": "",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Lovina",
+    "description": "Север Бали, дельфины, чёрный песок, тихо",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "districts",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3295882",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295847",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295438",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Amed",
+    "description": "Восток Бали, дайвинг, снорклинг, спокойно",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "districts",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3296434",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3296259",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295517",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Sidemen",
+    "description": "Рисовые террасы, вулкан Агунг, тихо",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "districts",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3291156",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3256309",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Munduk",
+    "description": "Горный район, водопады, прохладно",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "districts",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3273349",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3263712",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3250841",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Candidasa",
+    "description": "Восток, снорклинг, лагуна",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "districts",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3228899",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3209992",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/239861",
+        "chat": "balichatsurfing"
+      }
+    ]
+  },
+  {
+    "name": "Pemuteran",
+    "description": "Север, дайвинг, рифы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "districts",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3093467",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2426173",
+        "chat": "balichat"
+      }
+    ]
+  }
+]

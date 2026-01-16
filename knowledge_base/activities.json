@@ -1,0 +1,1012 @@
+[
+  {
+    "name": "Party at the “World’s Best Beach Club”!",
+    "description": "Знаменитое место для вечеринок на берегу с бассейнами, диджеями, коктейлями и оживлённой атмосферой с дня до ночи.",
+    "address": "Jl Pantai Berawa, Berawa, Canggu",
+    "price": "IDR 2,500,000"
+  },
+  {
+    "name": "Go chasing waterfalls in North Bali",
+    "description": "Плавайте, скатывайтесь и исследуйте самые захватывающие душу водопады Бали в джунглях.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Hire a yacht and sail to Nusa Penida",
+    "description": "Роскошные морские туры с сноркелингом, посадкой кораллов и видами на океан.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292251",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292246",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Hike to the top of Mount Batur for sunrise",
+    "description": "Восхождение на действующий вулкан Бали, чтобы встретить рассвет и позавтракать на вершине.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3255790",
+        "chat": "БалиЧат | Балифорум"
+      },
+      {
+        "link": "https://t.me/balichat/3256935",
+        "chat": "БалиЧат | Балифорум"
+      },
+      {
+        "link": "https://t.me/balichat/3257128",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "Island hop to Bali’s neighbouring islands",
+    "description": "Откройте для себя нетронутые пляжи, виды со скал и мант на островах Нуса.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Have brunch with alpacas",
+    "description": "Фермерская кухня в компании альпак, пони и развлечений для всей семьи.",
+    "address": "Jl Pancasari, Buleleng",
+    "price": "IDR 175,000"
+  },
+  {
+    "name": "Immerse in Balinese traditions at Penglipuran Village",
+    "description": "Путешествие во времени в самую чистую и культурную деревню Бали.",
+    "address": "",
+    "price": "IDR 50,000"
+  },
+  {
+    "name": "Visit Bali’s famous temple Pura Lempuyang",
+    "description": "Сделайте фото у знаменитых «Врат в небеса» на фоне вулкана Агунг.",
+    "address": "",
+    "price": "IDR 70,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3299904",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3260152",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3222971",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Explore Goa Gajah Elephant Cave",
+    "description": "Древний храмовый грот недалеко от Убуда с мистическими резными изображениями и реликвиями.",
+    "address": "Jl Raya Bedulu, Blahbatu",
+    "price": "IDR 50,000"
+  },
+  {
+    "name": "See a traditional Balinese healer",
+    "description": "Ознакомьтесь со священными практиками энергетического исцеления и очищения водой (мелукат).",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Learn Bali’s chain-weaving heritage at John Hardy",
+    "description": "Устойчивые мастер-классы по созданию украшений с мастерами в бамбуковых бутиках.",
+    "address": "",
+    "price": "IDR 4,000,000"
+  },
+  {
+    "name": "Check out Garuda Wisnu Kencana (GWK) Cultural Park",
+    "description": "Парк, где находится самая высокая статуя Вишну на Бали, проходят культурные шоу и выставки искусства.",
+    "address": "Jl Raya Uluwatu, Ungasan",
+    "price": "IDR 150,000"
+  },
+  {
+    "name": "Visit the iconic Handara Gates",
+    "description": "Одни из самых фотографируемых ворот Бали на фоне туманных гор.",
+    "address": "Jl Raya Singaraja, Buleleng",
+    "price": ""
+  },
+  {
+    "name": "Watch a Kecak dance at Uluwatu Temple",
+    "description": "Храм на скале на закате с традиционным огненным танцем и хоровым пением.",
+    "address": "",
+    "price": "IDR 50,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Soak up some sun at South Bali beaches",
+    "description": "Золотые пески, места для сёрфинга, бич-клубы и коктейли на закате.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Set sail on local boat for a sunset cruise",
+    "description": "Прогулка на традиционной лодке джункунг под музыку с напитками и видом на океан.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Get wet with Bali’s water sports",
+    "description": "Занимайтесь серфингом, дайвингом, сноркелингом или катайтесь на гидроциклах в тропических голубых водах Бали.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Go back to nature at Bambu Indah",
+    "description": "Эко-ретрит из бамбука с бассейнами в джунглях, рестораном у реки и дикой природой.",
+    "address": "Jl Baung, Sayan, Ubud",
+    "price": "IDR 600,000"
+  },
+  {
+    "name": "Spot wild deer on Menjangan Island",
+    "description": "Исследуйте коралловые рифы с маской и увидите диких оленей в национальном парке Бали Барат.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Ride ATVs or go canyoning in North Bali",
+    "description": "Приключения среди водопадов, рек и рисовых полей.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Scale Tegallalang rice terrace in Ubud",
+    "description": "Прогулка по знаменитым террасированным рисовым полям Бали с захватывающими видами.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Walk amongst the Marigold fields of Desa Temukus",
+    "description": "Золотые поля цветов, выращиваемых для индуистских подношений в Восточном Бали.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Cycle downhill from Kintamani to Ubud",
+    "description": "Велосипедный маршрут с видами на вулкан, рисовые поля и балийские деревни.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Discover Bali’s off-the-beaten-path neighbourhoods",
+    "description": "Откройте для себя скрытые культурные жемчужины Бали: Сидемен, Пемутеран и другие.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Swing through the trees on a Bali swing",
+    "description": "Полет над джунглями или пляжами на знаменитых гигантских качелях Бали.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Have a picnic at Bali Botanic Gardens in Bedugul",
+    "description": "Пикник в Ботаническом саду Бали с коллекцией тропических растений.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Spot wild dolphins in Lovina",
+    "description": "Утренние лодочные туры, чтобы увидеть танцующих дельфинов у северного побережья Бали.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3295882",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295847",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295438",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Go glamping at Capella Ubud",
+    "description": "Роскошные палатки в джунглях с бассейнами, ресторанами и культурными программами.",
+    "address": "Jl Raya Dalem, Banjar Triwangsa, Ubud",
+    "price": "IDR 22,000,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Dip into Bali’s natural hot springs in North Bali",
+    "description": "Вулканические горячие источники, окруженные пышными джунглями и храмами.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Bliss out with a Balinese massage at a local spa",
+    "description": "Традиционный массаж всего тела с маслами для глубокого расслабления.",
+    "address": "Jl Sukma Kesuma, Ubud",
+    "price": "IDR 165,000."
+  },
+  {
+    "name": "Yoga at Yoga Barn in Ubud",
+    "description": "Всемирно известный центр йоги с занятиями, тренингами и видом на джунгли.",
+    "address": "Jl Sukma Kesuma, Ubud",
+    "price": "IDR 165,000.",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Take a dip in the famous infinity pool at Hanging Gardens of Bali",
+    "description": "Поплавайте в знаменитом бассейне с бесконечным краем посреди джунглей.",
+    "address": "",
+    "price": "IDR 1,000,000."
+  },
+  {
+    "name": "Sleep beneath the stars at Bubble Hotel Bali",
+    "description": "Романтическое проживание в прозрачных пузырях с видом на океан или джунгли под звездами.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Sip on a signature cocktail at Night Rooster",
+    "description": "Авторские коктейли с местными ботаническими ингредиентами в лучшем баре Убуда.",
+    "address": "Jl Goutama Selatan No. 5, Ubud",
+    "price": "IDR 150,000"
+  },
+  {
+    "name": "Splish and splash at Waterbom water park",
+    "description": "Лучший аквапарк Азии с захватывающими горками и ленивой рекой.",
+    "address": "Jl Kartika Plaza, Kuta",
+    "price": "IDR 595,000"
+  },
+  {
+    "name": "Get down and dirty with friendly elephants",
+    "description": "Кормите, купайте и играйте со слонами в зоопарке Бали.",
+    "address": "Jl Raya Singapadu, Gianyar",
+    "price": "IDR 395,000"
+  },
+  {
+    "name": "Get a selfie with a monkey at the Ubud Monkey Forest",
+    "description": "Познакомьтесь с озорными макаками в священном лесном храме Убуда.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Shop local goods at Ubud Art Market",
+    "description": "Просматривайте изделия ручной работы, сувениры и балийские произведения искусства.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Have a bonfire on the beach at Sundays Beach Club",
+    "description": "Жарьте зефир у костра на частном пляже в Улувату.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Climb Mount Batur In Central Bali",
+    "description": "Восхождение на вулкан Батур в центральной части Бали, чтобы встретить рассвет.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3255790",
+        "chat": "БалиЧат | Балифорум"
+      },
+      {
+        "link": "https://t.me/balichat/3256935",
+        "chat": "БалиЧат | Балифорум"
+      },
+      {
+        "link": "https://t.me/balichat/3257128",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "Feast Your Eyes On Tegenungan Waterfalls",
+    "description": "Живописный водопад Тегенунган, популярное место для фотографий и купания.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3130581",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Hear The Waves Crash Against Tanah Lot Temple",
+    "description": "Храм Танах Лот, знаменитый храм на скале в океане.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3281611",
+        "chat": "БалиЧат | Балифорум"
+      },
+      {
+        "link": "https://t.me/balichat/3129171",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Meet The Animals At Bali Safari & Marine Park",
+    "description": "Парк сафари и морской парк, где можно увидеть разнообразных животных.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Catch The World’s Best Surf Breaks At Uluwatu Beach",
+    "description": "Пляж Улувату, известный своими одними из лучших в мире волн для сёрфинга.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Absolve Your Sins At Goa Gajah Temple",
+    "description": "Храм Слоновьей пещеры (Гоа Гаджа) с древними резными сооружениями.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Delight In The Tegalalang Rice Terraces",
+    "description": "Знаменитые рисовые террасы Тегалаланг с потрясающими видами.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/444704",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balichatdating/338651",
+        "chat": "balichatdating"
+      }
+    ]
+  },
+  {
+    "name": "Join The Monkeys At Uluwatu Temple",
+    "description": "Храм Улувату, расположенный на скале, известный своими обезьянами.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Join The Elephants At Bali Zoo",
+    "description": "Зоопарк Бали, где можно пообщаться со слонами и другими животными.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Enjoy The Floating Ulun Danu Beratan Temple",
+    "description": "Храм Улун Дану Братан, расположенный на озере Братан, создающий иллюзию плавучести.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3262243",
+        "chat": "БалиЧат | Балифорум"
+      },
+      {
+        "link": "https://t.me/balichat/3244953",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3244855",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3162088",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Get Wet At Waterbom Water Park",
+    "description": "Аквапарк Waterbom с множеством водных аттракционов и горок.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Frolic In The Sacred Monkey Forest Sanctuary",
+    "description": "Священный лесной заповедник, населенный множеством обезьян.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichatnews/4059",
+        "chat": "БалиЧат Новости | Балифор"
+      },
+      {
+        "link": "https://t.me/balichat/3287369",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "Be Avian Some Fun At The Bali Bird Park",
+    "description": "Парк птиц с разнообразными видами со всего мира.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Find The Hidden Gem Of Tukad Cepung Waterfall",
+    "description": "Живописный водопад, скрытый в каньоне.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Enter The Gates Of Heaven At Lempuyang Temple",
+    "description": "Знаменитый храмовый комплекс с «вратами в небеса».",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3299904",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3260152",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3138761",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Dine Onboard A Sunset Cruise",
+    "description": "Ужин на борту круизного судна во время заката.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Explore Nusa Penida Island",
+    "description": "Остров с потрясающими скалами и пляжами.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292251",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292246",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "See Garuda Wisnu Kencana Cultural Park (GWK)",
+    "description": "Культурный парк с монументальной статуей Вишну на Гаруде.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Catch Some Culture At Celuk & Mas Villages",
+    "description": "Деревни, известные ювелирными изделиями и резьбой по дереву.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Swim In An Infinity Pool",
+    "description": "Бассейн с эффектом бесконечности, часто с видом на океан.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Appreciate The Architecture At Tirta Gangga Palace",
+    "description": "Бывший королевский дворец с водными садами и бассейнами.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Try Muck Diving At Padang Bai",
+    "description": "Дайвинг для наблюдения за мелкой и уникальной придонной фауной.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293675",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3289366",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/263756",
+        "chat": "balichatsurfing"
+      }
+    ]
+  },
+  {
+    "name": "Snorkel At Amed In East Bali",
+    "description": "Популярное место для снорклинга с богатым подводным миром.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3296434",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3296259",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3295517",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Fly Like A Fish",
+    "description": "Полёт на флайборде над водой.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Walk On The Sea Bed At Tanjung Benoa",
+    "description": "Прогулка по морскому дну в шлеме.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Admire Bali From A Hot Air Ballon At Chedi Club",
+    "description": "Полёт на воздушном шаре для осмотра окрестностей.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Roll In A Donut",
+    "description": "Надувной круглый плот, который прицепляют к скоростному катеру и катают вас по воде.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Surf At Echo Beach",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/261157",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/429461",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balichat/3281607",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2877822",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2848931",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Parasail At Tanjung Benoa Beach",
+    "description": "",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Kitesurf In Canggu",
+    "description": "",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Hit The Trails On A Mountain Bike",
+    "description": "На Бали множество отличных трасс для маунтинбайка, где можно прокатиться через живописные деревни и пышную сельскую местность.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Catch Some Rays At Balangan Beach",
+    "description": "Пляж Баланган.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/263910",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/262859",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260846",
+        "chat": "balichatsurfing"
+      }
+    ]
+  },
+  {
+    "name": "Cook Your Own Balinese Food (Join A Cooking Class)",
+    "description": "Приготовьте свою собственную балийскую еду на кулинарном мастер-классе.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Work On Your Flexibility With Some Yoga Sessions",
+    "description": "Занятия йогой.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Tour The Gitgit Waterfall Area",
+    "description": "Исследуйте район водопада Гитгит.",
+    "address": "",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3281708",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "Seek The Bali Myna At West Bali National Park",
+    "description": "Попробуйте найти балийского скворца в Национальном парке Западного Бали.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Experience Sunset On The Campuhan Ridge Walk",
+    "description": "Насладитесь закатом во время прогулки по хребту Кампухан.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Campuhan Ridge Walk",
+    "description": "Прогулка по хребту, рассвет",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3043352",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Tegalalang Rice Terraces",
+    "description": "Знаменитые рисовые террасы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/444704",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balichatdating/338651",
+        "chat": "balichatdating"
+      }
+    ]
+  },
+  {
+    "name": "Jatiluwih Rice Terraces",
+    "description": "ЮНЕСКО, масштабные террасы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2884812",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/18911",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balidating/18434",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Sidemen Rice Terrace",
+    "description": "Тихая альтернатива Тегалалангу",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities"
+  },
+  {
+    "name": "Penglipuran Village",
+    "description": "Традиционная балийская деревня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities"
+  },
+  {
+    "name": "Ubud Palace",
+    "description": "Королевский дворец, танцы вечером",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Karang Boma Cliff",
+    "description": "Обрыв для фото, вид на океан",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3299053",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3137218",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2673054",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Lake Tamblingan",
+    "description": "Озеро в горах, каноэ",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities"
+  },
+  {
+    "name": "Marigold Fields",
+    "description": "Поля бархатцев, фото",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities"
+  },
+  {
+    "name": "Bajra Sandhi Monument",
+    "description": "Монумент в Денпасаре",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities"
+  },
+  {
+    "name": "Badung Market",
+    "description": "Традиционный рынок, фрукты",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3295597",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Beachwalk Shopping Center",
+    "description": "Торговый центр в Куте",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3269852",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3266928",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3142490",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Deus Ex Machina",
+    "description": "Мото-культура, кафе, магазин",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "activities",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2990028",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidances/28594",
+        "chat": "balidances"
+      }
+    ]
+  }
+]

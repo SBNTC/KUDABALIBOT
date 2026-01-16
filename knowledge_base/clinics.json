@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Hydro Medical Clinic Canggu",
+    "description": "Капельницы, вакцины, стоматология",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "clinics",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  }
+]

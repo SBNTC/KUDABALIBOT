@@ -1,0 +1,193 @@
+import json
+import logging
+import re
+from datetime import date
+from sqlalchemy import select, update, delete
+from openai import AsyncOpenAI
+from database.models import AsyncSessionMaker, ScrapedEvent
+from config import config
+
+client = AsyncOpenAI(
+    api_key=config.deepseek_api_key.get_secret_value(),
+    base_url=config.deepseek_base_url
+)
+
+BATCH_SIZE = 20
+
+PROMPT = """Ты — редактор афиши Бали. Классифицируй события.
+
+## КАТЕГОРИИ:
+- Free: бесплатно, donation, донейшн, вход свободный
+- Paid: платно, есть цена, билеты
+- Networking: бизнес-встречи, нетворкинги, завтраки
+- Party: вечеринки, DJ, концерты, тусовки
+- Spam: вопросы, вакансии, реклама без даты/места, аренда, продажа, поиск
+
+## ОТВЕТ (JSON):
+[{"id": 123, "category": "Free", "summary": "Йога в Убуде, 18:00", "event_date": "2025-12-28"}]
+
+Если спам: category="Spam", summary="", event_date=null
+
+Данные:
+DATA_PLACEHOLDER
+"""
+
+
+async def call_deepseek(prompt: str) -> str:
+    try:
+        response = await client.chat.completions.create(
+            model=config.deepseek_model,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.1,
+            max_tokens=3000
+        )
+        return response.choices[0].message.content or ""
+    except Exception as e:
+        logging.error(f"DeepSeek Error: {e}")
+        return ""
+
+
+def parse_event_date(date_str: str | None) -> date | None:
+    if not date_str:
+        return None
+    try:
+        return date.fromisoformat(date_str)
+    except:
+        return None
+
+
+async def cleanup_old_events():
+    """Удаление прошедших событий"""
+    today = date.today()
+    async with AsyncSessionMaker() as session:
+        result = await session.execute(
+            delete(ScrapedEvent)
+            .where(ScrapedEvent.event_date < today)
+            .where(ScrapedEvent.is_recurring == False)
+            .where(ScrapedEvent.event_date.isnot(None))
+        )
+        await session.commit()
+        if result.rowcount:
+            logging.info(f"🗑 Удалено прошедших: {result.rowcount}")
+
+
+async def run_batch_analysis(auto_approve: bool = False) -> str:
+    """
+    Анализ pending событий.
+    auto_approve=True -> сразу в approved (первичный сбор)
+    auto_approve=False -> в review (на модерацию)
+    """
+    await cleanup_old_events()
+    
+    async with AsyncSessionMaker() as session:
+        result = await session.execute(
+            select(ScrapedEvent).where(ScrapedEvent.status == "pending")
+        )
+        batch = result.scalars().all()
+        
+        if not batch:
+            return "📭 Нет новых сообщений."
+
+        total = len(batch)
+        logging.info(f"📊 Pending: {total}")
+        
+        current_date = date.today().isoformat()
+        total_processed = 0
+        total_spam = 0
+        total_errors = 0
+
+        target_status = "approved" if auto_approve else "review"
+
+        for i in range(0, total, BATCH_SIZE):
+            chunk = batch[i:i+BATCH_SIZE]
+            
+            data_for_ai = []
+            for e in chunk:
+                posted = e.created_at.strftime("%Y-%m-%d") if e.created_at else current_date
+                text = re.sub(r'\s+', ' ', (e.raw_text or "")[:500]).strip()
+                data_for_ai.append({"id": e.id, "text": text, "posted": posted})
+
+            try:
+                prompt = PROMPT.replace("DATA_PLACEHOLDER", json.dumps(data_for_ai, ensure_ascii=False))
+                raw = await call_deepseek(prompt)
+                
+                match = re.search(r'\[.*\]', raw.replace('\n', ' '), re.DOTALL)
+                if not match:
+                    logging.warning("No JSON in response")
+                    continue
+                
+                ai_results = json.loads(match.group(0))
+                results_map = {item.get("id"): item for item in ai_results}
+
+                for e in chunk:
+                    res = results_map.get(e.id)
+                    
+                    if not res or res.get("category") == "Spam":
+                        await session.execute(
+                            update(ScrapedEvent)
+                            .where(ScrapedEvent.id == e.id)
+                            .values(status="rejected", category="Spam")
+                        )
+                        total_spam += 1
+                    else:
+                        await session.execute(
+                            update(ScrapedEvent)
+                            .where(ScrapedEvent.id == e.id)
+                            .values(
+                                status=target_status,
+                                category=res.get("category", "Unknown"),
+                                summary=res.get("summary", ""),
+                                event_date=parse_event_date(res.get("event_date"))
+                            )
+                        )
+                        total_processed += 1
+                
+                await session.commit()
+                
+            except Exception as e:
+                logging.error(f"Chunk error: {e}")
+                total_errors += len(chunk)
+
+        status_word = "Одобрено" if auto_approve else "На модерацию"
+        return f"✅ {status_word}: {total_processed}, Спам: {total_spam}, Ошибок: {total_errors}"
+
+
+async def analyze_realtime_event(event_id: int) -> None:
+    """Анализ одного события в реальном времени -> review"""
+    async with AsyncSessionMaker() as session:
+        ev = await session.get(ScrapedEvent, event_id)
+        if not ev or ev.status != "pending":
+            return
+        
+        text = re.sub(r'\s+', ' ', (ev.raw_text or "")[:500]).strip()
+        posted = ev.created_at.strftime("%Y-%m-%d") if ev.created_at else date.today().isoformat()
+        
+        data = [{"id": ev.id, "text": text, "posted": posted}]
+        prompt = PROMPT.replace("DATA_PLACEHOLDER", json.dumps(data, ensure_ascii=False))
+        
+        try:
+            raw = await call_deepseek(prompt)
+            match = re.search(r'\[.*\]', raw.replace('\n', ' '), re.DOTALL)
+            if not match:
+                return
+            
+            ai_results = json.loads(match.group(0))
+            if not ai_results:
+                return
+            
+            res = ai_results[0]
+            
+            if res.get("category") == "Spam":
+                ev.status = "rejected"
+                ev.category = "Spam"
+            else:
+                ev.status = "review"
+                ev.category = res.get("category", "Unknown")
+                ev.summary = res.get("summary", "")
+                ev.event_date = parse_event_date(res.get("event_date"))
+            
+            await session.commit()
+            logging.info(f"📊 Realtime: {ev.id} -> {ev.status}")
+            
+        except Exception as e:
+            logging.error(f"Realtime analyze error: {e}")

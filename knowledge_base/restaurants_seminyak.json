@@ -1,0 +1,790 @@
+[
+  {
+    "name": "Merah Putih",
+    "description": "Индонезийская высокая кухня в потрясающем собороподобном зале с пальмами.",
+    "address": "Jl Petitenget No. 100x, Seminyak",
+    "price": "IDR 180,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2385520",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2354206",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Uma Garden",
+    "description": "Ужины на открытом огне в пышном, романтическом саду под открытым небом.",
+    "address": "Jl Umalas 1 No. 8, Umalas",
+    "price": "IDR 110,000"
+  },
+  {
+    "name": "Buzo",
+    "description": "Модный идзакая с японо-итальянскими закусками, крафтовым пивом и коктейлями.",
+    "address": "Jl Kayu Aya No. 105, Seminyak",
+    "price": "IDR 150,000"
+  },
+  {
+    "name": "Mama San",
+    "description": "Утонченная паназиатская уличная еда с отличными коктейлями и стильным интерьером.",
+    "address": "Jl Raya Kerobokan No. 135, Seminyak",
+    "price": "IDR 160,000"
+  },
+  {
+    "name": "The Long Table",
+    "description": "Погружение в индонезийскую культуру за общим столом, скрытое под арт-галереей John Hardy.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Bara Bistro",
+    "description": "Новый ресторан в сердце Семиньяка с блюдами индонезийской кухни на огне.",
+    "address": "Jl Kayu Aya",
+    "price": "IDR 90,000"
+  },
+  {
+    "name": "La Lucciola",
+    "description": "Ресторан на берегу моря с классической итальянской кухней и шармом «старой Бали».",
+    "address": "Jl Kayu Aya, Seminyak",
+    "price": "IDR 160,000"
+  },
+  {
+    "name": "Ijen",
+    "description": "Первый в Индонезии ресторан без отходов, где подают свежие морепродукты на огне.",
+    "address": "Jl Petitenget No. 51B, Seminyak",
+    "price": "IDR 85,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/156948",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Saltlick",
+    "description": "Стейк-хаус премиум-класса с выдержанной говядиной, винами и видом на закат.",
+    "address": "Jl Kayu Aya No. 9, Seminyak",
+    "price": "IDR 230,000"
+  },
+  {
+    "name": "SugarSand",
+    "description": "Пляжный клуб с бассейном, японской кухней, авторскими коктейлями и закатами на крыше.",
+    "address": "Jl Double-Six, Seminyak",
+    "price": "IDR 125,000"
+  },
+  {
+    "name": "Sangsaka",
+    "description": "Камерный ресторан высокой кухни с индонезийскими блюдами на огне и редкими специями.",
+    "address": "Jl Raya Pakung Sari No.100, Seminyak",
+    "price": "IDR 130,000"
+  },
+  {
+    "name": "Barbacoa",
+    "description": "Латиноамериканский гриль-ресторан с дымными ароматами, коктейлями и атмосферой лофта.",
+    "address": "Jl Petitenget No. 14, Seminyak",
+    "price": "IDR 180,000"
+  },
+  {
+    "name": "Motel Mexicola",
+    "description": "Энергичный мексиканский ресторан с яркими вкусами и вечеринками под текилу.",
+    "address": "Jl Kayu Jati No. 9x, Petitenget",
+    "price": "IDR 160,000",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3239693",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Mauri",
+    "description": "Отмеченный наградами итальянский ресторан для гурманов с сезонными дегустационными меню.",
+    "address": "Jl Petitenget No. 100, Seminyak",
+    "price": "IDR 290,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2354206",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Restaurant",
+    "description": "Романтический ресторан высокой кухни с кулинарией мишленовского уровня и видом на пляж Семиньяк.",
+    "address": "Jl. Kayu Aya, Seminyak.",
+    "price": "IDR 320,000"
+  },
+  {
+    "name": "Monsieur Spoon",
+    "description": "Местная сеть, считающаяся одним из лучших ресторанов на острове с французской кухней.",
+    "address": "Jl. Kayu Cendana Oberoi No.2, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 86100, Indone",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/276244",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Bottega Italian",
+    "description": "Этот небольшой итальянский ресторан предлагает одну из самых аутентичных итальянских кухонь на острове.",
+    "address": "Jl. Drupadi No.7C, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Pison Coffee",
+    "description": "Прекрасный интерьер делает это место похожим на ресторан высокой кухни, но цены здесь гораздо доступнее. Отличный выбор для завтрака, бранча или ужина.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Revolver Espresso",
+    "description": "Здесь подают отличную смесь международной и индонезийской кухни, а также один из лучших местных сортов кофе.",
+    "address": "Jl. Kayu Aya No.Gang 51, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/41700",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "EXPAT Roasters",
+    "description": "Эта кофейня в центре Семиньяка славится разумными ценами и работой бариста Шэя Макнамары, отмеченного наградами.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Coffee Cartel",
+    "description": "Coffee Cartel явно создавался с мыслью об Instagram, и это совсем не плохо.",
+    "address": "Jl. Lb. Sari No.8, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Corner House",
+    "description": "В меню этого очаровательного кофейного дома встречаются австралийские и европейские мотивы. Здесь можно начать с освежающих коктейлей, а затем перейти к более сытным блюдам.",
+    "address": "Jl. Kayu Aya No. 10 A Kerobokan Seminyak, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 8",
+    "price": ""
+  },
+  {
+    "name": "Seasalt",
+    "description": "В этом ресторане класса люкс в курорте Alila нет рыбных тако. Вместо этого вас ждут места у Индийского океана и лучшие блюда из свежего улова, вдохновленные японской кухней.",
+    "address": "Jl. Taman Ganesha Jl. Petitenget No.9, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indo",
+    "price": ""
+  },
+  {
+    "name": "Sa’Mesa",
+    "description": "Sa’Mesa — это не только ресторан высокой кухни, но и одно из лучших заведений в Семиньяке.",
+    "address": "Jl. Petitenget No.1a, Seminyak, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Shelter Cafe",
+    "description": "Не все рестораны Семиньяка — это высокая кухня. Эта приятная крыша предлагает отличную расслабленную атмосферу.",
+    "address": "Jl. Drupadi 1 No.2b, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3289767",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/160909",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Sisterfields",
+    "description": "Сюда лучше приходить пораньше, так как позже у входа выстраиваются очереди, что говорит о популярности заведения.",
+    "address": "Jl. Kayu Cendana No.7, Seminyak, Bali, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "verified": true
+  },
+  {
+    "name": "KYND Community",
+    "description": "Обширное меню этого популярного веганского места полностью состоит из растительных и очень вкусных блюд. Идеально для здорового питания на Бали.",
+    "address": "Jalan Petitenget No.12 Kerobokan Kelod, Seminyak, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Sea Circus",
+    "description": "Если бы вручали награду за самый яркий интерьер, Sea Circus стал бы безусловным победителем. Внутри царит свежая и захватывающая атмосфера.",
+    "address": "Jl. Kayu Aya No.22, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Cafe Organic",
+    "description": "Cafe Organic — одно из лучших мест в Семиньяке для вашей ленты в Instagram.",
+    "address": "Jl. Petitenget, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Biku",
+    "description": "Сюда не получится просто зайти и занять столик — столик нужно бронировать за несколько недель.",
+    "address": "Jalan Petitenget.888 Seminyak, Jl. Petitenget No.888, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Ba",
+    "price": ""
+  },
+  {
+    "name": "Neon Palms",
+    "description": "Это эклектичное заведение от создателей Sea Circus легко попадает в списки лучших ресторанов.",
+    "address": "Jl. Kayu Aya No.22, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Craved",
+    "description": "Мы любим есть в Craved в любое время дня, потому что здесь всё просто отлично.",
+    "address": "Jl. Camplung Tanduk No.9A, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3204555",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Kilo Kitchen",
+    "description": "Отмеченные наградами шеф-повара Kilo объединяют азиатскую и европейскую классику, придавая ей собственный шарм.",
+    "address": "Jl. Drupadi No.22, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Da Maria",
+    "description": "Если вы хотите атмосферу вечеринки в качестве фона для отличной еды, мы рекомендуем Da Maria.",
+    "address": "Jl. Petitenget No.170, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2039727",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/4859",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Lacalita",
+    "description": "Мексиканская кухня становится популярной на Бали, и эта одержимость началась в Lacalita.",
+    "address": "Jl. Drupadi No.1, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Dua Sisi Kitchen And Bar",
+    "description": "Dua Sisi — отличный паб в европейском стиле с очень вкусными блюдами в меню.",
+    "address": "Jl. Campung Tanduk No 99, Seminyak, Kec.Kuta, Kabupaten, Badung, Bali 80361",
+    "price": ""
+  },
+  {
+    "name": "The Restaurant @ The Legian",
+    "description": "Шеф-повар Стефан Гортина имеет звезду Мишлен, и это видно — еда в The Restaurant невероятна.",
+    "address": "Jl. Kayu Aya, Seminyak, beach, Kabupaten Badung, Bali, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "The Plantation Grill",
+    "description": "Работая в роскошном отеле Double Six, The Plantation Grill оправдывает все ожидания.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Ling-Ling’s",
+    "description": "Ling-Ling’s, как следует из названия, — отличный бистро с азиатским вдохновением, и здесь всё вкусно.",
+    "address": "Jl. Petitenget No.43B, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80316, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/11558",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Chai’ba",
+    "description": "Кто не любит индийскую еду? Chai’ba с блеском представляет на вашей тарелке кухню Северной и Южной Индии.",
+    "address": "Jl. Raya Basangkasa No.47, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Spice Mantraa Seminyak",
+    "description": "Одно воспоминание о копчёном масляном цыплёнке в Spice Mantraa заставляет нас пускать слюни, как собака Павлова.",
+    "address": "Jl. Petitenget, Kerobokan Kelod, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Forge",
+    "description": "Это ваш британский гастропаб, правильно реализованный на Бали. Здесь отличная и совершенно непритязательная еда.",
+    "address": "Jl. Petitenget Link. Uma Sari No.43C, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3298725",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3112958",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/180512",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "NOAA Asian Bistro",
+    "description": "NOAA предлагает одни из лучших блюд в Семиньяке, и это не только про еду, но и про общение.",
+    "address": "Jl. Petitenget, Kerobokan Kelod, Kuta Utara, Badung Regency, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Chandi",
+    "description": "Индонезийские блюда в Chandi — одни из лучших в мире, всё готовится из свежих местных продуктов.",
+    "address": "Jalan Kayu Aya No. 72 Seminyak, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indo",
+    "price": ""
+  },
+  {
+    "name": "ShiShi",
+    "description": "Если вам нужна атмосфера ночного клуба для вечера, это может быть вашим рестораном в Семиньяке.",
+    "address": "Jl. Petitenget No.208X, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3299899",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3086249",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3086231",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Queen’s Tandoor",
+    "description": "В этом отличном индийском ресторане прекрасное вегетарианское меню, а их Navratan Jalfrazi просто фантастичен.",
+    "address": "Jl. Raya Seminyak No.1",
+    "price": ""
+  },
+  {
+    "name": "Sardine by K Club",
+    "description": "Ресторан расположен среди рисовых полей Семиньяка и делает акцент на свежей рыбе из Индийского океана.",
+    "address": "Jl. Petitenget No.21, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Sarong Restaurant (Temporarily Closed)",
+    "description": "Ещё одно творение Уилла Мейрика, посвящённое смешению различных кухонь Востока.",
+    "address": "Jl. Petitenget No.19X, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Sangaska Restaurant",
+    "description": "Одно из наших любимых мест с индонезийско-фьюжн кухней, где классическим блюдам придают уникальный вид.",
+    "address": "Jalan Pangkung Sari No. 100 Kerobokan, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 8036",
+    "price": ""
+  },
+  {
+    "name": "Gloriam Grills & Glamour",
+    "description": "Федерико Соччио и И Ньоман Судиастана объединили таланты, чтобы создавать отличную еду в истинно итальянском стиле.",
+    "address": "Jl. Lb. Sari No.25 B, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Boy’N’Cow",
+    "description": "Если вам захотелось побаловать внутреннего хищника, отправляйтесь в место, полностью посвящённое стейкам.",
+    "address": "Jl. Raya Kerobokan No.138, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Nostimo Greek Grill",
+    "description": "Везде (кроме, пожалуй, самой Греции) не хватает греческих ресторанов.",
+    "address": "Jl. Petitenget No.17, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Takumi Kaiseki Restaurant",
+    "description": "Этот ресторан на Jalan Petitenget стремится поднять стандарты современной японской кухни на Бали и преуспевает в этом.",
+    "address": "Jalan Petitenget and it",
+    "price": ""
+  },
+  {
+    "name": "Rayjin Teppanyaki",
+    "description": "Столик в Rayjin нужно бронировать сильно заранее, но усилия того стоят.",
+    "address": "Jl. Petitenget No.98x, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Ultimo",
+    "description": "Ultimo недавно переехал на место старого Char Char Bar, что позволило увеличить количество мест в этом популярном итальянском ресторане.",
+    "address": "Jl. Kayu Aya No.78, Seminyak, Bali, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Taco Casa",
+    "description": "Иногда хочется чего-то простого и весёлого, а что может быть проще и веселее тако?",
+    "address": "Jl. Petitenget Kerobokan, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Bo & Bun",
+    "description": "Трудно не захотеть вьетнамскую еду, если долго её не пробовал.",
+    "address": "Jl. Raya Basangkasa Br. Basangkasa No.26, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indones",
+    "price": ""
+  },
+  {
+    "name": "Naughty Nuri’s Seminyak",
+    "description": "Когда хочется вкусных свиных рёбрышек и не хочется за них платить целое состояние, есть Naughty Nuri’s.",
+    "address": "Jalan Mertanadi No. 62 Kerobokan Seminyak, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Made’s Warung Seminyak",
+    "description": "Варунг — это традиционный индонезийский ресторан, и Made’s Warung в Семиньяке — один из самых аутентичных.",
+    "address": "Jl. Raya Seminyak, Seminyak, Kuta, Jl. Raya Seminyak No.7, Seminyak, Kec. Kuta, Kabupaten Badung, Ba",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Bo$$man Burger",
+    "description": "Bo$$man специализируется на премиальных бургерах. Здесь нет ничего общего с грустной едой из Макдональдс.",
+    "address": "Jl. Kayu Cendana No.8B, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Seminyak Kitchen",
+    "description": "Seminyak Kitchen предлагает местную кухню с азиатскими и международными акцентами. Множество live-станций добавляет атмосферы вечернему отдыху.",
+    "address": "Jl. Camplung Tanduk No.103, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "BKeto Bali",
+    "description": "Отличное место для изысканной современной балийской кухни. При заказе от 400 000 IDR предоставляется бесплатный доступ к бассейну.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Casa Blanca Restobar Bali",
+    "description": "Уютное заведение в итальянском стиле, где можно попробовать пиццу, приготовленную на дровяной печи.",
+    "address": "Jl. Kayu Aya No.150A, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Rosalita’s Cantina Bali",
+    "description": "Жизнерадостный и качественный мексиканский ресторан, отлично подходящий для компании или семейного ужина.",
+    "address": "Jl. Kayu Aya No.100, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Warung Nia",
+    "description": "Здесь подают отличные свиные ребрышки, а главное — высокое качество еды по низкой цене.",
+    "address": "Jl. Kayu Aya No.19-21, Seminyak, Kec. Kuta Utara, Bali, 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Rev Bistro",
+    "description": "Элегантный французский бистро с превосходной кухней, который почему-то редко бывает переполнен.",
+    "address": "Jl. Yudistira No.110, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Waroeng Bernadette",
+    "description": "В этом простом и недорогом варунге нам очень нравится ренданг.",
+    "address": "Jl. Kayu Aya No.17, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Moonlite Kitchen & Bar",
+    "description": "Идеальное место для празднования особого случая. Здесь также открывается потрясающий вид на закат.",
+    "address": "Jl. Abimanyu Jl. Dhyana Pura, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Hibiscus Restaurant Seminyak",
+    "description": "Отличное место, чтобы насладиться коктейлями и творческой современной балийской кухней.",
+    "address": "Jl. Drupadi No.23-B, Seminyak, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Above Rooftop Lounge & Bar",
+    "description": "Вид с этой приятной крыши в Семиньяке оправдывает посещение, а еда тоже удивительно хороша.",
+    "address": "Jalan Petitenget Gang Cendrawasih No. 99 DS Seminyak, Kerobokan Kelod, Kuta Utara, Badung Regency, B",
+    "price": ""
+  },
+  {
+    "name": "Tagine Bali (Temporatily closed)",
+    "description": "На Бали не так много марокканских ресторанов, но этот — лучший из них.",
+    "address": "Jl. Mertanadi No.39, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "The Luhron",
+    "description": "Эту скрытую жемчужину стоит найти, потому что еда здесь просто невероятная.",
+    "address": "Jl. Cendrawasih No.17, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Opeum Bistro",
+    "description": "Простое и приятное место недалеко от пляжа Дабл Сикс с большим выбором блюд.",
+    "address": "Jl. Arjuna Jl. Double Six, Seminyak, Kuta, Badung Regency, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Wild Habit Pizza",
+    "description": "Первое, что бросается в глаза — невероятная чистота, а второе — насколько здесь вкусная пицца.",
+    "address": "Jl. Kunti I No.6, Seminyak, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "The Fat Turtle",
+    "description": "Если хотите отличный завтрак, отправляйтесь сюда, чтобы попробовать их высокие стопки блинов.",
+    "address": "Jl. Petitenget No.886 A, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Kunyit @ The Anvaya Bali",
+    "description": "Отличный выбор для романтического ужина по сет-меню на двоих с прекрасным видом на пляж.",
+    "address": "Jl. Kartika Plaza, Kuta, Badung Regency, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "KYND",
+    "description": "Веганское кафе, популярное в Instagram.",
+    "address": "Jl Raya Petitenget No.12x",
+    "price": "100k-200k"
+  },
+  {
+    "name": "Sardine",
+    "description": "Ресторан морепродуктов с видом на рисовые поля, идеален для ужина.",
+    "address": "Jl. Petitenget No.21",
+    "price": "250k-600k",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2680007",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2679990",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Kilo Kitchen Bali - Seminyak",
+    "description": "Азиатский фьюжн, креативные блюда",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_seminyak",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Kunti 3 Sushi Bar",
+    "description": "Суши бар, японская кухня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_seminyak"
+  },
+  {
+    "name": "Revolver Seminyak",
+    "description": "Кофейня в переулке, отличный кофе",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_seminyak",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Watercress Seminyak",
+    "description": "Здоровая еда, салаты, боулы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_seminyak",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "BRAUD Cafe Seminyak",
+    "description": "Скандинавская выпечка, кофе",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_seminyak",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292694",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292411",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Pison, Petitenget",
+    "description": "Кофейня для работы, хороший wifi",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_seminyak"
+  },
+  {
+    "name": "Японский ресторан Окамура Бали",
+    "description": "Аутентичная японская кухня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_seminyak"
+  },
+  {
+    "name": "KU DE TA",
+    "description": "Легендарный бич-клаб, закаты, fine dining",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_seminyak",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3291186",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2990134",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2734237",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2717716",
+        "chat": "balichat"
+      }
+    ]
+  }
+]

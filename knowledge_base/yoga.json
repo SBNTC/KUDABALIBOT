@@ -1,0 +1,324 @@
+[
+  {
+    "name": "The Practice",
+    "description": "Пятизвездочный центр йоги с высококлассными занятиями и учителями мирового уровня в потрясающей обстановке. Отличается приверженностью традиционным учениям йоги и впечатляющей открытой бамбуковой структурой с видом на рисовые поля.",
+    "address": "Jl Batu Bolong No. 94A, Canggu, p.",
+    "price": "",
+    "verified": true
+  },
+  {
+    "name": "Samadi Bali",
+    "description": "Место, где под одной крышей собраны ежедневные занятия йогой, обучение преподавателей и оздоровительные процедуры. Команда международных экспертов ежедневно преподает Аштангу в пышной и вдохновляющей обстановке.",
+    "address": "Jl Padang Linjong No. 39, Echo Beach, Canggu, p.",
+    "price": ""
+  },
+  {
+    "name": "Desa Seni",
+    "description": "Арт-деревня, объединяющая культуру и wellness-ритуалы, включая традиционные занятия йогой. Предлагает ежедневные классы, ретриты, спа, органический ресторан и проживание для полного погружения в практику.",
+    "address": "Jl Subak Sari No. 13, Pantai Berawa, Canggu, p.",
+    "price": ""
+  },
+  {
+    "name": "Pranava Yoga",
+    "description": "Позитивное пространство для разных уровней энергии и практики, окруженное природой и рисовыми полями. Занятия варьируются от Виньясы и Аштанги до Хатхи и Антигравити йоги с индивидуальным подходом.",
+    "address": "Jl Pantai Berawa Br Pelambingan No. 37, p.",
+    "price": ""
+  },
+  {
+    "name": "Udara Bali",
+    "description": "Курорт только для взрослых, объединяющий йогу, детокс и wellness. Четыре шале для йоги расположены высоко над землей с видом на океан, храмы и рисовые поля. Также предлагает воздушную йогу и специальные мероприятия.",
+    "address": "Jl Pura Kramat, Seseh, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/447790",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Guan Yin Yoga Shala",
+    "description": "Студия, названная в честь Богини Сострадания, расположена в отеле Tugu Bali. Предлагает умиротворяющую атмосферу и выбор между активными (Ян) и восстанавливающими (Инь) стилями йоги.",
+    "address": "Jl Pantai Batu Bolong, Canggu, p.",
+    "price": ""
+  },
+  {
+    "name": "Serenity Eco Guesthouse and Yoga",
+    "description": "Спокойный тропический оазис в сердце Кангу на территории экологичного гестхауса. Предлагает более 10 стилей йоги, доступные пакеты и обучение преподавателей в свободной от алкоголя и курения обстановке.",
+    "address": "Jl Nelayan, Canggu, p.",
+    "price": ""
+  },
+  {
+    "name": "The Yoga Barn",
+    "description": "Одна из первых и самых популярных студий йоги на Бали, настоящая мекка для практикующих. Предлагает более 10 ежедневных классов, ретриты и разнообразные стили от традиционных до медитации и экстатических танцев.",
+    "address": "Jl Hanoman, Pengosekan, Ubud, p.",
+    "price": "",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/networking_bali/112959",
+        "chat": "Бизнес-нетворкинг Бали 🏝️"
+      }
+    ]
+  },
+  {
+    "name": "Radiantly Alive",
+    "description": "Домашняя и гостеприимная студия, сочетающая современные подходы с древними традициями. В трех шалах проводятся занятия различных стилей, воркшопы и обучение преподавателей.",
+    "address": "Jl Jembawan No. 3, Ubud, p.",
+    "price": ""
+  },
+  {
+    "name": "Ubud Yoga House",
+    "description": "Бутик-студия с небольшими классами в открытом пространстве с видом на рисовые террасы. Делает акцент на персонализированном подходе для начинающих и продвинутых студентов.",
+    "address": "Jl Subak Sokwayah, Ubud, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Ubud Yoga Centre",
+    "description": "Современное двухуровневое пространство, наполненное светом и природой. Три студии работают на солнечных панелях. Предлагает разнообразные стили йоги и фитнес-классы в дружелюбной атмосфере.",
+    "address": "Jl Raya Singakerta No. 108",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Intuitive Flow",
+    "description": "Красивая студия в сердце Убуда с захватывающим видом. Предлагает ежедневные классы различных стилей йоги и медитации для всех уровней в окружении тропической природы.",
+    "address": "Jl Raya Pejeng Kawan No. 45, Pejeng Kaja, Gianyar, e. info",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2833423",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Ashtanga Yoga Bali Research Centre",
+    "description": "Основное место на Бали для практики Аштанга Майсор, Аюрведы и медитации. Цель центра — обучать традиционному методу Майсор, который учитывает индивидуальные потребности каждого ученика.",
+    "address": "Jl Raya Pejeng Kawan No. 45, Pejeng Kaja, Gianyar, e. info",
+    "price": ""
+  },
+  {
+    "name": "Alchemy Yoga and Meditation Center",
+    "description": "Йогическая сестра первого сыроедческого ресторана Бали. Занятия посвящены природным элементам, а экологичная студия, спроектированная IBUKU, создает особую атмосферу для углубления практики.",
+    "address": "Jl Penestanan No. 75, Sayan, Ubud, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/blizkie_eventss/28164",
+        "chat": "Мероприятия для близких н"
+      },
+      {
+        "link": "https://t.me/balidating/444704",
+        "chat": "Знакомства на Бали 🏝 | CH"
+      },
+      {
+        "link": "https://t.me/blizkie_eventss/28147",
+        "chat": "Мероприятия для близких н"
+      }
+    ]
+  },
+  {
+    "name": "Morning Light at Uluwatu Surf Villas",
+    "description": "Открытая студия из восстановленного тика, погружающая в атмосферу природы. Дважды в день здесь проходят занятия с захватывающим видом на джунгли и знаменитые волны Улувату.",
+    "address": "Jl Pantai Suluban, Uluwatu, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Yoga Searcher Bali",
+    "description": "Расположенный на скалах Улувату, этот йога-центр предлагает уникальные занятия в шале из переработанной древесины. Здесь есть две студии: большая для групп и маленькая для приватных сессий и мастер-классов.",
+    "address": "Jl Labuan Sait Suluban, Uluwatu, p.",
+    "price": ""
+  },
+  {
+    "name": "Aylan Yoga School",
+    "description": "Школа йоги в The Istana, где вас ждут занятия с видом на океан у скал Улувату. Предлагаются фирменные классы Istana Vinyasa, Jivamukti Yoga и Тантрический Хатха.",
+    "address": "Jl Pantai Suluban, Pecatu, Uluwatu, p.",
+    "price": ""
+  },
+  {
+    "name": "Jiwa Yoga",
+    "description": "Студия горячей йоги в Семиньяке, основанная бывшей моделью. Занятия проходят в нагретом помещении и включают 26 асан для проработки всего тела.",
+    "address": "Jl Petitenget No. 777, Seminyak, p.",
+    "price": ""
+  },
+  {
+    "name": "Merasa Space at Desa Potato Head",
+    "description": "Открытое пространство для йоги и медитации в Desa Potato Head в Семиньяке. Занятия проходят на свежем воздухе под звуки океана.",
+    "address": "Jl Petitenget No. 51B, Seminyak, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3257682",
+        "chat": "БалиЧат | Балифорум"
+      },
+      {
+        "link": "https://t.me/balichat/2188259",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Power of Now Oasis",
+    "description": "Экологичная студия йоги из бамбука на пляже Санура. Предлагает различные стили, включая Хатху и Виньясу, в расслабляющей атмосфере с видом на океан.",
+    "address": "Jl Retro Beach, p.",
+    "price": ""
+  },
+  {
+    "name": "Koa Shala",
+    "description": "Уютная студия йоги, спрятанная в тропическом саду в центре Санура. В двухэтажном деревянном шале проходят занятия разных стилей для всех уровней.",
+    "address": "Jl Danau Tamblingan No. 77A, Sanur, p.",
+    "price": ""
+  },
+  {
+    "name": "Umah Shakti",
+    "description": "Деревянная студия йоги в садах посреди балийской общины. Здесь преподают традиционные стили, а также йогу на гамаках и проводят оздоровительные мероприятия.",
+    "address": "Jl Danau Beratan, Gang XI No. 14, Sanur, p.",
+    "price": ""
+  },
+  {
+    "name": "Yoga Bliss Lembongan",
+    "description": "Йога-студия на живописном острове Нуса Лембонган. Предлагает занятия Аштанга и Виньяса, после которых можно попробовать полезные веганские напитки.",
+    "address": "Jl Tamarind, Mushroom Nusa Lembongan, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/262088",
+        "chat": "Бали Чат Сёрфинг | БалиФо"
+      },
+      {
+        "link": "https://t.me/balichat/3272078",
+        "chat": "БалиЧат | Балифорум"
+      },
+      {
+        "link": "https://t.me/balichat/3274170",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "Yoga Dunia Lembongan",
+    "description": "Уединённое место для йоги на Нуса Лембонган, где можно настроиться на гармонию с телом и природой. Есть бассейн и зона для отдыха.",
+    "address": "Jl Tamarind, Mushroom Nusa Lembongan, p.",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/262088",
+        "chat": "Бали Чат Сёрфинг | БалиФо"
+      },
+      {
+        "link": "https://t.me/balichat/3272078",
+        "chat": "БалиЧат | Балифорум"
+      },
+      {
+        "link": "https://t.me/balichat/3274170",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "Soham Wellness Center",
+    "description": "Йога, веллнес, детокс",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "yoga"
+  },
+  {
+    "name": "Udara Bali Yoga Detox & Spa",
+    "description": "Йога + детокс программы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "yoga"
+  },
+  {
+    "name": "SAMADI Yoga & Wellness Center",
+    "description": "Йога, эко-кафе",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "yoga",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2381426",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "POWER + REVIVE STUDIO",
+    "description": "Силовая йога, фитнес",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "yoga"
+  },
+  {
+    "name": "Pyramids Of Chi",
+    "description": "Звуковые медитации в пирамидах",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "yoga",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/444704",
+        "chat": "Знакомства на Бали 🏝 | CH"
+      },
+      {
+        "link": "https://t.me/balichat/3124226",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2397272",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2387983",
+        "chat": "balichat"
+      }
+    ]
+  }
+]

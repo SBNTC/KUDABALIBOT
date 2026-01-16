@@ -1,0 +1,464 @@
+[
+  {
+    "name": "Ulaman Eco Luxury Resort",
+    "description": "Эко-резорт, бамбуковые виллы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "Māua Nusa Penida",
+    "description": "Бутик-отель на Нуса Пенида",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292251",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292246",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Villa Palm River",
+    "description": "Вилла у реки",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "The Wave Hotel Pererenan",
+    "description": "Отель для сёрферов",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "Hidden Hills Villas",
+    "description": "Виллы с бассейнами, приватно",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "The Korowai Bali",
+    "description": "Дома на деревьях",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "The Asa Maia",
+    "description": "Бутик-резорт, рисовые поля",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "The Apartments Ubud",
+    "description": "Апартаменты в Убуде",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Ubud Valley Boutique Resort",
+    "description": "Бутик-резорт в долине",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Sehuli Retreat",
+    "description": "Ретрит-центр",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "Munduk Cabins",
+    "description": "Домики в горах на севере",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3273349",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3250841",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Sumberkima Hill Retreat",
+    "description": "Ретрит на холме",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2799025",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Aria Villas Ubud",
+    "description": "Приватные виллы в Убуде",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Aksari Resort & Spa Ubud",
+    "description": "Резорт со спа",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Laguna Bali",
+    "description": "5-звёздочный резорт в Нуса Дуа",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2921970",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2521485",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Nirjhara",
+    "description": "Эксклюзивный эко-резорт",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "Alila Villas Uluwatu",
+    "description": "Люксовые виллы на скале",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Adiwana Resort Jembawan",
+    "description": "Резорт в Убуде",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "Wapa di Ume Sidemen",
+    "description": "Резорт в Сидемене, виды",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "Jimbaran Puri, A Belmond Hotel",
+    "description": "Люксовый отель в Джимбаране",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3292683",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3291957",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3291805",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "SIWA Resorts, Lombok",
+    "description": "Резорт на Ломбоке",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "Rimbun Canggu",
+    "description": "Виллы в Чангу",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Wina Villa Canggu",
+    "description": "Вилла в Чангу",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Kamare",
+    "description": "Бутик-отель",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  },
+  {
+    "name": "Canggu Hype Suites",
+    "description": "Сьюты в Чангу",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Aeera Villa Canggu",
+    "description": "Вилла в Чангу",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Manca Villa Canggu",
+    "description": "Вилла в Чангу",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "ZIN Berawa Villas",
+    "description": "Виллы и бунгало",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3288487",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260391",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Citadines Berawa Beach Bali",
+    "description": "Апарт-отель",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3288487",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260391",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "La Pan Nam Exotic Villas",
+    "description": "Экзотические виллы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "hotels"
+  }
+]

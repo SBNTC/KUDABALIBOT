@@ -1,0 +1,813 @@
+[
+  {
+    "name": "Uma Garden",
+    "description": "Не обманывайтесь непринуждённой атмосферой сада — здесь очень серьёзно относятся к потрясающей еде. Стейк из вагю был одним из лучших блюд, которые мы пробовали за долгое время.",
+    "address": "Jl. Umalas 1 No.8, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten Badung, Bali 80361Online",
+    "price": ""
+  },
+  {
+    "name": "Shun Omakase",
+    "description": "Отличную японскую еду трудно превзойти, и одни из лучших блюд на острове можно найти здесь.",
+    "address": "Jl. Pantai Berawa No.99, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+    "price": ""
+  },
+  {
+    "name": "Hippie Fish: Super Swanky",
+    "description": "Это место более шикарное (и дорогое), чем кажется по названию, но многие считают, что чудесные виды на пляж стоят своей цены.",
+    "address": "Jl. Pantai Pererenan No.171, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Te Amo Gastro Bistro",
+    "description": "В этом современном европейском бистро с балийским колоритом чувствуется любовь к жизни в каждом укусе. Делают упор на качественные местные продукты.",
+    "address": "Jl. Munduk Catu, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+    "price": ""
+  },
+  {
+    "name": "Vore",
+    "description": "Берава — самая оживлённая часть Чангу, и каждый вечер после заката здесь зажигаются открытые огни.",
+    "address": "Jl. Pantai Berawa No.34, Banjar Pelambingan, Tibubeneng, Canggu, Kec. Kuta Utara, Kabupaten Badung,",
+    "price": ""
+  },
+  {
+    "name": "Kong: Bistro-Chic At Its Best",
+    "description": "Это абсолютное наслаждение — прекрасное сочетание музыки, еды, бистро-стиля и отличных напитков.",
+    "address": "Jl. Pantai Berawa No.14b, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+    "price": ""
+  },
+  {
+    "name": "Sababa: Sharing is Awesome",
+    "description": "Если вы любите уютную кухню Ближнего Востока, вам понравится здесь. Берите друзей и заказывайте понемногу всего.",
+    "address": "Jl. Pantai Berawa, Tibubeneng, Kec. Kuta Utara, Berawa, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Shelter: Unique Middle Eastern Notes",
+    "description": "Это одно из заведений Чангу, специализирующихся на средиземноморской кухне с ближневосточным фьюжном, что делает их подход уникальным.",
+    "address": "Jl. Pantai Pererenan No.133, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3289767",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/160909",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balidating/10211",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Baked: Brilliant Bread",
+    "description": "Это один из наших главных выборов для бранча. Также мы приходим сюда, когда хотим запастись первоклассным хлебом, который не нужно печь самим.",
+    "address": "Jl. Raya Semat Gg. Kupu kupu No.1, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indone",
+    "price": ""
+  },
+  {
+    "name": "Milk & Madu: Family Fun",
+    "description": "Филиал этой небольшой местной сети в Чангу известен как часть сцены ресторанов для бранча на острове.",
+    "address": "Jl. Pantai Batu Bolong No.92, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3274577",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "Crate Cafe: Breakfast Bliss",
+    "description": "Это одно из лучших мест в Чангу, если вы настроены на завтрак.",
+    "address": "Jl. Canggu Padang Linjong No.49F, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Nude: It’s Like Coming Home",
+    "description": "Здесь очень дружелюбный персонал, и иногда кажется, что приходишь домой.",
+    "address": "Jl. Pantai Berawa No.33, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Honey Kitchen: Simple But Brilliant",
+    "description": "Нам нравится простота этого необычного гастрономического опыта. Всё меню одновременно вкусное и инстаграмное.",
+    "address": "Jl. Pantai Pererenan No.132, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Hoki Cafe: A Slice Of Australiana",
+    "description": "Здесь готовят вкусный завтрак, и нам нравится, что у них есть собственная кофейня и фирменная смесь кофе.",
+    "address": "Jl. Pantai Berawa No.99, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Sensorium Bali: Multi Sensory Magnificence",
+    "description": "Минималистичный стиль указывает на то, что вы в одном из лучших ресторанов Чангу. Их мультисенсорный подход и австралийско-азиатское меню впечатляют.",
+    "address": "Jl. Pantai Batu Mejan, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Touche: People Watching Spot",
+    "description": "Здесь готовят вкусный завтрак, и это одно из лучших мест в Чангу для наблюдения за людьми.",
+    "address": "Jl. Pantai Pererenan No.104, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Neighbourhood Food: Classics With A Twist",
+    "description": "Нежные яйца пашот в их фирменном бенедикте с острой ноткой говорят о высоком качестве еды.",
+    "address": "Jl. Pantai Berawa No.99 BB, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Skool Kitchen: Kissed By Fire",
+    "description": "Если вы ищете что-то впечатляющее для друзей или особого случая, обратите внимание на Skool Kitchen.",
+    "address": "Jl. Pura Dalem, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Luma: Wonderful Wine List",
+    "description": "Здесь подают средиземноморскую кухню от лучших шеф-поваров острова, а также предлагают отличную винную карту.",
+    "address": "Jl. Pantai Batu Bolong No.91, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Lacalita Bar Y Cocina: Mexican Excellence",
+    "description": "Это одно из лучших мест в Чангу для тех, кто хочет почувствовать вкус Мексики на Бали.",
+    "address": "Jl. Pantai Batu Bolong No.68, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Mason: Swanky Fine Dining",
+    "description": "Роскошный интерьер и изысканные ингредиенты в меню делают Mason одним из лучших ресторанов Чангу.",
+    "address": "Jl. Pantai Batu Bolong No.39a, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Mosto: The Sophisticated Choice",
+    "description": "Это первый на Бали бар натуральных вин, где предлагают изысканные блюда и напитки.",
+    "address": "Jl. Pantai Berawa No.99, Tibubeneng, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "One Eyed Jack: Izakaya Style",
+    "description": "Японский ресторан в стиле идзакая сочетает традиционную кухню с современными восточноазиатскими тенденциями.",
+    "address": "Jl. Pantai Berawa No.c89, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Monsoon @ FINNS VIP Beach Club: Party Dining",
+    "description": "Monsoon — единственное на Бали место, где можно совместить ужин с вечеринкой.",
+    "address": "Jl. Pantai Berawa Banjar Berawa No.5, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": "",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/446367",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balidating/429474",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balidating/429461",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Maize: Lovely Latin Flavours",
+    "description": "Здесь готовят фирменные коктейли и вкусную латиноамериканскую еду на угольном гриле.",
+    "address": "Jl. Pantai Batu Bolong No.97, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361",
+    "price": ""
+  },
+  {
+    "name": "Ji Terrace By The Sea: Boho-Chic In Asia",
+    "description": "Богемный шик, разнообразная азиатская кухня и вид на океан делают это место одним из лучших в Чангу.",
+    "address": "Jalan Pantai Batu Bolong,Canggu Beach, Canggu, Kuta Utara, Canggu, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Santanera: Farm-To-Table Pride",
+    "description": "Это одно из лучших мест в Чангу для аутентичного опыта farm-to-table.",
+    "address": "Jl. Tanah Barak No.55-57, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Alma Tapas Bar: Tapas For All",
+    "description": "Тапас — отличный вариант для компании, чтобы каждый попробовал что-то новое и вкусное.",
+    "address": "Jl. Pantai Berawa, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Smoke: Wood Fired Flavours",
+    "description": "Как следует из названия, это одно из лучших мест в Чангу для барбекю и копчёных блюд.",
+    "address": "Jl. Pantai Batu Mejan No.69, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Penny Lane: A Place To Be Seen",
+    "description": "Одно из лучших мест в Чангу, чтобы себя показать, и толпы инстаграм-блогеров подтверждают его популярность.",
+    "address": "Jl. Munduk Catu No.9, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Moana Fish Eatery: Polynesian Brilliance",
+    "description": "Лучший ресторан в Чангу для любителей полинезийской кухни.",
+    "address": "Jl. Pantai Batu Bolong No.28, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Billy Ho: Balinese Street Food",
+    "description": "Ресторан от супершефа Уилла Мейрика, посвящённый уличной еде Бали и концепции совместных трапез.",
+    "address": "Jl. Pantai Batu Bolong, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Zali: Lovely Lebanese",
+    "description": "Здоровая ливанская кухня с использованием натуральных ингредиентов для создания лучших меззе.",
+    "address": "Jl. Pantai Pererenan No.152, Pererenan, Kec. Mengwi, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Good Mantra: Vegan Cocktails",
+    "description": "Возможно, один из лучших веганских ресторанов в мире с отличным выбором блюд.",
+    "address": "Jl Subak Sari Barat, Gg. Sri Kahyangan No.77, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80",
+    "price": ""
+  },
+  {
+    "name": "The Shady Shack: Raw Vegan Restaurant",
+    "description": "Лучший ресторан в Чангу для веганов и вегетарианцев, известный своим сырым веганским чизкейком.",
+    "address": "Jl. Tanah Barak No.53, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Ketela Eatery & Lifestyle: Healthy Asian & International Cuisine",
+    "description": "Привлекательное открытое пространство у бассейна в комплексе вилл Theanna для здоровой азиатской и международной кухни.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "I Am Vegan Babe: Pure Vegan Restaurant",
+    "description": "Культовое веганское заведение в Чангу, известное своими блюдами, например, «вы не поверите, что это не бекон».",
+    "address": "Jl. Tanah Barak No.49, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Yuki: Upscale Japanese Cuisine",
+    "description": "Один из лучших ресторанов в Чангу, где можно встретить местную элиту и насладиться изысканной японской кухней.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Zai Cafe: Healthy Mediterranean",
+    "description": "Аутентичное кафе, где сочетаются кухни Ближнего Востока и Средиземноморья.",
+    "address": "Jl. Pantai Batu Bolong, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Chow Chow: Truly Eclectic Fare",
+    "description": "Ресторан-побратим знаменитого Ling-Lings в Семиньяке, предлагающий азиатский фьюжн, не выезжая из Чангу.",
+    "address": "Jl. Pantai Batu Bolong Gg. Nyepi No.22, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indon",
+    "price": ""
+  },
+  {
+    "name": "TYGR Sushi: Hand-Rolled",
+    "description": "Всё, что вы едите в этом ресторане, готовится прямо у вас на глазах.",
+    "address": "Jl. Pantai Batu Bolong No.55, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Folie Kitchen & Patisserie: French-Asian Fusion",
+    "description": "Лучшее время для посещения — полдень, чтобы попробовать их невероятные наборы для послеобеденного чая.",
+    "address": "Jl. Subak Sari No.30a, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Food Romance: Great Brunch Spot",
+    "description": "Уютное заведение с интимной атмосферой и разумными ценами, идеальное для бранча.",
+    "address": "Jl. Raya Semat, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Milano Restaurant & Bar: Fine Dining Italian",
+    "description": "Один из лучших ресторанов для знакомства с настоящей итальянской кухней на Бали.",
+    "address": "Jl. Pantai Berawa, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "La Baracca: Authentically Italian",
+    "description": "Если вы хотите ощутить подлинные вкусы Италии на Бали, то этот ресторан (у которого также есть филиалы в Семиньяке, Улувату и Убуде) — то, что нужно.",
+    "address": "Jl. Tanah Barak No.51, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Luigi’s Hot Pizza: Warm Up With Friends",
+    "description": "Идеальное место, если вы хотите огромную пиццу, отличное пиво и коктейли, чтобы разделить их с друзьями.",
+    "address": "Jalan Batu Mejan, Canggu, Kuta Utara, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80351, Indones",
+    "price": ""
+  },
+  {
+    "name": "Santorini Greek Restaurant: Greek Classics",
+    "description": "В меню ресторана Santorini представлены мусака, цацики и многие другие греческие классические блюда.",
+    "address": "Jl. Batu Mejan Canggu, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "Miss Fish: Superb Sushi",
+    "description": "Этот надёжный суши-ресторан попал в наш список лучших ресторанов Чангу благодаря исключительным впечатлениям от ужина.",
+    "address": "Jl. Raya Semat No.4, Tibubeneng, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "The Slow: Big Name Excellence",
+    "description": "The Slow — одно из самых известных имён среди лучших ресторанов Чангу, и вы обнаружите, что шеф-повар Шэннон Моран постоянно экспериментирует, создавая новые потрясающие вкусы.",
+    "address": "Jl. Pantai Batu Bolong No.97, Canggu, Kec. Kuta Utara, Kabupaten Badung, Bali 80361, Indonesia",
+    "price": ""
+  },
+  {
+    "name": "FINNS Beach Club",
+    "description": "Пляжный клуб с интернациональной кухней, обеды и ужины, место для тусовок.",
+    "address": "Jl. Pantai Berawa No.99, Canggu",
+    "price": "300k-700k",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/446367",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balidating/429474",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balidating/429461",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Hippie Fish",
+    "description": "Ресторан морепродуктов с видом на пляж, идеально подходит для ужина и свидания.",
+    "address": "Jl. Pantai Pererenan No.171",
+    "price": "400k-1000k",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/272563",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Kong",
+    "description": "Бистро с коктейлями, подходит для ужина и свидания.",
+    "address": "Jl. Pantai Berawa No.14b",
+    "price": "300k-800k"
+  },
+  {
+    "name": "Shelter",
+    "description": "Фьюжн средиземноморской и ближневосточной кухни.",
+    "address": "Jl. Pantai Pererenan No.133",
+    "price": "350k-900k",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3289767",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/160909",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "BAKED",
+    "description": "Пекарня и бранч-кафе, подходит для завтраков и работы за ноутбуком.",
+    "address": "Jl. Pantai Pererenan No.118",
+    "price": "150k-350k"
+  },
+  {
+    "name": "Milk & Madu",
+    "description": "Бранч и пицца, подходит для завтраков, семей с детьми и работы в дневное время.",
+    "address": "Jl Pantai Berawa No.52",
+    "price": "120k-300k",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3274577",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "Crate Cafe",
+    "description": "Кафе для завтраков и поздних завтраков, быстрый кофе.",
+    "address": "Jl Canggu Padang Linjong No.49",
+    "price": "120k-250k",
+    "verified": true,
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balichat/3018027",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Skool Kitchen",
+    "description": "Ужин 'поджаренный на огне', для свиданий и особых впечатлений.",
+    "address": "Jl. Pura Dalem, Canggu",
+    "price": "500k-1500k"
+  },
+  {
+    "name": "Luma",
+    "description": "Средиземноморская кухня, идеально для романтического ужина.",
+    "address": "Jl. Pantai Batu Bolong No.91",
+    "price": "400k-1000k"
+  },
+  {
+    "name": "Lacalita Bar Y Cocina",
+    "description": "Мексиканская кухня, ужин в компании, коктейли.",
+    "address": "Jl. Pantai Batu Bolong No.68",
+    "price": "250k-700k"
+  },
+  {
+    "name": "Mason",
+    "description": "Высокая кухня и гриль, для свиданий или деловых ужинов.",
+    "address": "Jl. Pantai Batu Bolong No.39a",
+    "price": "400k-1200k",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3295394",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293855",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3241020",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "One Eyed Jack",
+    "description": "Японский паб-изакая, атмосферный ужин для свидания.",
+    "address": "Jl. Pantai Berawa No.c89",
+    "price": "400k-1200k"
+  },
+  {
+    "name": "YUKI Canggu",
+    "description": "Японский ресторан высокого уровня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Vue Canggu",
+    "description": "Ресторан с видом, современная кухня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "MILU By Nook",
+    "description": "Стильный ресторан от команды Nook",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu"
+  },
+  {
+    "name": "Passo by Nook",
+    "description": "Итальянская кухня, паста",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu"
+  },
+  {
+    "name": "ARTE Canggu",
+    "description": "Пиццерия с авторской пиццей",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Waroeng Sushi Canggu",
+    "description": "Доступные суши, локальный фаворит",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Ramen Hamatora Canggu",
+    "description": "Аутентичный японский рамен",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Casa Tua Canggu",
+    "description": "Итальянский ресторан, домашняя атмосфера",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Warung Local",
+    "description": "Местная индонезийская кухня, недорого",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2917636",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2260200",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "L'Osteria Pizza e Cucina Canggu",
+    "description": "Итальянская пицца и паста",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "KONG | Contemporary Bistro Chic",
+    "description": "Современное бистро, коктейли",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu"
+  },
+  {
+    "name": "MASONRY. Restaurant Canggu",
+    "description": "Гриль, средиземноморская кухня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Pasta Dealer Bali",
+    "description": "Свежая паста, итальянская кухня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu"
+  },
+  {
+    "name": "The Slow Kitchen and Bar",
+    "description": "Атмосферный ресторан, здоровая еда",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu"
+  },
+  {
+    "name": "Moana Fish Eatery",
+    "description": "Морепродукты, поке боулы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu"
+  },
+  {
+    "name": "Secret Spot Canggu",
+    "description": "Скрытое место, уютная атмосфера",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Milk & Madu Berawa",
+    "description": "Завтраки, пицца, семейное место",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3288487",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260391",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Milk & Madu Beach Road",
+    "description": "Филиал популярного кафе",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3274577",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "3MONGKIS ISLAND - Berawa",
+    "description": "Островная атмосфера, коктейли",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3288487",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260391",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Shofuku Ramen Bar - Berawa",
+    "description": "Японский рамен бар",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "restaurants_canggu",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3288487",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260391",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  }
+]

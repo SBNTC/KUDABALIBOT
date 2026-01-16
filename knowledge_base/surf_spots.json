@@ -1,0 +1,168 @@
+[
+  {
+    "name": "Pantai Batu Bolong",
+    "description": "Главный спот Чангу, для всех уровней",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "surf_spots",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3284759",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2894782",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2698650",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Bingin Beach",
+    "description": "Рифовый брейк, средний/продвинутый",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "surf_spots",
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/258513",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balisurfer/149963",
+        "chat": "balisurfer"
+      },
+      {
+        "link": "https://t.me/balichat/3177630",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3049182",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3025673",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Padang Padang Beach",
+    "description": "Легендарный спот, трубы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "surf_spots",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293035",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293032",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3291312",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Balangan Beach",
+    "description": "Лефт, для среднего уровня",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "surf_spots",
+    "mentions": [
+      {
+        "link": "https://t.me/balichatsurfing/263910",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/262859",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260846",
+        "chat": "balichatsurfing"
+      }
+    ]
+  },
+  {
+    "name": "Uluwatu Beach",
+    "description": "Мировой спот, только для про",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "surf_spots",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Keramas Beach",
+    "description": "Ночной сёрфинг, быстрые волны",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "surf_spots",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3152943",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3143913",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3121959",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Big Brother Surf Camp",
+    "description": "Сёрф-кемп, обучение",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "surf_spots",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2403733",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balisurfer/66244",
+        "chat": "balisurfer"
+      }
+    ]
+  },
+  {
+    "name": "Surf Motel Camp & Surf School",
+    "description": "Школа сёрфинга + проживание",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "surf_spots"
+  }
+]

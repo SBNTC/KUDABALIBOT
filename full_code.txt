@@ -1,0 +1,3026 @@
+
+
+=== ./config.py ===
+from pydantic import SecretStr
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class Settings(BaseSettings):
+    """Конфигурация бота из .env"""
+    
+    # Telegram
+    bot_token: SecretStr
+    telegram_api_id: int
+    telegram_api_hash: str
+    
+    # Админ
+    admin_id: int
+    
+    # Google AI
+    google_api_key: SecretStr
+    gemini_model: str = "models/gemini-2.5-pro"
+    
+    # База данных
+    database_url: str = "sqlite+aiosqlite:///events.db"
+    
+    # Сборщик
+    history_days: int = 2
+    scan_interval_hours: int = 6
+    
+    # Расписание анализа (cron format)
+    analysis_cron: str = "0 */6 * * *"  # Каждые 6 часов
+    
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8"
+    )
+
+
+config = Settings()
+
+
+=== ./loader.py ===
+"""Инициализация Bot и Dispatcher (точка входа для всех модулей)"""
+import logging
+from aiogram import Bot, Dispatcher
+from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
+
+from config import config
+
+# Настройка логирования
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+
+# Инициализация бота
+bot = Bot(
+    token=config.bot_token.get_secret_value(),
+    default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+)
+
+# Dispatcher с хранилищем состояний
+dp = Dispatcher(storage=MemoryStorage())
+
+
+=== ./database/base.py ===
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
+from sqlalchemy.orm import DeclarativeBase
+
+engine = create_async_engine("sqlite+aiosqlite:///events.db", echo=False)
+async_session_maker = async_sessionmaker(engine, expire_on_commit=False)
+
+class Base(DeclarativeBase):
+    pass
+
+async def init_db():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
+
+=== ./database/models.py ===
+from sqlalchemy import Column, Integer, String, Text, DateTime, Boolean, Index, Date
+from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
+from datetime import datetime, timezone
+import hashlib
+from config import config
+
+
+class Base(DeclarativeBase):
+    pass
+
+
+class ScrapedEvent(Base):
+    __tablename__ = "scraped_events"
+    
+    id = Column(Integer, primary_key=True)
+    chat_title = Column(String)
+    link = Column(String, index=True)
+    raw_text = Column(Text)
+    text_hash = Column(String(64), unique=True, index=True)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    status = Column(String, default="pending", index=True)
+    category = Column(String, nullable=True)
+    summary = Column(Text, nullable=True)
+    event_date = Column(Date, nullable=True, index=True)  # Дата события
+    is_recurring = Column(Boolean, default=False)  # Пробные/регулярные
+    
+    __table_args__ = (
+        Index('idx_category_date', 'category', 'event_date'),
+    )
+
+
+class BaliChat(Base):
+    __tablename__ = "bali_chats"
+    
+    id = Column(Integer, primary_key=True)
+    chat_id = Column(String, unique=True, index=True)
+    title = Column(String)
+    username = Column(String, nullable=True)
+    link = Column(String, nullable=True)
+    is_active = Column(Boolean, default=True)
+    added_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    last_scan = Column(DateTime, nullable=True)
+
+
+def compute_text_hash(text: str) -> str:
+    normalized = text.lower().strip()[:500]
+    return hashlib.sha256(normalized.encode()).hexdigest()
+
+
+engine = create_async_engine(config.database_url)
+AsyncSessionMaker = async_sessionmaker(engine, expire_on_commit=False)
+
+
+async def init_db():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
+
+=== ./handlers/admin/panel.py ===
+"""Админ-панель (только для ADMIN_ID)"""
+from aiogram import Router, types, F
+from aiogram.filters import Command
+from sqlalchemy import select, delete, func
+import asyncio
+
+from config import config
+from database.models import AsyncSessionMaker, ScrapedEvent
+from services.analyzer import run_batch_analysis
+from services.collector import start_collector
+
+router = Router()
+router.message.filter(F.from_user.id == config.admin_id)
+
+
+@router.message(Command("admin"))
+async def cmd_admin(message: types.Message):
+    """Админ-меню"""
+    text = (
+        "🔧 <b>Админ-панель</b>\n\n"
+        "/force_analyze — Запустить анализ вручную\n"
+        "/clear_spam — Удалить весь спам из БД\n"
+        "/restart_collector — Перезапустить сборщик\n"
+        "/export_db — Экспортировать БД в JSON"
+    )
+    await message.answer(text)
+
+
+@router.message(Command("force_analyze"))
+async def cmd_force_analyze(message: types.Message):
+    """Принудительный анализ"""
+    msg = await message.answer("🧠 Запускаю анализ...")
+    result = await run_batch_analysis()
+    await msg.edit_text(f"✅ {result}")
+
+
+@router.message(Command("clear_spam"))
+async def cmd_clear_spam(message: types.Message):
+    """Удалить весь спам"""
+    async with AsyncSessionMaker() as session:
+        deleted = await session.execute(
+            delete(ScrapedEvent).where(ScrapedEvent.category == "Spam")
+        )
+        await session.commit()
+    
+    await message.answer(f"🗑 Удалено спама: {deleted.rowcount}")
+
+
+@router.message(Command("restart_collector"))
+async def cmd_restart_collector(message: types.Message):
+    """Перезапустить сборщик"""
+    await message.answer("🔄 Перезапуск сборщика... (в фоне)")
+    # Запускаем в фоне
+    asyncio.create_task(start_collector())
+
+
+@router.message(Command("export_db"))
+async def cmd_export_db(message: types.Message):
+    """Экспорт БД"""
+    async with AsyncSessionMaker() as session:
+        result = await session.execute(select(ScrapedEvent))
+        events = result.scalars().all()
+    
+    import json
+    data = [
+        {
+            "id": e.id,
+            "chat": e.chat_title,
+            "link": e.link,
+            "category": e.category,
+            "summary": e.summary
+        }
+        for e in events
+    ]
+    
+    # Сохраняем в файл
+    with open("export.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    
+    await message.answer_document(
+        types.FSInputFile("export.json"),
+        caption="📦 Экспорт базы данных"
+    )
+
+
+=== ./handlers/admin/__init__.py ===
+
+
+=== ./handlers/user.py ===
+from aiogram import Router
+from aiogram.filters import CommandStart
+from aiogram.types import Message
+from aiogram_dialog import DialogManager, StartMode
+from dialogs.events_menu import EventsSG
+
+router = Router()
+
+@router.message(CommandStart())
+async def start_cmd(message: Message, dialog_manager: DialogManager):
+    await dialog_manager.start(EventsSG.menu, mode=StartMode.RESET_STACK)
+
+
+=== ./handlers/user/start.py ===
+from aiogram import Router
+from aiogram.types import Message, FSInputFile
+from aiogram.filters import CommandStart
+from keyboards import get_main_menu_kb
+import os
+
+router = Router()
+
+MENU_PHOTO = "assets/menu.jpg"
+
+
+@router.message(CommandStart())
+async def cmd_start(message: Message):
+    kb = get_main_menu_kb()
+    
+    if os.path.exists(MENU_PHOTO):
+        photo = FSInputFile(MENU_PHOTO)
+        await message.answer_photo(photo=photo, reply_markup=kb)
+    else:
+        await message.answer("Выберите категорию:", reply_markup=kb)
+
+
+
+=== ./handlers/user/digest.py ===
+from aiogram import Router
+from aiogram.types import Message
+from aiogram.filters import Command
+
+from filters import IsAdmin
+from services.analyzer import run_batch_analysis
+
+router = Router()
+
+
+@router.message(Command("digest"), IsAdmin())
+async def cmd_digest(message: Message):
+    status_msg = await message.answer("🧠 Запускаю AI анализ...")
+    result_text = await run_batch_analysis()
+    await status_msg.edit_text(result_text)
+
+
+=== ./handlers/user/admin.py ===
+from aiogram import Router
+from aiogram.types import Message
+from aiogram.filters import Command
+from sqlalchemy import select, delete
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from filters import IsAdmin
+from database.models import BaliChat
+
+router = Router()
+
+
+@router.message(Command("add_chat"), IsAdmin())
+async def cmd_add_chat(message: Message, session: AsyncSession):
+    """Добавить чат: /add_chat @username или /add_chat -100123456"""
+    args = message.text.split(maxsplit=1)
+    if len(args) < 2:
+        await message.answer("Использование: /add_chat @username или /add_chat -100123456")
+        return
+    
+    chat_id = args[1].strip()
+    
+    # Проверка дубля
+    exists = await session.scalar(
+        select(BaliChat).where(BaliChat.chat_id == chat_id)
+    )
+    if exists:
+        await message.answer(f"⚠️ Чат {chat_id} уже в списке")
+        return
+    
+    new_chat = BaliChat(chat_id=chat_id, title=chat_id, is_active=True)
+    session.add(new_chat)
+    await session.commit()
+    await message.answer(f"✅ Добавлен: {chat_id}")
+
+
+@router.message(Command("remove_chat"), IsAdmin())
+async def cmd_remove_chat(message: Message, session: AsyncSession):
+    """Удалить чат: /remove_chat @username"""
+    args = message.text.split(maxsplit=1)
+    if len(args) < 2:
+        await message.answer("Использование: /remove_chat @username")
+        return
+    
+    chat_id = args[1].strip()
+    
+    result = await session.execute(
+        delete(BaliChat).where(BaliChat.chat_id == chat_id)
+    )
+    await session.commit()
+    
+    if result.rowcount:
+        await message.answer(f"✅ Удалён: {chat_id}")
+    else:
+        await message.answer(f"⚠️ Чат {chat_id} не найден")
+
+
+@router.message(Command("list_chats"), IsAdmin())
+async def cmd_list_chats(message: Message, session: AsyncSession):
+    """Список чатов для парсинга"""
+    result = await session.execute(select(BaliChat).where(BaliChat.is_active == True))
+    chats = result.scalars().all()
+    
+    if not chats:
+        await message.answer("📭 Список чатов пуст\n\nДобавьте: /add_chat @username")
+        return
+    
+    text = "📋 <b>Чаты для парсинга:</b>\n\n"
+    for c in chats:
+        text += f"• {c.chat_id}\n"
+    
+    text += f"\n<i>Всего: {len(chats)}</i>"
+    await message.answer(text)
+@router.message(Command("del"), IsAdmin())
+async def cmd_delete_event(message: Message, session: AsyncSession):
+    """Удалить событие: /del 123"""
+    args = message.text.split(maxsplit=1)
+    if len(args) < 2:
+        await message.answer("Использование: /del ID")
+        return
+    
+    try:
+        event_id = int(args[1])
+    except ValueError:
+        await message.answer("❌ ID должен быть числом")
+        return
+    
+    from sqlalchemy import delete
+    from database.models import ScrapedEvent
+    
+    result = await session.execute(
+        delete(ScrapedEvent).where(ScrapedEvent.id == event_id)
+    )
+    await session.commit()
+    
+    if result.rowcount:
+        await message.answer(f"✅ Событие #{event_id} удалено")
+    else:
+        await message.answer(f"⚠️ Событие #{event_id} не найдено")
+@router.message(Command("add"), IsAdmin())
+async def cmd_add_event(message: Message, session: AsyncSession):
+    """Добавить событие: /add Free|25.12|Йога в Убуде, 10:00|https://t.me/..."""
+    args = message.text.split(maxsplit=1)
+    if len(args) < 2:
+        await message.answer(
+            "Использование:\n"
+            "<code>/add Категория|Дата|Описание|Ссылка</code>\n\n"
+            "Пример:\n"
+            "<code>/add Free|25.12|Йога в Убуде, 10:00|https://t.me/chat/123</code>\n\n"
+            "Категории: Free, Paid, Networking, Party, Contest"
+        )
+        return
+    
+    parts = args[1].split("|")
+    if len(parts) < 4:
+        await message.answer("❌ Неверный формат. Нужно 4 части через |")
+        return
+    
+    category, date_str, summary, link = [p.strip() for p in parts[:4]]
+    
+    from datetime import datetime
+    from database.models import ScrapedEvent, compute_text_hash
+    
+    # Парсим дату
+    event_date = None
+    try:
+        event_date = datetime.strptime(date_str, "%d.%m").date().replace(year=datetime.now().year)
+    except ValueError:
+        pass
+    
+    new_event = ScrapedEvent(
+        chat_title="Manual",
+        link=link,
+        raw_text=summary,
+        text_hash=compute_text_hash(summary),
+        status="processed",
+        category=category,
+        summary=summary,
+        event_date=event_date,
+        is_recurring=False
+    )
+    session.add(new_event)
+    await session.commit()
+    
+    await message.answer(f"✅ Добавлено: #{new_event.id}")
+
+
+@router.message(Command("edit"), IsAdmin())
+async def cmd_edit_event(message: Message, session: AsyncSession):
+    """Редактировать: /edit 123 summary|Новое описание"""
+    args = message.text.split(maxsplit=2)
+    if len(args) < 3:
+        await message.answer(
+            "Использование:\n"
+            "<code>/edit ID поле|значение</code>\n\n"
+            "Поля: summary, category, date, link\n\n"
+            "Примеры:\n"
+            "<code>/edit 123 summary|Йога бесплатно, Убуд</code>\n"
+            "<code>/edit 123 category|Paid</code>\n"
+            "<code>/edit 123 date|25.12</code>"
+        )
+        return
+    
+    try:
+        event_id = int(args[1])
+    except ValueError:
+        await message.answer("❌ ID должен быть числом")
+        return
+    
+    field_value = args[2].split("|", 1)
+    if len(field_value) < 2:
+        await message.answer("❌ Формат: поле|значение")
+        return
+    
+    field, value = field_value[0].strip().lower(), field_value[1].strip()
+    
+    from sqlalchemy import update
+    from database.models import ScrapedEvent
+    from datetime import datetime
+    
+    # Получаем событие
+    event = await session.get(ScrapedEvent, event_id)
+    if not event:
+        await message.answer(f"⚠️ Событие #{event_id} не найдено")
+        return
+    
+    # Обновляем поле
+    if field == "summary":
+        event.summary = value
+    elif field == "category":
+        event.category = value
+    elif field == "date":
+        try:
+            event.event_date = datetime.strptime(value, "%d.%m").date().replace(year=datetime.now().year)
+        except ValueError:
+            await message.answer("❌ Неверный формат даты. Используй ДД.ММ")
+            return
+    elif field == "link":
+        event.link = value
+    else:
+        await message.answer("❌ Неизвестное поле. Доступны: summary, category, date, link")
+        return
+    
+    await session.commit()
+    await message.answer(f"✅ Событие #{event_id} обновлено")
+    
+
+
+=== ./handlers/user/stats.py ===
+"""Статистика бота"""
+from aiogram import Router, types
+from aiogram.filters import Command
+from sqlalchemy import select, func
+
+from database.models import AsyncSessionMaker, ScrapedEvent
+from data.categories import EventCategory
+
+router = Router()
+
+
+@router.message(Command("stats"))
+async def cmd_stats(message: types.Message):
+    """Показать статистику"""
+    async with AsyncSessionMaker() as session:
+        # Всего собрано
+        total = await session.scalar(select(func.count(ScrapedEvent.id)))
+        
+        # Обработано
+        processed = await session.scalar(
+            select(func.count(ScrapedEvent.id))
+            .where(ScrapedEvent.status == "processed")
+        )
+        
+        # По категориям
+        categories = {}
+        for cat in EventCategory:
+            count = await session.scalar(
+                select(func.count(ScrapedEvent.id))
+                .where(ScrapedEvent.category == cat.value)
+            )
+            if count > 0:
+                categories[cat.value] = count
+        
+        text = "📊 <b>Статистика:</b>\n\n"
+        text += f"📥 Собрано сообщений: {total}\n"
+        text += f"✅ Обработано: {processed}\n\n"
+        
+        if categories:
+            text += "<b>По категориям:</b>\n"
+            for cat, count in categories.items():
+                text += f"  • {cat}: {count}\n"
+        
+        await message.answer(text)
+
+
+=== ./handlers/user/feed.py ===
+from aiogram import Router, F
+from aiogram.types import Message, CallbackQuery, FSInputFile
+from aiogram.filters import Command
+from aiogram.fsm.context import FSMContext
+from aiogram.fsm.state import State, StatesGroup
+from sqlalchemy import select, func, or_, and_
+from sqlalchemy.ext.asyncio import AsyncSession
+from datetime import date
+import os
+
+from database.models import ScrapedEvent
+from keyboards import FeedCallback, MenuCallback, get_main_menu_kb, get_feed_kb
+from keyboards.inline import CATEGORY_NAMES
+from config import config
+from loader import bot
+
+router = Router()
+ITEMS_PER_PAGE = 5
+
+CATEGORY_EMOJI = {
+    "Free": "🎉", "Paid": "💰", "Networking": "🤝",
+    "Party": "🎵", "Contest": "🎁", "Spam": "🚫"
+}
+
+# Путь к фото меню
+MENU_PHOTO = "assets/menu.jpg"
+
+
+class SuggestEvent(StatesGroup):
+    waiting_for_text = State()
+
+
+async def get_events_page(session: AsyncSession, category: str, page: int):
+    today = date.today()
+    
+    base_filter = and_(
+        ScrapedEvent.status == "processed",
+        ScrapedEvent.category == category,
+        or_(
+            ScrapedEvent.event_date >= today,
+            ScrapedEvent.event_date.is_(None)
+        )
+    )
+    
+    result = await session.execute(
+        select(ScrapedEvent)
+        .where(base_filter)
+        .order_by(
+            ScrapedEvent.event_date.asc().nullslast(),
+            ScrapedEvent.created_at.desc()
+        )
+    )
+    all_events = result.scalars().all()
+    
+    seen = set()
+    unique_events = []
+    for event in all_events:
+        key = (event.summary or "")[:30].lower().strip()
+        if key not in seen:
+            seen.add(key)
+            unique_events.append(event)
+    
+    total = len(unique_events)
+    total_pages = (total + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE if total else 0
+    
+    offset = (page - 1) * ITEMS_PER_PAGE
+    events = unique_events[offset:offset + ITEMS_PER_PAGE]
+    
+    return events, page, total_pages
+
+
+def render_feed_text(events: list, category: str, page: int, total_pages: int) -> str:
+    cat_name = CATEGORY_NAMES.get(category, category)
+    text = f"{cat_name}\n\n"
+    
+    if not events:
+        return text + "📭 Пока нет событий"
+    
+    for event in events:
+        if event.event_date:
+            date_str = event.event_date.strftime("%d.%m")
+            if event.is_recurring:
+                date_str += " 🔄"
+        elif event.created_at:
+            date_str = event.created_at.strftime("%d.%m")
+        else:
+            date_str = "—"
+        
+        text += f"📅 {date_str} <code>#{event.id}</code>\n"
+        text += f"• {event.summary}\n<a href='{event.link}'>Подробнее</a>\n\n"
+    
+    if total_pages > 0:
+        text += f"<i>Страница {page} из {total_pages}</i>"
+    return text
+
+
+async def get_stats_text(session: AsyncSession) -> str:
+    today = date.today()
+    
+    total = await session.scalar(select(func.count(ScrapedEvent.id)))
+    processed = await session.scalar(
+        select(func.count(ScrapedEvent.id))
+        .where(ScrapedEvent.status == "processed")
+    )
+    
+    text = "📊 <b>Статистика</b>\n\n"
+    text += f"📥 Собрано: {total}\n"
+    text += f"✅ Обработано: {processed}\n\n"
+    text += "<b>По категориям:</b>\n"
+    
+    for cat, name in CATEGORY_NAMES.items():
+        count = await session.scalar(
+            select(func.count(ScrapedEvent.id))
+            .where(
+                ScrapedEvent.category == cat,
+                ScrapedEvent.status == "processed",
+                or_(
+                    ScrapedEvent.event_date >= today,
+                    ScrapedEvent.event_date.is_(None)
+                )
+            )
+        )
+        if count:
+            text += f"  {name}: {count}\n"
+    
+    return text
+
+
+async def send_menu_with_photo(message: Message, edit: bool = False):
+    """Отправить меню с фото"""
+    kb = get_main_menu_kb()
+    
+    if os.path.exists(MENU_PHOTO):
+        photo = FSInputFile(MENU_PHOTO)
+        if edit:
+            await message.delete()
+        await message.answer_photo(photo=photo, reply_markup=kb)
+    else:
+        text = "Выберите категорию:"
+        if edit:
+            await message.edit_text(text, reply_markup=kb)
+        else:
+            await message.answer(text, reply_markup=kb)
+
+
+@router.message(Command("feed"))
+async def cmd_feed(message: Message, session: AsyncSession):
+    events, page, total_pages = await get_events_page(session, "Free", 1)
+    text = render_feed_text(events, "Free", page, total_pages)
+    kb = get_feed_kb("Free", page, total_pages)
+    await message.answer(text, reply_markup=kb, disable_web_page_preview=True)
+
+@router.callback_query(FeedCallback.filter())
+async def callback_feed(callback: CallbackQuery, callback_data: FeedCallback, session: AsyncSession):
+    events, page, total_pages = await get_events_page(session, callback_data.category, callback_data.page)
+    text = render_feed_text(events, callback_data.category, page, total_pages)
+    kb = get_feed_kb(callback_data.category, page, total_pages)
+    try:
+        await callback.message.edit_text(text, reply_markup=kb, disable_web_page_preview=True)
+    except:
+        await callback.message.delete()
+        await callback.message.answer(text, reply_markup=kb, disable_web_page_preview=True)
+    await callback.answer()
+
+@router.callback_query(MenuCallback.filter())
+async def callback_menu(callback: CallbackQuery, callback_data: MenuCallback, session: AsyncSession, state: FSMContext):
+    if callback_data.action == "main":
+        await callback.message.delete()
+        kb = get_main_menu_kb()
+        if os.path.exists(MENU_PHOTO):
+            photo = FSInputFile(MENU_PHOTO)
+            await callback.message.answer_photo(photo=photo, reply_markup=kb)
+        else:
+            await callback.message.answer("Выберите категорию:", reply_markup=kb)
+    
+    elif callback_data.action == "stats":
+        text = await get_stats_text(session)
+        try:
+            await callback.message.edit_text(text, reply_markup=get_main_menu_kb())
+        except:
+            await callback.message.delete()
+            await callback.message.answer(text, reply_markup=get_main_menu_kb())
+    
+    elif callback_data.action == "suggest":
+        try:
+            await callback.message.edit_text(
+                "✏️ <b>Предложите своё событие или услугу</b>\n\n"
+                "Напишите описание: что, где, когда, ссылка для связи.",
+                reply_markup=None
+            )
+        except:
+            await callback.message.delete()
+            await callback.message.answer(
+                "✏️ <b>Предложите своё событие или услугу</b>\n\n"
+                "Напишите описание: что, где, когда, ссылка для связи."
+            )
+        await state.set_state(SuggestEvent.waiting_for_text)
+    
+    await callback.answer()
+
+
+@router.message(SuggestEvent.waiting_for_text)
+async def process_suggestion(message: Message, state: FSMContext):
+    user = message.from_user
+    text = (
+        f"📩 <b>Новое предложение</b>\n\n"
+        f"От: {user.full_name} (@{user.username or 'нет'})\n"
+        f"ID: <code>{user.id}</code>\n\n"
+        f"<b>Текст:</b>\n{message.text}"
+    )
+    
+    # Отправляем админу
+    await bot.send_message(config.admin_id, text)
+    
+    await message.answer(
+        "✅ Спасибо! Ваше предложение отправлено на модерацию.",
+        reply_markup=get_main_menu_kb()
+    )
+    await state.clear()
+
+
+=== ./handlers/user/__init__.py ===
+from aiogram import Router
+from . import start, feed, digest, stats, admin
+
+
+def get_user_router() -> Router:
+    router = Router()
+    router.include_router(start.router)
+    router.include_router(feed.router)
+    router.include_router(digest.router)
+    router.include_router(stats.router)
+    router.include_router(admin.router)
+    return router
+
+
+=== ./handlers/__init__.py ===
+"""Главный роутер"""
+from aiogram import Router
+from .user import get_user_router
+
+
+def get_main_router() -> Router:
+    """Объединяем все роутеры"""
+    router = Router()
+    router.include_router(get_user_router())
+    return router
+
+
+=== ./export_debug.py ===
+import sqlite3
+
+def export():
+    conn = sqlite3.connect('events_buffer.db')
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT chat_title, text, link, created_at FROM pending_messages ORDER BY created_at DESC")
+    rows = cursor.fetchall()
+    
+    print(f"Найдено записей: {len(rows)}")
+    
+    with open("debug_report.txt", "w", encoding="utf-8") as f:
+        for r in rows:
+            f.write(f"=== {r[0]} | {r[3]} ===\n")
+            f.write(f"LINK: {r[2]}\n")
+            f.write(f"TEXT:\n{r[1]}\n")
+            f.write("-" * 50 + "\n\n")
+            
+    print("Сохранено в debug_report.txt")
+    conn.close()
+
+if __name__ == "__main__":
+    export()
+
+
+=== ./bot_old.py ===
+import asyncio
+import os
+import logging
+from aiogram import Bot, Dispatcher, types
+from aiogram.filters import Command
+from aiogram.enums import ParseMode
+from dotenv import load_dotenv
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+
+from database.models import init_db, AsyncSessionMaker, ScrapedEvent
+from services.analyzer import run_batch_analysis
+from sqlalchemy import select, desc
+
+load_dotenv()
+logging.basicConfig(level=logging.INFO)
+
+bot = Bot(token=os.getenv("BOT_TOKEN"))
+dp = Dispatcher()
+
+# --- ХЕНДЛЕРЫ ---
+
+@dp.message(Command("start"))
+async def cmd_start(message: types.Message):
+    await message.answer(
+        "👋 Привет! Я Афиша Бали.\n"
+        "Жми /feed чтобы посмотреть свежие ивенты."
+    )
+
+@dp.message(Command("digest"))
+async def cmd_manual_digest(message: types.Message):
+    """Ручной запуск анализа"""
+    status_msg = await message.answer("🧠 Запускаю анализ...")
+    result = await run_batch_analysis()
+    await status_msg.edit_text(result)
+
+@dp.message(Command("feed"))
+async def cmd_feed(message: types.Message):
+    """Показ ленты событий (до 30 штук)"""
+    async with AsyncSessionMaker() as session:
+        # Запрашиваем 50 последних, чтобы после фильтрации дублей осталось ~30
+        query = select(ScrapedEvent).where(
+            ScrapedEvent.status == "processed",
+            ScrapedEvent.category != "Spam"
+        ).order_by(desc(ScrapedEvent.created_at)).limit(50)
+        
+        result = await session.execute(query)
+        events = result.scalars().all()
+        
+        if not events:
+            await message.answer("📭 Лента пуста.")
+            return
+
+        text = "🌴 **Свежие анонсы (AI Digest):**\n\n"
+        
+        # Фильтр дубликатов по саммари
+        seen_summaries = set()
+        count = 0
+        
+        for e in events:
+            # Если мы уже видели такое описание - пропускаем
+            # (берем первые 50 символов для грубого сравнения)
+            summary_snippet = (e.summary or "")[:50].lower()
+            if summary_snippet in seen_summaries:
+                continue
+            seen_summaries.add(summary_snippet)
+            
+            icon = "▫️"
+            if e.category == 'Free': icon = "🆓"
+            elif e.category == 'Paid': icon = "💰"
+            elif e.category == 'Networking': icon = "🤝"
+            elif e.category == 'Contest': icon = "🎁"
+            elif e.category == 'Party': icon = "🎉"
+            
+            # Формируем строку
+            row = f"{icon} <b>{e.category}</b>\n{e.summary}\n👉 <a href='{e.link}'>Источник</a>\n\n"
+            
+            # Если сообщение слишком длинное, разбиваем
+            if len(text) + len(row) > 4000:
+                await message.answer(text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
+                text = ""
+            
+            text += row
+            count += 1
+            if count >= 30: break # Лимит выдачи
+            
+        if text:
+            await message.answer(text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
+
+# --- ФОНОВЫЕ ЗАДАЧИ ---
+
+async def scheduled_analysis():
+    print("⏰ Планировщик: Запуск анализа...")
+    await run_batch_analysis()
+
+# --- ЗАПУСК ---
+
+async def main():
+    await init_db()
+    scheduler = AsyncIOScheduler()
+    scheduler.add_job(scheduled_analysis, 'interval', minutes=60)
+    scheduler.start()
+    
+    print("🤖 Бот запущен!")
+    await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+=== ./services/analyzer.py ===
+"""Пакетный анализатор с батчингом, retry и обработкой ошибок"""
+import json
+import logging
+import re
+from sqlalchemy import select, update, delete
+from datetime import datetime, date
+from sqlalchemy import select, update, delete
+from database.models import AsyncSessionMaker, ScrapedEvent
+from config import config
+import google.generativeai as genai
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    retry_if_exception_type,
+    before_sleep_log
+)
+
+genai.configure(api_key=config.google_api_key.get_secret_value())
+
+BATCH_SIZE = 30
+
+PROMPT = """
+Ты — редактор афиши событий на Бали. Анализируй сообщения и классифицируй.
+
+## КРИТЕРИИ ВКЛЮЧЕНИЯ ✅
+Событие должно быть:
+- НА БАЛИ или в Индонезии (Ява, Ломбок, Комодо)
+- ОТКРЫТЫМ для любого желающего
+- С КОНКРЕТИКОЙ: дата/время/место ИЛИ "пробное/бесплатное занятие"
+
+## КАТЕГОРИИ
+- **Free**: бесплатно, донейшн, свободный вход, пробные занятия
+- **Paid**: платные события (йога, ретриты, туры, мастер-классы с ценой)
+- **Networking**: бизнес-встречи, завтраки, конференции, нетворкинги
+- **Party**: вечеринки, концерты, клубы, DJ-сеты
+- **Contest**: розыгрыши, giveaway, конкурсы
+- **Spam**: всё остальное
+
+## ОТПРАВИТЬ В SPAM ❌
+- Визитки БЕЗ события ("Привет, я маркетолог")
+- Приветствия новых участников
+- Продажа товаров без события
+- События НЕ на Бали
+- Вакансии
+
+## ФОРМАТ ОТВЕТА
+JSON-массив:
+[{
+  "id": 1,
+  "category": "Free",
+  "summary": "Йога бесплатно, Убуд, 18:00",
+  "event_date": "2024-12-20",
+  "is_recurring": false
+}]
+
+## ПРАВИЛА ДЛЯ event_date:
+- Конкретная дата → "2024-12-20"
+- "Сегодня" → текущая дата (CURRENT_DATE)
+- "Завтра" → CURRENT_DATE + 1 день
+- "Каждый день", "пробное в любой день", "по записи" → null + is_recurring: true
+- Нет даты вообще → null + is_recurring: false
+
+Текущая дата: CURRENT_DATE
+
+## СООБЩЕНИЯ:
+DATA_PLACEHOLDER
+"""
+
+
+@retry(
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=2, min=4, max=60),
+    retry=retry_if_exception_type((Exception,)),
+    before_sleep=before_sleep_log(logging.getLogger(), logging.WARNING),
+    reraise=True
+)
+async def call_gemini_with_retry(model, prompt: str):
+    return await model.generate_content_async(prompt)
+
+
+def parse_event_date(date_str: str | None) -> date | None:
+    """Парсинг даты из строки"""
+    if not date_str:
+        return None
+    try:
+        return datetime.strptime(date_str, "%Y-%m-%d").date()
+    except ValueError:
+        return None
+
+
+async def cleanup_old_events():
+    """Удалить устаревшие события (кроме recurring)"""
+    today = date.today()
+    async with AsyncSessionMaker() as session:
+        result = await session.execute(
+            delete(ScrapedEvent)
+            .where(
+                ScrapedEvent.event_date < today,
+                ScrapedEvent.is_recurring == False,
+                ScrapedEvent.event_date.isnot(None)
+            )
+        )
+        await session.commit()
+        if result.rowcount:
+            logging.info(f"🗑 Удалено устаревших: {result.rowcount}")
+
+
+async def run_batch_analysis() -> str:
+    # Сначала чистим старые
+    await cleanup_old_events()
+    
+    async with AsyncSessionMaker() as session:
+        result = await session.execute(
+            select(ScrapedEvent).where(ScrapedEvent.status == "pending")
+        )
+        batch = result.scalars().all()
+
+        if not batch:
+            return "📭 Нет новых сообщений."
+
+        total = len(batch)
+        logging.info(f"📊 Всего постов: {total}")
+
+        model = genai.GenerativeModel(config.gemini_model)
+        total_updated = 0
+        total_errors = 0
+
+        current_date = date.today().isoformat()
+
+        for i in range(0, total, BATCH_SIZE):
+            chunk = batch[i:i+BATCH_SIZE]
+            chunk_num = i // BATCH_SIZE + 1
+            total_chunks = (total + BATCH_SIZE - 1) // BATCH_SIZE
+
+            logging.info(f"🔄 Часть {chunk_num}/{total_chunks} ({len(chunk)} постов)...")
+
+            data_for_ai = [{"id": e.id, "text": e.raw_text[:600]} for e in chunk]
+
+            try:
+                data_json = json.dumps(data_for_ai, ensure_ascii=False)
+                prompt = PROMPT.replace("DATA_PLACEHOLDER", data_json).replace("CURRENT_DATE", current_date)
+                
+                response = await call_gemini_with_retry(model, prompt)
+                raw_text = (response.text or "").strip()
+
+                if not raw_text:
+                    logging.warning(f"⚠️ Пустой ответ часть {chunk_num}")
+                    total_errors += len(chunk)
+                    continue
+
+                clean_text = raw_text.replace("```json", "").replace("```", "").strip()
+                
+                match = re.search(r'\[.*\]', clean_text, re.DOTALL)
+                if match:
+                    clean_text = match.group(0)
+
+                try:
+                    ai_results = json.loads(clean_text)
+                except json.JSONDecodeError as e:
+                    logging.error(f"❌ JSON ошибка часть {chunk_num}: {e}")
+                    total_errors += len(chunk)
+                    continue
+
+                if not isinstance(ai_results, list):
+                    total_errors += len(chunk)
+                    continue
+
+                for item in ai_results:
+                    if not isinstance(item, dict) or "id" not in item:
+                        total_errors += 1
+                        continue
+
+                    event_date = parse_event_date(item.get("event_date"))
+                    is_recurring = item.get("is_recurring", False)
+
+                    stmt = (
+                        update(ScrapedEvent)
+                        .where(ScrapedEvent.id == item.get("id"))
+                        .values(
+                            status="processed",
+                            category=item.get("category") or "Unknown",
+                            summary=item.get("summary") or "",
+                            event_date=event_date,
+                            is_recurring=is_recurring,
+                        )
+                    )
+                    await session.execute(stmt)
+                    total_updated += 1
+
+                await session.commit()
+
+            except Exception as e:
+                logging.error(f"❌ Критическая ошибка часть {chunk_num}: {e}")
+                total_errors += len(chunk)
+
+        # Удаляем дубликаты после анализа
+        duplicates_removed = await remove_duplicates_by_summary(session)
+        
+        msg = f"✅ Обработано: {total_updated} из {total}"
+        if total_errors:
+            msg += f" (ошибок: {total_errors})"
+        if duplicates_removed:
+            msg += f" | 🗑 Дубликатов: {duplicates_removed}"
+        
+        return msg
+
+
+async def remove_duplicates_by_summary(session) -> int:
+    """Удаляет дубликаты по похожим summary"""
+    result = await session.execute(
+        select(ScrapedEvent).where(ScrapedEvent.status == "processed")
+    )
+    all_events = result.scalars().all()
+    
+    seen = set()
+    to_delete = []
+    
+    for event in all_events:
+        # Нормализуем: первые 30 символов, без пробелов, lowercase
+        key = (event.summary or "")[:30].lower().replace(" ", "")
+        if key in seen:
+            to_delete.append(event.id)
+        else:
+            seen.add(key)
+    
+    for event_id in to_delete:
+        await session.execute(
+            delete(ScrapedEvent).where(ScrapedEvent.id == event_id)
+        )
+    
+    await session.commit()
+    return len(to_delete)
+
+
+=== ./services/collector.py ===
+import re
+import asyncio
+import logging
+from datetime import datetime, timedelta, timezone
+from telethon import TelegramClient, events
+from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
+from config import config
+from database.models import AsyncSessionMaker, ScrapedEvent, BaliChat, init_db, compute_text_hash
+
+KEYWORDS_REGEX = re.compile(
+    r"(бесплатн|free entry|free|donation|донейшн|вход свободн|"
+    r"нетворкинг|networking|конференц|бизнес.?завтрак|бизнес.?встреча|"
+    r"вечеринк|party|dj|концерт|"
+    r"розыгрыш|giveaway|конкурс|"
+    r"мастер.?класс|воркшоп|workshop|"
+    r"meetup|митап|встреча|"
+    r"пробн\w+\s+занят|бесплатн\w+\s+(урок|занят|консультац)|"
+    r"открыт\w+\s+(урок|занят|лекц)|"
+    r"приглаша\w+|регистрац|записаться|"
+    r"каждый\s+(понедельник|вторник|сред[у|ы]|четверг|пятниц|суббот|воскресень)|"
+    r"открытый\s+микрофон|stand\s*up|стендап|"
+    r"сальса|бачата|кизомба|танц|"
+    r"english\s+club|разговорный\s+клуб)",
+    re.IGNORECASE
+)
+
+
+async def save_message(chat_title: str, link: str, text: str) -> bool:
+    text_hash = compute_text_hash(text)
+    
+    async with AsyncSessionMaker() as session:
+        exists = await session.scalar(
+            select(ScrapedEvent).where(ScrapedEvent.text_hash == text_hash)
+        )
+        if exists:
+            return False
+        
+        try:
+            new_event = ScrapedEvent(
+                chat_title=chat_title,
+                link=link,
+                raw_text=text,
+                text_hash=text_hash,
+                status="pending"
+            )
+            session.add(new_event)
+            await session.commit()
+            return True
+        except IntegrityError:
+            await session.rollback()
+            return False
+
+
+async def scan_history(client: TelegramClient):
+    logging.info(f"🔄 Сбор истории за {config.history_days} дней...")
+    
+    limit_date = datetime.now(timezone.utc) - timedelta(days=config.history_days)
+    
+    dialogs_to_scan = []
+    async for dialog in client.iter_dialogs():
+        if dialog.is_group or dialog.is_channel:
+            dialogs_to_scan.append(dialog.entity)
+    
+    count_saved = 0
+    total_chats = len(dialogs_to_scan)
+    
+    for idx, entity in enumerate(dialogs_to_scan):
+        chat_title = getattr(entity, 'title', 'Unknown')
+        username = getattr(entity, 'username', '')
+        
+        logging.info(f"[{idx+1}/{total_chats}] {chat_title}...")
+        
+        try:
+            async for message in client.iter_messages(entity, offset_date=limit_date, reverse=True):
+                text = message.message or ""
+                
+                if len(text) < 50:
+                    continue
+                
+                if KEYWORDS_REGEX.search(text):
+                    if username:
+                        link = f"https://t.me/{username}/{message.id}"
+                    else:
+                        link = f"https://t.me/c/{entity.id}/{message.id}"
+                    
+                    if await save_message(chat_title, link, text):
+                        count_saved += 1
+        except Exception as e:
+            logging.error(f"❌ {chat_title}: {e}")
+    
+    logging.info(f"✅ Сохранено: {count_saved}")
+
+
+async def run_manual_scan():
+    await init_db()
+    
+    client = TelegramClient('anon_session', int(config.telegram_api_id), config.telegram_api_hash)
+    await client.start()
+    
+    await scan_history(client)
+    
+    await client.disconnect()
+    logging.info("✅ Ручной сбор завершён")
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+    asyncio.run(run_manual_scan())
+
+
+=== ./services/chat_listener.py ===
+import os
+import logging
+import asyncio
+from datetime import datetime, timedelta, timezone
+from telethon import TelegramClient, events
+from sqlalchemy import text
+from sqlalchemy.dialects.sqlite import insert
+from database.base import async_session_maker
+from database.models import Event
+from services.ai_analyzer import analyze_event
+
+logger = logging.getLogger(__name__)
+
+# Полный список чатов из вашего старого скрипта
+CHATS_TO_LISTEN = [
+    '@balichatnews', '@businessmenBali', '@Balibizness', 
+    '@networkers_bali', '@bali_party', '@balifm_afisha', 
+    '@blizkie_eventss',
+    '@balichat', '@balichatdating', '@balichatik', '@balichatnash', 
+    '@networkingbali', '@voprosBali', '@baliRU', '@Peoplebali', 
+    '@bali_360', '@balichatflood', '@balistop', '@baliEast', 
+    '@baliUKR', '@bali_laika', '@balidating', '@plus49',
+    '@artbali', '@bali_tusa', '@eventsbali', '@balievents', 
+    '@baligames', '@truth_in_cinema', '@pvbali',
+    '@balisp', '@balipractice', '@Balidance', '@balisoul', 
+    '@baliyoga', 
+    # Ссылки joinchat обрабатываются отдельно, здесь оставим юзернеймы
+    '@redkinvilla', '@balimassag', '@ArtTherapyBali', 
+    '@tranformationgames', 
+    '@domanabali', '@domanabalichat', '@balichatarenda', 
+    '@balirental', '@VillaUbud', '@bali_house', '@allAbout_Bali', 
+    '@balibike', '@baliauto', '@rentcarbaliopen',
+    '@balifruits', '@balifood', '@balihealth', '@RAWBali',
+    '@balibc', 
+    '@balida21', '@seobali', '@jobsbali', '@balimc', '@BaliManClub',
+    '@indonesia_bali',
+    '@balichat_woman', '@bali_woman', '@baliwomans', '@balibeauty',
+    '@balirussia', '@balipackage', '@balichatmarket', 
+    '@bali_baraholka', '@balisale', '@bali_sharing', 
+    '@Bali_buy_sale', '@designclothing', '@balimoney',
+    '@balichildren', '@roditelibali', 
+    '@balifootball', '@balibasket', '@balisurfer'
+]
+
+# Ссылки, которые нельзя просто так вставить в iter_messages (нужен join)
+# Пока оставим их за скобками или добавим логику вступления, если нужно.
+# Telethon может работать с invite links, но это сложнее.
+
+KEYWORDS = [
+    'бесплатн', 'free', 'свободн', 'донейшн', 'donation', 'донат', 
+    'оплата по сердцу', 'без оплаты', '0 руб', '0$', 'безоплатн', 'дар', 'даром',
+    'pay what you want', 'открытый урок', 'открытая встреча', 'день открытых дверей',
+    'мастер-класс', 'лекция', 'семинар', 'воркшоп', 'практика', 'кинопоказ', 
+    'просмотр', 'игра', 'медитация', 'йога', 'yoga', 'ecstatic', 'dance',
+    'встреча', 'собрание', 'нетворк', 'network', 'speaking club', 'breakfast', 'завтрак',
+    'разговорный клуб', 'языковой обмен', 'language exchange',
+    'приглашаем', 'ждем вас', 'собираемся', 'анонс', 'будет проходить',
+    'состоится', 'приходите', 'залетайте', 'всех желающих'
+]
+
+STOP_WORDS = [
+    'ищу', 'сниму', 'аренда', 'сдам', 
+    'такси', 'обмен валют', 'виза', 'visa',
+    'продам байк', 'продам шлем', 'сдам виллу',
+    'куплю', 'продам', 'iphone', 'macbook'
+]
+
+SCAN_INTERVAL_HOURS = 6
+LOOKBACK_HOURS = 24 # Увеличим глубину сканирования при старте
+
+client = TelegramClient(
+    'server_listener_session', 
+    int(os.getenv("API_ID")), 
+    os.getenv("API_HASH")
+)
+
+async def _process_and_save(chat_title, link, text_content, date):
+    """Единая функция обработки и сохранения события"""
+    if not text_content: return
+    text_lower = text_content.lower()
+    
+    if any(s in text_lower for s in STOP_WORDS): return
+    if not any(k in text_lower for k in KEYWORDS): return
+
+    # Проверка на дубликаты
+    async with async_session_maker() as session:
+        result = await session.execute(
+            text("SELECT 1 FROM events WHERE link = :link"), 
+            {"link": link}
+        )
+        if result.scalar():
+            return
+
+    logger.info(f"🔎 Analysing: {chat_title} | {date}")
+    
+    # AI Анализ (теперь с fallback)
+    ai_result = await analyze_event(text_content)
+    
+    # Сохранение
+    async with async_session_maker() as session:
+        stmt = insert(Event).values(
+            chat_title=chat_title,
+            text=text_content,
+            link=link,
+            category=ai_result.get('category', 'unknown'),
+            summary=ai_result.get('summary', 'Событие'),
+            created_at=date.replace(tzinfo=None)
+        ).on_conflict_do_nothing(index_elements=['link'])
+        
+        await session.execute(stmt)
+        await session.commit()
+    
+    logger.info(f"💾 Saved [{ai_result.get('category')}]: {ai_result.get('summary')}")
+
+@client.on(events.NewMessage)
+async def handle_new_message(event):
+    """Обработчик realtime сообщений (из тех чатов, где мы состоим)"""
+    try:
+        text = event.message.text or ""
+        if not text: return
+
+        chat = await event.get_chat()
+        chat_title = getattr(chat, 'title', str(chat.id))
+        username = getattr(chat, 'username', None)
+        
+        if username:
+            link = f"https://t.me/{username}/{event.message.id}"
+        else:
+            link = f"https://t.me/c/{chat.id}/{event.message.id}"
+
+        msg_date = event.message.date or datetime.now(timezone.utc)
+        await _process_and_save(chat_title, link, text, msg_date)
+    except Exception as e:
+        logger.error(f"Realtime handler error: {e}")
+
+async def scan_recent_messages():
+    """Сканирует историю целевых чатов"""
+    logger.info("🔄 Starting periodic scan...")
+    cutoff_date = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
+    
+    messages_scanned = 0
+    
+    # Сначала пробежимся по списку целевых чатов
+    # Telethon позволяет итерироваться по строкам-юзернеймам
+    for chat_input in CHATS_TO_LISTEN:
+        try:
+            # Убираем лишнее из ссылки, если есть
+            entity = chat_input.replace('https://t.me/', '').replace('@', '')
+            
+            # Получаем объект канала/чата (если мы там не состоим, это может упасть)
+            # Но iter_messages умеет работать с юзернеймами публичных каналов даже без подписки
+            try:
+                chat_entity = await client.get_entity(entity)
+                chat_title = chat_entity.title
+            except Exception:
+                chat_title = entity # Если не удалось получить название
+            
+            logger.info(f"📡 Scanning: {chat_title}")
+
+            async for message in client.iter_messages(entity, offset_date=cutoff_date, reverse=True):
+                messages_scanned += 1
+                text = message.text or ""
+                if not text: continue
+                
+                # Формируем ссылку
+                # Для публичных каналов лучше использовать юзернейм
+                if hasattr(message.chat, 'username') and message.chat.username:
+                    link = f"https://t.me/{message.chat.username}/{message.id}"
+                else:
+                    link = f"https://t.me/c/{message.chat_id}/{message.id}"
+                
+                await _process_and_save(chat_title, link, text, message.date)
+            
+            # Пауза, чтобы телеграм не забанил за флуд
+            await asyncio.sleep(2) 
+            
+        except Exception as e:
+            logger.error(f"Error scanning chat {chat_input}: {e}")
+            continue
+            
+    logger.info(f"✅ Scan finished. Scanned {messages_scanned} messages.")
+
+async def scheduler_loop():
+    while True:
+        await scan_recent_messages()
+        logger.info(f"💤 Sleeping for {SCAN_INTERVAL_HOURS} hours...")
+        await asyncio.sleep(SCAN_INTERVAL_HOURS * 3600)
+
+async def start_telethon():
+    logger.info("🚀 Starting Telethon Client...")
+    await client.start()
+    logger.info("✅ Telethon connected!")
+    asyncio.create_task(scheduler_loop())
+
+
+=== ./services/scheduler.py ===
+"""Планировщик задач (только analyzer, БЕЗ collector)"""
+import logging
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.triggers.interval import IntervalTrigger
+from services.analyzer import run_batch_analysis
+from config import config
+from datetime import datetime
+
+scheduler = AsyncIOScheduler(timezone="Asia/Makassar")
+
+async def scheduled_analysis():
+    """Периодический анализ постов (collector работает отдельно)"""
+    logging.info(f"⏰ [{datetime.now()}] Автоанализ...")
+    
+    try:
+        while True:
+            result = await run_batch_analysis()
+            logging.info(f"📊 {result}")
+            if "Нет новых" in result or "📭" in result:
+                break
+    except Exception as e:
+        logging.error(f"❌ Analyzer: {e}")
+
+async def setup_scheduler():
+    """Настройка планировщика (ТОЛЬКО analyzer)"""
+    scheduler.add_job(
+        scheduled_analysis,
+        trigger=IntervalTrigger(hours=config.scan_interval_hours),
+        id="auto_analyze",
+        replace_existing=True
+    )
+    
+    scheduler.start()
+    logging.info(f"📅 Планировщик: каждые {config.scan_interval_hours}ч")
+
+
+=== ./services/ai_analyzer.py ===
+import google.generativeai as genai
+import os
+import json
+import logging
+from dotenv import load_dotenv
+
+load_dotenv()
+
+logger = logging.getLogger(__name__)
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
+async def analyze_event(text: str) -> dict:
+    """
+    Анализирует текст объявления через Gemini.
+    Возвращает dict: {'category': str, 'summary': str}
+    """
+    # Попробуем использовать стабильную версию flash или pro
+    # Если flash не работает, можно попробовать 'gemini-pro'
+    model_name = 'gemini-1.5-flash' 
+    
+    try:
+        model = genai.GenerativeModel(model_name)
+        
+        prompt = f"""
+        Проанализируй текст афиши/объявления.
+        
+        Задача:
+        1. Определи категорию (поле "category"):
+           - "free": если бесплатно, донейшн (donation), оплата по сердцу, вход свободный, даром.
+           - "paid": если указана цена, стоимость билета, платный вход.
+           - "unknown": если неясно.
+        2. Напиши краткий заголовок (поле "summary"):
+           - До 60 символов.
+           - Суть мероприятия (например: "Йога в Убуде", "Бизнес-завтрак").
+           - Без эмодзи в начале.
+
+        Текст объявления:
+        {text[:2000]}
+        
+        Ответ верни СТРОГО в формате JSON без markdown-оберток.
+        Пример: {{"category": "free", "summary": "Открытый микрофон"}}
+        """
+        
+        response = await model.generate_content_async(prompt)
+        
+        # Очистка от возможных ```json ... ```
+        clean_text = response.text.strip().replace('```json', '').replace('```', '')
+        return json.loads(clean_text)
+        
+    except Exception as e:
+        logger.error(f"AI Analysis Error with {model_name}: {e}")
+        
+        # Fallback: Если AI не сработал, пробуем простую эвристику
+        text_lower = text.lower()
+        category = "unknown"
+        if any(w in text_lower for w in ['бесплатно', 'free', 'донейшн', 'donation', 'вход свободный', '0 руб']):
+            category = "free"
+        elif any(w in text_lower for w in ['цена', 'price', 'idr', 'rub', 'руб', 'стоимость', 'билет']):
+            category = "paid"
+            
+        # Генерируем простое саммари из первой строки
+        summary = text.split('\n')[0][:50]
+        if len(summary) < 5: # Если первая строка слишком короткая, берем начало текста
+             summary = text[:50]
+             
+        return {"category": category, "summary": summary}
+
+
+=== ./collector.py ===
+import re
+import asyncio
+import logging
+from datetime import datetime, timedelta, timezone
+from telethon import TelegramClient, events
+from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
+from config import config
+from database.models import AsyncSessionMaker, ScrapedEvent, init_db, compute_text_hash
+from services.analyzer import run_batch_analysis, cleanup_old_events
+
+KEYWORDS_REGEX = re.compile(
+    r"(бесплатн|free entry|free|donation|донейшн|вход свободн|"
+    r"нетворкинг|networking|конференц|бизнес.?завтрак|бизнес.?встреча|"
+    r"вечеринк|party|dj|концерт|"
+    r"розыгрыш|giveaway|конкурс|"
+    r"мастер.?класс|воркшоп|workshop|"
+    r"meetup|митап|встреча|"
+    r"пробн\w+\s+занят|бесплатн\w+\s+(урок|занят|консультац)|"
+    r"открыт\w+\s+(урок|занят|лекц)|"
+    r"приглаша\w+|регистрац|записаться|"
+    r"каждый\s+(понедельник|вторник|сред[у|ы]|четверг|пятниц|суббот|воскресень)|"
+    r"открытый\s+микрофон|stand\s*up|стендап|"
+    r"сальса|бачата|кизомба|танц|"
+    r"english\s+club|разговорный\s+клуб)",
+    re.IGNORECASE
+)
+
+
+async def save_message(chat_title: str, link: str, text: str) -> bool:
+    text_hash = compute_text_hash(text)
+    
+    async with AsyncSessionMaker() as session:
+        exists = await session.scalar(
+            select(ScrapedEvent).where(ScrapedEvent.text_hash == text_hash)
+        )
+        if exists:
+            return False
+        
+        try:
+            new_event = ScrapedEvent(
+                chat_title=chat_title,
+                link=link,
+                raw_text=text,
+                text_hash=text_hash,
+                status="pending"
+            )
+            session.add(new_event)
+            await session.commit()
+            return True
+        except IntegrityError:
+            await session.rollback()
+            return False
+
+
+async def scan_history(client: TelegramClient):
+    logging.info(f"🔄 Сбор истории за {config.history_days} дней...")
+    
+    limit_date = datetime.now(timezone.utc) - timedelta(days=config.history_days)
+    
+    dialogs_to_scan = []
+    async for dialog in client.iter_dialogs():
+        if dialog.is_group or dialog.is_channel:
+            dialogs_to_scan.append(dialog.entity)
+    
+    count_saved = 0
+    total_chats = len(dialogs_to_scan)
+    
+    for idx, entity in enumerate(dialogs_to_scan):
+        chat_title = getattr(entity, 'title', 'Unknown')
+        username = getattr(entity, 'username', '')
+        
+        logging.info(f"[{idx+1}/{total_chats}] {chat_title}...")
+        
+        try:
+            async for message in client.iter_messages(entity, offset_date=limit_date, reverse=True):
+                text = message.message or ""
+                
+                if len(text) < 50:
+                    continue
+                
+                if KEYWORDS_REGEX.search(text):
+                    if username:
+                        link = f"https://t.me/{username}/{message.id}"
+                    else:
+                        link = f"https://t.me/c/{entity.id}/{message.id}"
+                    
+                    if await save_message(chat_title, link, text):
+                        count_saved += 1
+        except Exception as e:
+            logging.error(f"❌ {chat_title}: {e}")
+    
+    logging.info(f"✅ Сохранено: {count_saved}")
+
+
+async def periodic_analysis():
+    """Анализ каждые 6 часов"""
+    while True:
+        await asyncio.sleep(config.scan_interval_hours * 3600)
+        logging.info("⏰ Запуск периодического анализа...")
+        await cleanup_old_events()
+        result = await run_batch_analysis()
+        logging.info(f"📊 {result}")
+
+
+async def start_collector():
+    await init_db()
+    
+    client = TelegramClient('anon_session', int(config.telegram_api_id), config.telegram_api_hash)
+    await client.start()
+    
+    # Первичный сбор
+    await scan_history(client)
+    
+    # Первичный анализ
+    logging.info("🧠 Первичный анализ...")
+    result = await run_batch_analysis()
+    logging.info(f"📊 {result}")
+    
+    # Real-time мониторинг
+    dialogs_to_monitor = []
+    async for dialog in client.iter_dialogs():
+        if dialog.is_group or dialog.is_channel:
+            dialogs_to_monitor.append(dialog.entity)
+    
+    logging.info(f"📡 Real-time мониторинг {len(dialogs_to_monitor)} чатов...")
+    
+    @client.on(events.NewMessage(chats=dialogs_to_monitor))
+    async def handler(event):
+        text = event.message.message or ""
+        
+        if len(text) < 50:
+            return
+        
+        if KEYWORDS_REGEX.search(text):
+            chat = await event.get_chat()
+            chat_title = getattr(chat, 'title', 'Unknown')
+            username = getattr(chat, 'username', '')
+            
+            if username:
+                link = f"https://t.me/{username}/{event.message.id}"
+            else:
+                link = f"https://t.me/c/{chat.id}/{event.message.id}"
+            
+            if await save_message(chat_title, link, text):
+                logging.info(f"📥 Live: {chat_title[:30]}")
+    
+    # Запуск периодического анализа в фоне
+    asyncio.create_task(periodic_analysis())
+    
+    await client.run_until_disconnected()
+
+
+async def run_manual_scan():
+    await init_db()
+    
+    client = TelegramClient('anon_session', int(config.telegram_api_id), config.telegram_api_hash)
+    await client.start()
+    
+    await scan_history(client)
+    
+    await client.disconnect()
+    logging.info("✅ Ручной сбор завершён")
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+    asyncio.run(start_collector())
+
+
+=== ./fix_duplicates.py ===
+"""Скрипт удаления дублей из БД"""
+import asyncio
+from sqlalchemy import select, delete
+from database.models import AsyncSessionMaker, ScrapedEvent, init_db
+
+async def remove_duplicates():
+    await init_db()
+    
+    async with AsyncSessionMaker() as session:
+        # Находим дубли по link
+        query = select(ScrapedEvent.link, ScrapedEvent.id).order_by(
+            ScrapedEvent.link, ScrapedEvent.created_at
+        )
+        result = await session.execute(query)
+        all_events = result.all()
+        
+        seen_links = {}
+        ids_to_delete = []
+        
+        for link, event_id in all_events:
+            if link in seen_links:
+                # Это дубль — удаляем
+                ids_to_delete.append(event_id)
+            else:
+                seen_links[link] = event_id
+        
+        if ids_to_delete:
+            await session.execute(
+                delete(ScrapedEvent).where(ScrapedEvent.id.in_(ids_to_delete))
+            )
+            await session.commit()
+            print(f"✅ Удалено дублей: {len(ids_to_delete)}")
+        else:
+            print("✅ Дублей не найдено")
+
+asyncio.run(remove_duplicates())
+
+
+=== ./bot.py ===
+import asyncio
+import logging
+from aiogram_dialog import setup_dialogs
+
+from loader import bot, dp
+from database.models import init_db
+from handlers import get_main_router
+from middlewares import DbSessionMiddleware
+from services.scheduler import setup_scheduler
+from dialogs.feed_menu import feed_dialog
+
+
+async def main():
+    logging.info("🤖 Запуск бота...")
+    
+    await init_db()
+    
+    # Middleware
+    dp.update.middleware(DbSessionMiddleware())
+    
+    # Routers
+    dp.include_router(get_main_router())
+    dp.include_router(feed_dialog)
+    setup_dialogs(dp)
+    
+    await setup_scheduler()
+    
+    logging.info("✅ Бот запущен!")
+    await dp.start_polling(bot)
+
+
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        logging.info("🛑 Бот остановлен")
+
+
+=== ./reanalyze_all.py ===
+"""Переанализировать все события"""
+import asyncio
+from sqlalchemy import update
+from database.models import AsyncSessionMaker, ScrapedEvent, init_db
+
+async def reset_status():
+    await init_db()
+    
+    async with AsyncSessionMaker() as session:
+        # Сбрасываем статус на pending (кроме спама)
+        await session.execute(
+            update(ScrapedEvent)
+            .where(ScrapedEvent.category != "Spam")
+            .values(status="pending", category=None, summary=None)
+        )
+        await session.commit()
+        print("✅ Статус сброшен. Запусти /digest в боте для повторного анализа")
+
+asyncio.run(reset_status())
+
+
+=== ./middlewares/db.py ===
+from typing import Any, Awaitable, Callable
+from aiogram import BaseMiddleware
+from aiogram.types import TelegramObject
+from database.models import AsyncSessionMaker
+
+
+class DbSessionMiddleware(BaseMiddleware):
+    """Инъекция DB-сессии в каждый хендлер"""
+    
+    async def __call__(
+        self,
+        handler: Callable[[TelegramObject, dict[str, Any]], Awaitable[Any]],
+        event: TelegramObject,
+        data: dict[str, Any],
+    ) -> Any:
+        async with AsyncSessionMaker() as session:
+            data["session"] = session
+            return await handler(event, data)
+
+
+=== ./middlewares/__init__.py ===
+from .db import DbSessionMiddleware
+
+__all__ = ["DbSessionMiddleware"]
+
+
+=== ./migrate_hash.py ===
+import sqlite3
+import hashlib
+
+def compute_hash(text):
+    if not text:
+        return None
+    normalized = text.lower().strip()[:500]
+    return hashlib.sha256(normalized.encode()).hexdigest()
+
+conn = sqlite3.connect('events.db')
+cursor = conn.cursor()
+
+cursor.execute("SELECT id, raw_text FROM scraped_events WHERE text_hash IS NULL")
+rows = cursor.fetchall()
+
+print(f"Обновляю {len(rows)} записей...")
+
+updated = 0
+skipped = 0
+
+for row_id, raw_text in rows:
+    text_hash = compute_hash(raw_text)
+    try:
+        cursor.execute("UPDATE scraped_events SET text_hash = ? WHERE id = ?", (text_hash, row_id))
+        updated += 1
+    except sqlite3.IntegrityError:
+        # Дубль - удаляем эту запись
+        cursor.execute("DELETE FROM scraped_events WHERE id = ?", (row_id,))
+        skipped += 1
+
+conn.commit()
+conn.close()
+print(f"✅ Обновлено: {updated}, удалено дублей: {skipped}")
+
+
+=== ./filters/admin.py ===
+from aiogram.filters import Filter
+from aiogram.types import Message
+from config import config
+
+
+class IsAdmin(Filter):
+    async def __call__(self, message: Message) -> bool:
+        return message.from_user.id == config.admin_id
+
+
+=== ./filters/__init__.py ===
+from .admin import IsAdmin
+
+__all__ = ["IsAdmin"]
+
+
+=== ./check_models.py ===
+import os
+from dotenv import load_dotenv, find_dotenv
+import google.generativeai as genai
+
+def main():
+    # 1. Явный поиск и загрузка .env
+    env_path = find_dotenv()
+    print(f"📂 Путь к файлу .env: {env_path if env_path else 'НЕ НАЙДЕН'}")
+
+    if not env_path:
+        print("❌ Ошибка: Файл .env не найден в текущей директории.")
+        return
+
+    # override=True заставит перезаписать переменные
+    loaded = load_dotenv(env_path, override=True)
+    print(f"🔄 Результат загрузки переменных: {loaded}")
+
+    # 2. Проверка ключа
+    api_key = os.getenv("GOOGLE_API_KEY")
+    
+    if not api_key:
+        print("❌ Ошибка: Переменная GOOGLE_API_KEY пустая или отсутствует.")
+        return
+
+    print(f"✅ Ключ найден: {api_key[:6]}...******")
+
+    # 3. Запрос к API
+    genai.configure(api_key=api_key)
+    
+    print("\n📡 Запрашиваю список доступных моделей...")
+    try:
+        found = False
+        for m in genai.list_models():
+            if 'generateContent' in m.supported_generation_methods:
+                print(f"🔹 Модель доступна: {m.name}")
+                found = True
+        
+        if not found:
+            print("⚠️ Модели не найдены. Проверьте права ключа.")
+            
+    except Exception as e:
+        print(f"\n❌ Ошибка API запроса: {e}")
+
+if __name__ == "__main__":
+    main()
+
+
+=== ./scan_last_2_days.py ===
+import sqlite3
+import datetime
+import time
+import random
+from telethon.sync import TelegramClient
+from telethon.errors import FloodWaitError
+
+API_ID = 34319203
+API_HASH = 'cc70b0e3398f4284cb134631ab9c4890'
+SESSION_NAME = 'server_listener'
+
+# Полный список чатов (93 шт)
+CHATS_TO_LISTEN = [
+    '@balichatmarket', '@balichat', '@balichatsurfing', '@balichatexchange', '@jobsbali',
+    '@balichatservices', '@balichatkid', '@blizkie_bali', '@balichatnash', '@balichat_woman',
+    '@balichatarenda', '@baliEast', '@balibeauty', '@voprosBali', '@balisale',
+    '@networking_bali', '@balibike', '@balidating', '@balidances', '@balichatdating',
+    '@bali_baraholka', '@bali_woman', '@balisurfer', '@balihealth', '@balichatpets',
+    '@tantra_blizkie_bali', '@bali_afishaa', '@balichatnews', '@eventsbali', '@balibc',
+    '@balichatfit', '@baliktoletit', '@balipackage', '@balifm_afisha', '@baliwomens',
+    '@balichatflood', '@networkingbali', '@balifm_media', '@bali_party', '@balichat_photovideo',
+    '@pvbali', '@baliyoga', '@bali_visa', '@balida21', '@Bali_buy_sale',
+    '@baliexchanges', '@buildbali', '@balirental', '@networkers_bali', '@bali_sharing',
+    '@businessmenBali', '@balimassag', '@balichildren', '@blizkie_eventss', '@baliontheway',
+    '@redkinvilla', '@designclothing', '@investbali', '@baligames', '@balisp',
+    '@balifruits', '@toursbali', '@seobali', '@balimoney', '@baliauto',
+    '@baliservice', '@balifood', '@balimc', '@balistop', '@Balibizness',
+    '@AI_baliafisha', '@bali_apteka', '@otdam_bali', '@kundalini_bali', '@balibasket',
+    '@Bali_House', '@peoplebali', '@honey_villas_indonesia', '@amanitaBali', '@yoganabali',
+    '@moneyclubbali', '@baliru', '@bali_znakomstva', '@weetsu_group_bali', '@Quest_Bali',
+    '@balirussia', '@BaliManClub', '@baliwomans', '@tranformationgames', '@Balidance',
+    '@baliUKR', '@eventmaker_bali', '@balisoul',
+]
+
+KEYWORDS = [
+    'бесплатн', 'free', 'свободн', 'донейшн', 'donation', 'донат', 
+    'оплата по сердцу', 'без оплаты', '0 руб', '0$', 'в подарок', 'gift',
+    'пробное', 'пробн', 'первая консультация', 'первая тренировка', 'бесплатная консультация',
+    'мастер-класс', 'лекция', 'семинар', 'воркшоп', 'workshop', 'практика', 
+    'медитация', 'йога', 'yoga', 'ecstatic', 'dance', 'танц', 'тренер', 'тренировка',
+    'консультация', 'диетолог', 'нутрициолог', 'коуч', 'психолог',
+    'балерина', 'ballet', 'stretch', 'фитнес', 'спорт',
+    'встреча', 'нетворк', 'network', 'завтрак', 'breakfast',
+    'вечеринка', 'party', 'концерт', 'dj', 'live', 'выступление', 'клуб', 'bar',
+    'stol', 'стол', 'девушки', 'ladies night', 'free drinks', 'алкогол',
+    'ретрит', 'retreat', 'тур', 'tour', 'экскурсия',
+    'тренинг', 'курс', 'course', 'обучение',
+    'приглашаем', 'ждем', 'анонс', 'состоится', 'приходите', 'регистрация'
+]
+
+STOP_WORDS = [
+    'ищу комнату', 'сниму', 'сдам виллу', 'аренда квартиры',
+    'куплю iphone', 'продам macbook'
+]
+
+DB_PATH = 'events.db'
+
+def main():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS scraped_events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            chat_title TEXT,
+            link TEXT UNIQUE,
+            raw_text TEXT,
+            status TEXT DEFAULT 'pending',
+            category TEXT,
+            summary TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    conn.commit()
+    
+    # Сканируем за 48 часов, чтобы наверняка забрать пропущенное
+    cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=2)
+    print(f"⏳ Безопасное сканирование (48ч) с {cutoff.strftime('%Y-%m-%d %H:%M')} (UTC)")
+    print(f"🐌 Режим: Медленный и аккуратный (паузы 5-10 сек)")
+
+    with TelegramClient(SESSION_NAME, API_ID, API_HASH) as client:
+        total_added = 0
+        total_chats = len(CHATS_TO_LISTEN)
+        
+        for idx, chat_link in enumerate(CHATS_TO_LISTEN, 1):
+            try:
+                # === БЕЗОПАСНАЯ ЗАДЕРЖКА ===
+                sleep_time = random.randint(5, 10)
+                print(f"💤 [{idx}/{total_chats}] Жду {sleep_time} сек перед {chat_link}...")
+                time.sleep(sleep_time)
+                # ===========================
+
+                chat_input = chat_link.replace('@', '')
+                
+                messages = []
+                try:
+                    limit_check = 0
+                    for m in client.iter_messages(chat_input, offset_date=cutoff, reverse=True):
+                        messages.append(m)
+                        limit_check += 1
+                        if limit_check > 50: break 
+                except FloodWaitError as e:
+                    print(f"⏳ {chat_link}: Флуд-контроль {e.seconds} сек. ПРОПУСКАЮ.")
+                    continue
+                except Exception as e:
+                    print(f"⚠️ {chat_link}: Недоступен ({e})")
+                    continue
+
+                count = 0
+                for msg in messages:
+                    full_text = msg.text if msg.text else ""
+                    if not full_text or len(full_text) < 15: 
+                        continue
+                    
+                    text_lower = full_text.lower()
+                    
+                    if any(s in text_lower for s in STOP_WORDS): continue
+                    if not any(k in text_lower for k in KEYWORDS): continue
+                    
+                    try:
+                        chat_title = msg.chat.title if hasattr(msg.chat, 'title') else chat_link
+                        username = getattr(msg.chat, 'username', None)
+                        link = f"https://t.me/{username}/{msg.id}" if username else f"{chat_link}/{msg.id}"
+                    except:
+                        chat_title = chat_link
+                        link = f"{chat_link}/{msg.id}"
+
+                    cursor.execute("SELECT id FROM scraped_events WHERE link = ?", (link,))
+                    if cursor.fetchone(): continue 
+
+                    cursor.execute(
+                        "INSERT INTO scraped_events (chat_title, link, raw_text, status) VALUES (?, ?, ?, ?)",
+                        (chat_title, link, full_text, 'pending')
+                    )
+                    count += 1
+                    total_added += 1
+
+                if count > 0:
+                    conn.commit()
+                    print(f"   ✅ Найдено: {count}")
+                else:
+                    print(f"   ⚪️ Пусто")
+
+            except Exception as e:
+                print(f"❌ Ошибка на {chat_link}: {e}")
+
+    conn.close()
+    print(f"\n🏁 Сканирование завершено. Добавлено: {total_added}")
+
+if __name__ == "__main__":
+    main()
+
+
+=== ./data/categories.py ===
+"""Категории событий"""
+from enum import Enum
+
+
+class EventCategory(str, Enum):
+    FREE = "Free"
+    PAID = "Paid"
+    NETWORKING = "Networking"
+    PARTY = "Party"
+    CONTEST = "Contest"  # ← Новая категория
+    SPAM = "Spam"
+    UNKNOWN = "Unknown"
+
+
+# Маппинг для отображения
+CATEGORY_ICONS = {
+    EventCategory.FREE: "🆓",
+    EventCategory.PAID: "💰",
+    EventCategory.NETWORKING: "🤝",
+    EventCategory.PARTY: "🎉",
+    EventCategory.CONTEST: "🏆",  # ← Иконка для конкурсов
+    EventCategory.SPAM: "🚫",
+    EventCategory.UNKNOWN: "❓"
+}
+
+
+=== ./data/__init__.py ===
+
+
+=== ./migrate_add_hash.py ===
+import asyncio
+import logging
+from database.models import AsyncSessionMaker, ScrapedEvent, init_db, compute_text_hash
+from sqlalchemy import select
+
+logging.basicConfig(level=logging.INFO)
+
+async def migrate():
+    await init_db()
+    
+    async with AsyncSessionMaker() as session:
+        result = await session.execute(select(ScrapedEvent).where(ScrapedEvent.text_hash == None))
+        events = result.scalars().all()
+        
+        logging.info(f"Обновляю {len(events)} записей...")
+        
+        for event in events:
+            event.text_hash = compute_text_hash(event.raw_text)
+        
+        await session.commit()
+        logging.info("✅ Миграция OK")
+
+if __name__ == "__main__":
+    asyncio.run(migrate())
+
+
+=== ./run_scan.py ===
+import asyncio
+import logging
+from services.collector import run_manual_scan
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+if __name__ == "__main__":
+    asyncio.run(run_manual_scan())
+
+
+=== ./dialogs/events_menu.py ===
+from aiogram_dialog import Dialog, Window, DialogManager
+from aiogram_dialog.widgets.kbd import Button, Row, ScrollingGroup, Select, Back
+from aiogram_dialog.widgets.text import Const, Format
+from aiogram.fsm.state import State, StatesGroup
+from sqlalchemy import select
+from database.base import async_session_maker
+from database.models import Event
+
+class EventsSG(StatesGroup):
+    menu = State()
+    list = State()
+
+async def get_events(dialog_manager: DialogManager, **kwargs):
+    flt = dialog_manager.dialog_data.get("filter", "all")
+    async with async_session_maker() as session:
+        query = select(Event).order_by(Event.created_at.desc()).limit(50)
+        if flt != "all": query = query.where(Event.category == flt)
+        result = await session.execute(query)
+        events = result.scalars().all()
+    return {"events": events, "filter_name": "БЕСПЛАТНЫЕ" if flt == "free" else "ПЛАТНЫЕ" if flt == "paid" else "ВСЕ"}
+
+async def set_filter(c, w, m, item_id):
+    m.dialog_data["filter"] = item_id
+    await m.switch_to(EventsSG.list)
+
+async def on_event_click(c, w, m, item_id):
+    async with async_session_maker() as s:
+        ev = await s.get(Event, int(item_id))
+        if ev: await c.message.answer(f"📅 <b>{ev.summary}</b>\n\n{ev.text[:300]}...\n\n🔗 <a href='{ev.link}'>Ссылка</a>", parse_mode="HTML")
+
+main_window = Window(
+    Const("📅 <b>Афиша</b>\nЧто показать?"),
+    Row(Button(Const("🆓 Бесплатные"), id="f_free", on_click=lambda c,b,m: set_filter(c,b,m, "free")),
+        Button(Const("💰 Платные"), id="f_paid", on_click=lambda c,b,m: set_filter(c,b,m, "paid"))),
+    Button(Const("🌐 Все"), id="f_all", on_click=lambda c,b,m: set_filter(c,b,m, "all")),
+    state=EventsSG.menu
+)
+list_window = Window(
+    Format("Список: <b>{filter_name}</b>"),
+    ScrollingGroup(
+        Select(Format("{item.summary}"), id="sel", item_id_getter=lambda x: x.id, items="events", on_click=on_event_click),
+        id="scrl", width=1, height=6, hide_on_single_page=True
+    ),
+    Back(Const("🔙 Назад")),
+    state=EventsSG.list, getter=get_events
+)
+dialog = Dialog(main_window, list_window)
+
+
+=== ./dialogs/feed_menu.py ===
+"""Диалог для просмотра афиши с пагинацией"""
+from typing import Any
+from aiogram.types import CallbackQuery
+from aiogram_dialog import Dialog, Window, DialogManager
+from aiogram_dialog.widgets.text import Const, Format
+from aiogram_dialog.widgets.kbd import Button, Row, StubScroll, NumberedPager
+from sqlalchemy import select, desc, func
+
+from database.models import AsyncSessionMaker, ScrapedEvent
+from data.categories import EventCategory, CATEGORY_ICONS
+from dialogs.states import FeedMenuStates
+
+EVENTS_PER_PAGE = 5  # Событий на одной странице
+
+
+# --- Getter (данные для окон) ---
+
+async def get_main_menu_data(**kwargs):
+    """Данные для главного меню"""
+    return {
+        "title": "🏝 Выбери категорию:"
+    }
+
+
+async def get_category_events(dialog_manager: DialogManager, **kwargs):
+    """Получить события выбранной категории с пагинацией"""
+    category = dialog_manager.dialog_data.get("selected_category")
+    
+    # Получаем текущую страницу
+    page = await dialog_manager.find("events_pages").get_page()
+    
+    async with AsyncSessionMaker() as session:
+        # Всего событий в категории
+        total_count = await session.scalar(
+            select(func.count(ScrapedEvent.id)).where(
+                ScrapedEvent.status == "processed",
+                ScrapedEvent.category == category
+            )
+        )
+        
+        # События для текущей страницы
+        query = select(ScrapedEvent).where(
+            ScrapedEvent.status == "processed",
+            ScrapedEvent.category == category
+        ).order_by(desc(ScrapedEvent.created_at)).limit(EVENTS_PER_PAGE).offset(page * EVENTS_PER_PAGE)
+        
+        result = await session.execute(query)
+        events = result.scalars().all()
+    
+    # Форматируем события
+    if not events:
+        events_text = "📭 Пока ничего нет"
+    else:
+        events_list = []
+        for e in events:
+            events_list.append(
+                f"• {e.summary}\n"
+                f"  <a href='{e.link}'>Подробнее</a>"
+            )
+        events_text = "\n\n".join(events_list)
+    
+    icon = CATEGORY_ICONS.get(EventCategory(category), "❓")
+    
+    # Рассчитываем количество страниц
+    total_pages = (total_count + EVENTS_PER_PAGE - 1) // EVENTS_PER_PAGE
+    
+    return {
+        "category_name": category,
+        "icon": icon,
+        "events": events_text,
+        "page_info": f"Страница {page + 1} из {total_pages}",
+        "total_count": total_count
+    }
+
+
+# --- Handlers (обработчики кнопок) ---
+
+async def on_category_selected(
+    callback: CallbackQuery,
+    button: Button,
+    manager: DialogManager
+):
+    """Обработчик выбора категории"""
+    manager.dialog_data["selected_category"] = button.widget_id
+    await manager.switch_to(FeedMenuStates.category)
+
+
+async def on_back_to_menu(
+    callback: CallbackQuery,
+    button: Button,
+    manager: DialogManager
+):
+    """Вернуться в главное меню"""
+    await manager.switch_to(FeedMenuStates.main)
+
+
+# --- Windows (окна диалога) ---
+
+main_menu_window = Window(
+    Format("{title}"),
+    Row(
+        Button(
+            Const(f"{CATEGORY_ICONS[EventCategory.FREE]} Бесплатно"),
+            id=EventCategory.FREE.value,
+            on_click=on_category_selected
+        ),
+        Button(
+            Const(f"{CATEGORY_ICONS[EventCategory.PAID]} Платно"),
+            id=EventCategory.PAID.value,
+            on_click=on_category_selected
+        ),
+    ),
+    Row(
+        Button(
+            Const(f"{CATEGORY_ICONS[EventCategory.NETWORKING]} Нетворкинг"),
+            id=EventCategory.NETWORKING.value,
+            on_click=on_category_selected
+        ),
+        Button(
+            Const(f"{CATEGORY_ICONS[EventCategory.PARTY]} Вечеринки"),
+            id=EventCategory.PARTY.value,
+            on_click=on_category_selected
+        ),
+    ),
+    Row(
+        Button(
+            Const(f"{CATEGORY_ICONS[EventCategory.CONTEST]} Конкурсы"),
+            id=EventCategory.CONTEST.value,
+            on_click=on_category_selected
+        ),
+    ),
+    state=FeedMenuStates.main,
+    getter=get_main_menu_data
+)
+
+
+category_window = Window(
+    Format("{icon} <b>{category_name}</b>\n\n{events}\n\n<i>{page_info}</i>"),
+    
+    # Пагинация
+    StubScroll(id="events_pages", pages="total_count"),
+    NumberedPager(
+        scroll="events_pages",
+        when=lambda data, widget, manager: data.get("total_count", 0) > EVENTS_PER_PAGE
+    ),
+    
+    Button(
+        Const("🔙 Назад"),
+        id="back",
+        on_click=on_back_to_menu
+    ),
+    state=FeedMenuStates.category,
+    getter=get_category_events
+)
+
+
+# --- Dialog (собираем диалог) ---
+
+feed_dialog = Dialog(
+    main_menu_window,
+    category_window
+)
+
+
+=== ./dialogs/states.py ===
+"""Состояния для aiogram-dialog"""
+from aiogram.fsm.state import State, StatesGroup
+
+
+class FeedMenuStates(StatesGroup):
+    """Меню афиши"""
+    main = State()       # Главное меню с категориями
+    category = State()   # Просмотр событий категории
+
+
+=== ./dialogs/__init__.py ===
+
+
+=== ./keyboards/inline.py ===
+from aiogram.types import InlineKeyboardMarkup
+from aiogram.utils.keyboard import InlineKeyboardBuilder
+from .callbacks import FeedCallback, MenuCallback
+
+CATEGORY_NAMES = {
+    "Free": "🎉 Бесплатно",
+    "Paid": "💰 Платно",
+    "Networking": "🤝 Нетворкинг",
+    "Party": "🎵 Вечеринки",
+    # "Contest": "🎁 Конкурсы",  <-- Можно тоже убрать, если категория больше не используется
+}
+
+
+def get_main_menu_kb() -> InlineKeyboardMarkup:
+    builder = InlineKeyboardBuilder()
+    builder.button(text="🎉 Бесплатно", callback_data=FeedCallback(category="Free"))
+    builder.button(text="💰 Платно", callback_data=FeedCallback(category="Paid"))
+    builder.button(text="🤝 Нетворкинг", callback_data=FeedCallback(category="Networking"))
+    builder.button(text="🎵 Вечеринки", callback_data=FeedCallback(category="Party"))
+    
+    # --- УДАЛЕНА СТРОКА С КОНКУРСАМИ ---
+    # builder.button(text="🎁 Конкурсы", callback_data=FeedCallback(category="Contest"))
+    
+    builder.button(text="📊 Статистика", callback_data=MenuCallback(action="stats"))
+    builder.button(text="➕ Предложить событие", callback_data=MenuCallback(action="suggest"))
+    
+    # Было: (2, 2, 1, 1, 1) -> Стало: (2, 2, 1, 1)
+    # Пояснение: 
+    # 2 (Free, Paid)
+    # 2 (Networking, Party)
+    # 1 (Статистика)
+    # 1 (Предложить)
+    builder.adjust(2, 2, 1, 1) 
+    
+    return builder.as_markup()
+
+
+def get_feed_kb(category: str, page: int, total_pages: int) -> InlineKeyboardMarkup:
+    builder = InlineKeyboardBuilder()
+    
+    nav_buttons = []
+    if page > 1:
+        nav_buttons.append(("◀️", FeedCallback(category=category, page=page - 1)))
+    if page < total_pages:
+        nav_buttons.append(("▶️", FeedCallback(category=category, page=page + 1)))
+    
+    for text, cb in nav_buttons:
+        builder.button(text=text, callback_data=cb)
+    
+    builder.button(text="🏠 Меню", callback_data=MenuCallback(action="main"))
+    
+    if nav_buttons:
+        builder.adjust(len(nav_buttons), 1)
+    else:
+        builder.adjust(1)
+    
+    return builder.as_markup()
+
+
+=== ./keyboards/callbacks.py ===
+from aiogram.filters.callback_data import CallbackData
+
+
+class FeedCallback(CallbackData, prefix="feed"):
+    category: str
+    page: int = 1
+
+
+class MenuCallback(CallbackData, prefix="menu"):
+    action: str
+
+
+=== ./keyboards/__init__.py ===
+from .callbacks import FeedCallback, MenuCallback
+from .inline import get_main_menu_kb, get_feed_kb
+
+__all__ = ["FeedCallback", "MenuCallback", "get_main_menu_kb", "get_feed_kb"]
+
+
+=== ./join_chats_force.py ===
+from telethon.sync import TelegramClient
+from telethon.tl.functions.channels import JoinChannelRequest
+from telethon.tl.functions.messages import ImportChatInviteRequest
+from telethon.errors import FloodWaitError
+import time
+import random
+import os
+
+API_ID = 34319203
+API_HASH = 'cc70b0e3398f4284cb134631ab9c4890'
+SESSION_NAME = 'server_listener'
+PROGRESS_FILE = 'joined_list.txt'
+
+CHATS = [
+    '@balichatnews', '@businessmenBali', '@Balibizness', 
+    '@networkers_bali', '@bali_party', '@balifm_afisha', 
+    '@blizkie_eventss',
+    '@balichat', '@balichatdating', '@balichatik', '@balichatnash', 
+    '@networkingbali', '@voprosBali', '@baliRU', '@Peoplebali', 
+    '@bali_360', '@balichatflood', '@balistop', '@baliEast', 
+    '@baliUKR', '@bali_laika', '@balidating', '@plus49',
+    '@artbali', '@bali_tusa', '@eventsbali', '@balievents', 
+    '@baligames', '@truth_in_cinema', '@pvbali',
+    '@balisp', '@balipractice', '@Balidance', '@balisoul', 
+    '@baliyoga', 'https://t.me/joinchat/DFnrTxWkiKiqLqUPi0Wd4g',
+    '@redkinvilla', '@balimassag', '@ArtTherapyBali', 
+    '@tranformationgames', 'https://t.me/joinchat/ACQha0XLsqxUzRBUDw_g0A',
+    '@domanabali', '@domanabalichat', '@balichatarenda', 
+    '@balirental', '@VillaUbud', '@bali_house', '@allAbout_Bali', 
+    '@balibike', '@baliauto', '@rentcarbaliopen',
+    '@balifruits', '@balifood', '@balihealth', '@RAWBali',
+    '@balibc', 'https://t.me/joinchat/LGbIw1D5VLfx3ixzddlQ5A', 
+    '@balida21', '@seobali', '@jobsbali', '@balimc', '@BaliManClub',
+    '@indonesia_bali',
+    '@balichat_woman', '@bali_woman', '@baliwomans', '@balibeauty',
+    '@balirussia', '@balipackage', '@balichatmarket', 
+    '@bali_baraholka', '@balisale', '@bali_sharing', 
+    '@Bali_buy_sale', '@designclothing', '@balimoney',
+    '@balichildren', '@roditelibali', 
+    '@balifootball', '@balibasket', '@balisurfer'
+]
+
+def load_processed():
+    if not os.path.exists(PROGRESS_FILE):
+        return set()
+    with open(PROGRESS_FILE, 'r') as f:
+        return set(line.strip() for line in f)
+
+def save_processed(link):
+    with open(PROGRESS_FILE, 'a') as f:
+        f.write(f"{link}\n")
+
+with TelegramClient(SESSION_NAME, API_ID, API_HASH) as client:
+    processed = load_processed()
+    print(f"📂 Загружено {len(processed)} обработанных чатов.")
+    
+    chats_to_process = [c for c in CHATS if c not in processed]
+    print(f"🚀 Осталось обработать: {len(chats_to_process)}")
+    
+    for link in chats_to_process:
+        # По умолчанию большая задержка (если реально вступим)
+        current_delay = random.randint(60, 100)
+        
+        try:
+            print(f"➡️ Пробую: {link}")
+            if 'joinchat' in link or '+' in link:
+                try:
+                    hash_arg = link.split('/')[-1].replace('+', '')
+                    client(ImportChatInviteRequest(hash_arg))
+                    print("   ✅ Успех (Invite)")
+                except FloodWaitError as e:
+                    print(f"   ⏳ FLOOD WAIT: Жду {e.seconds} секунд...")
+                    time.sleep(e.seconds + 5)
+                    try:
+                        client(ImportChatInviteRequest(hash_arg))
+                        print("   ✅ Успех (Invite после паузы)")
+                    except: pass
+                except Exception as e:
+                    if "UserAlreadyParticipant" in str(e):
+                        print("   🆗 Уже там (Быстрый скип)")
+                        current_delay = 2 # БЫСТРЫЙ ПЕРЕХОД
+                    else:
+                        print(f"   ❌ Ошибка Invite: {e}")
+            else:
+                username = link.replace('@', '').replace('https://t.me/', '')
+                try:
+                    client(JoinChannelRequest(username))
+                    print("   ✅ Успех (Join)")
+                except FloodWaitError as e:
+                    print(f"   ⏳ FLOOD WAIT: Жду {e.seconds} секунд...")
+                    time.sleep(e.seconds + 5)
+                    try:
+                        client(JoinChannelRequest(username))
+                        print("   ✅ Успех (Join после паузы)")
+                    except: pass
+                except Exception as e:
+                    if "UserAlreadyParticipant" in str(e):
+                        print("   🆗 Уже там (Быстрый скип)")
+                        current_delay = 2 # БЫСТРЫЙ ПЕРЕХОД
+                    else:
+                        print(f"   ❌ Ошибка Join: {e}")
+
+            save_processed(link)
+            
+            print(f"   💤 Сплю {current_delay} сек...")
+            time.sleep(current_delay)
+
+        except Exception as main_e:
+            print(f"   ⚠️ Общая ошибка: {main_e}")
+
+    print("\n🏁 Готово!")
+
+
+=== ./main.py ===
+import asyncio, logging, os
+from dotenv import load_dotenv
+from aiogram import Bot, Dispatcher
+from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram_dialog import setup_dialogs
+from database.base import init_db
+from handlers.user import router as user_router
+from dialogs.events_menu import dialog
+from services.chat_listener import start_telethon, client as telethon_client
+
+async def main():
+    load_dotenv()
+    logging.basicConfig(level=logging.INFO)
+    await init_db()
+    
+    bot = Bot(token=os.getenv("BOT_TOKEN"))
+    dp = Dispatcher(storage=MemoryStorage())
+    dp.include_router(user_router)
+    dp.include_router(dialog)
+    setup_dialogs(dp)
+    
+    asyncio.create_task(start_telethon())
+    print("✅ Bot started!")
+    
+    try:
+        await dp.start_polling(bot)
+    finally:
+        await telethon_client.disconnect()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+=== ./discover_and_join_chats.py ===
+"""
+Скрипт автоматического поиска и вступления в новые чаты Бали
+Улучшенная версия: больше сообщений, связывание username↔invite, статистика
+"""
+import asyncio
+import random
+import logging
+import re
+from datetime import datetime, timedelta, timezone
+from telethon import TelegramClient
+from telethon.tl.types import Channel, User
+from telethon.tl.functions.messages import ImportChatInviteRequest, CheckChatInviteRequest
+from telethon.tl.functions.channels import JoinChannelRequest
+from telethon.errors import FloodWaitError, ChannelPrivateError, InviteHashExpiredError, InviteHashInvalidError, UserAlreadyParticipantError
+from sqlalchemy import select
+
+from config import config
+from database.models import AsyncSessionMaker, MonitoredChat, init_db
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+SEARCH_KEYWORDS = [
+    "бали", "bali", "баличат", "balichat",
+    "убуд", "ubud", "чангу", "canggu",
+    "семиньяк", "seminyak", "индонезия", "indonesia",
+    "нетворкинг", "networking", "афиша", "events"
+]
+
+INVITE_LINK_REGEX = re.compile(
+    r'(?:https?://)?(?:www\.)?t(?:elegram)?\.(?:me|dog)/(?:\+|joinchat/)([\w-]+)',
+    re.IGNORECASE
+)
+
+# Статистика
+stats = {
+    "found_usernames": 0,
+    "found_invites": 0,
+    "skipped_bots": 0,
+    "skipped_private": 0,
+    "joined_channels": 0,
+    "joined_invites": 0,
+    "errors": 0
+}
+
+
+async def get_existing_chats() -> set:
+    """Получить список уже известных чатов"""
+    async with AsyncSessionMaker() as session:
+        result = await session.execute(select(MonitoredChat.chat_id))
+        return {row[0] for row in result.all()}
+
+
+async def save_chat(chat_id: str, chat_title: str, is_member: bool = False):
+    """Сохранить новый чат в БД"""
+    async with AsyncSessionMaker() as session:
+        exists = await session.scalar(
+            select(MonitoredChat).where(MonitoredChat.chat_id == chat_id)
+        )
+        if not exists:
+            new_chat = MonitoredChat(
+                chat_id=chat_id,
+                chat_title=chat_title,
+                is_member=is_member
+            )
+            session.add(new_chat)
+            await session.commit()
+            logging.info(f"💾 {chat_title}")
+            return True
+        return False
+
+
+async def is_public_channel(client: TelegramClient, username: str) -> tuple:
+    """Проверить, является ли username публичным каналом"""
+    try:
+        entity = await client.get_entity(username)
+        
+        if isinstance(entity, User):
+            stats["skipped_bots"] += 1
+            return False, None, None
+        
+        if not isinstance(entity, Channel):
+            stats["skipped_private"] += 1
+            return False, None, None
+        
+        if entity.username is None:
+            stats["skipped_private"] += 1
+            return False, None, None
+        
+        return True, entity, entity.title
+    
+    except Exception:
+        stats["errors"] += 1
+        return False, None, None
+
+
+async def extract_invite_links(client: TelegramClient, existing_chats: set) -> dict:
+    """Извлечь invite links из сообщений (500 последних) + связать с @username"""
+    logging.info("🔗 Глубокое сканирование на invite links (500 сообщений/чат)...")
+    
+    limit_date = datetime.now(timezone.utc) - timedelta(days=10)
+    discovered = {}  # {invite_hash: {"chat_name": "...", "mentioned_usernames": [...]}}
+    
+    async for dialog in client.iter_dialogs():
+        if not (dialog.is_group or dialog.is_channel):
+            continue
+            
+        try:
+            async for message in client.iter_messages(dialog.entity, limit=500, offset_date=limit_date):
+                if not message.text:
+                    continue
+                
+                text_lower = message.text.lower()
+                
+                # Проверяем наличие ключевых слов Бали
+                if not any(kw in text_lower for kw in SEARCH_KEYWORDS):
+                    continue
+                
+                # Ищем invite links
+                matches = INVITE_LINK_REGEX.findall(message.text)
+                for invite_hash in matches:
+                    if invite_hash not in discovered:
+                        # Ищем упомянутые @username в том же сообщении
+                        mentioned = re.findall(r'@(\w+)', message.text)
+                        mentioned = [u for u in mentioned if not u.endswith('bot')]
+                        
+                        discovered[invite_hash] = {
+                            "chat_name": dialog.name,
+                            "mentioned_usernames": mentioned
+                        }
+                        
+                        mention_info = f" (упомянуты: {', '.join(['@' + u for u in mentioned])})" if mentioned else ""
+                        logging.info(f"   🔗 {invite_hash[:15]}... из {dialog.name}{mention_info}")
+        
+        except Exception:
+            pass
+    
+    return discovered
+
+
+async def discover_chats_from_dialogs(client: TelegramClient, existing_chats: set) -> list:
+    """Найти @username из упоминаний (500 последних сообщений)"""
+    logging.info("🔍 Глубокое сканирование @username (500 сообщений/чат)...")
+    
+    limit_date = datetime.now(timezone.utc) - timedelta(days=10)
+    discovered = []
+    
+    async for dialog in client.iter_dialogs():
+        if not (dialog.is_group or dialog.is_channel):
+            continue
+            
+        try:
+            async for message in client.iter_messages(dialog.entity, limit=500, offset_date=limit_date):
+                if not message.text:
+                    continue
+                
+                words = message.text.split()
+                for word in words:
+                    if word.startswith('@') and len(word) > 2:
+                        username = word[1:].lower().rstrip(',.!?;:')
+                        
+                        # Пропускаем ботов
+                        if username.endswith('bot'):
+                            continue
+                        
+                        if any(kw in username for kw in SEARCH_KEYWORDS):
+                            if username not in existing_chats and username not in discovered:
+                                discovered.append(username)
+                                stats["found_usernames"] += 1
+        
+        except Exception:
+            pass
+    
+    return discovered
+
+
+async def join_channel(client: TelegramClient, username: str) -> tuple:
+    """Вступить ТОЛЬКО в публичный канал"""
+    try:
+        is_public, entity, title = await is_public_channel(client, username)
+        
+        if not is_public:
+            return False, None, None
+        
+        logging.info(f"🔗 @{username}...")
+        
+        try:
+            await client(JoinChannelRequest(entity))
+            logging.info(f"   ✅ Вступил: {title}")
+            stats["joined_channels"] += 1
+            return True, entity.username, title
+        
+        except UserAlreadyParticipantError:
+            logging.info(f"   ℹ️ Уже участник")
+            stats["joined_channels"] += 1
+            return True, entity.username, title
+    
+    except FloodWaitError as e:
+        logging.error(f"   ⏳ FloodWait: {e.seconds} сек")
+        stats["errors"] += 1
+        await asyncio.sleep(e.seconds)
+        return False, None, None
+    
+    except Exception as e:
+        stats["errors"] += 1
+        return False, None, None
+
+
+async def join_by_invite_link(client: TelegramClient, invite_hash: str, meta: dict) -> tuple:
+    """Вступить по invite link"""
+    try:
+        mentioned = meta.get("mentioned_usernames", [])
+        mention_str = f" (@{mentioned[0]} и др.)" if mentioned else ""
+        
+        logging.info(f"🔗 Invite {invite_hash[:15]}...{mention_str}")
+        
+        # Проверяем инфо
+        try:
+            chat_info = await client(CheckChatInviteRequest(hash=invite_hash))
+            chat_title = getattr(chat_info, 'title', 'Unknown')
+        except:
+            chat_title = "Unknown"
+        
+        # Вступаем
+        result = await client(ImportChatInviteRequest(hash=invite_hash))
+        
+        if hasattr(result, 'chats') and result.chats:
+            chat = result.chats[0]
+            chat_id = str(chat.id)
+            chat_title = chat.title
+            
+            logging.info(f"   ✅ Вступил: {chat_title}")
+            stats["joined_invites"] += 1
+            return True, chat_id, chat_title
+        else:
+            stats["joined_invites"] += 1
+            return True, invite_hash, chat_title
+    
+    except FloodWaitError as e:
+        logging.error(f"   ⏳ FloodWait: {e.seconds} сек")
+        stats["errors"] += 1
+        await asyncio.sleep(e.seconds)
+        return False, None, None
+    
+    except UserAlreadyParticipantError:
+        logging.info(f"   ℹ️ Уже участник")
+        stats["joined_invites"] += 1
+        return True, invite_hash, chat_title
+    
+    except (InviteHashExpiredError, InviteHashInvalidError):
+        logging.warning(f"   ⏰ Устарел")
+        stats["errors"] += 1
+        return False, None, None
+    
+    except Exception as e:
+        stats["errors"] += 1
+        return False, None, None
+
+
+async def scan_new_chats(client: TelegramClient):
+    """Повторное сканирование с новыми чатами"""
+    from services.collector import scrape_history
+    
+    logging.info("\n🔄 === ПОВТОРНОЕ СКАНИРОВАНИЕ С НОВЫМИ ЧАТАМИ ===")
+    await scrape_history(client)
+
+
+async def main():
+    logging.info("🚀 === ЗАПУСК АГРЕССИВНОГО СБОРЩИКА ЧАТОВ ===\n")
+    
+    await init_db()
+    
+    client = TelegramClient(
+        'discovery_session',
+        config.telegram_api_id,
+        config.telegram_api_hash
+    )
+    await client.start()
+    
+    existing_chats = await get_existing_chats()
+    logging.info(f"📊 Уже отслеживается: {len(existing_chats)}\n")
+    
+    # === ЭТАП 1: ПОИСК ===
+    discovered_usernames = await discover_chats_from_dialogs(client, existing_chats)
+    discovered_invites = await extract_invite_links(client, existing_chats)
+    
+    stats["found_invites"] = len(discovered_invites)
+    
+    # Фильтруем username на публичность
+    logging.info(f"\n🔍 Проверяю {len(discovered_usernames)} username на публичность...")
+    public_channels = []
+    
+    for username in discovered_usernames:
+        is_public, entity, title = await is_public_channel(client, username)
+        if is_public:
+            public_channels.append(username)
+            logging.info(f"   ✅ @{username}")
+        await asyncio.sleep(0.3)
+    
+    logging.info(f"\n📊 === СТАТИСТИКА ПОИСКА ===")
+    logging.info(f"   Найдено @username: {stats['found_usernames']}")
+    logging.info(f"   Из них публичных: {len(public_channels)}")
+    logging.info(f"   Пропущено (боты/приватные): {stats['skipped_bots'] + stats['skipped_private']}")
+    logging.info(f"   Найдено invite links: {stats['found_invites']}")
+    
+    if not public_channels and not discovered_invites:
+        logging.info("\n✅ Новых чатов не найдено")
+        await client.disconnect()
+        return
+    
+    # === ЭТАП 2: ВСТУПЛЕНИЕ ===
+    total_to_join = len(public_channels) + len(discovered_invites)
+    logging.info(f"\n🤝 === НАЧИНАЮ ВСТУПЛЕНИЕ В {total_to_join} ЧАТОВ ===\n")
+    
+    if public_channels:
+        logging.info(f"📡 Публичные каналы ({len(public_channels)}):\n")
+        
+        for idx, username in enumerate(public_channels, 1):
+            logging.info(f"[{idx}/{len(public_channels)}]")
+            success, chat_id, chat_title = await join_channel(client, username)
+            
+            if success:
+                await save_chat(chat_id, chat_title, is_member=True)
+            
+            if idx < len(public_channels):  # Не ждём после последнего
+                delay = random.randint(60, 90)
+                logging.info(f"⏳ {delay} сек...\n")
+                await asyncio.sleep(delay)
+    
+    if discovered_invites:
+        logging.info(f"\n🔗 Invite links ({len(discovered_invites)}):\n")
+        
+        for idx, (invite_hash, meta) in enumerate(discovered_invites.items(), 1):
+            logging.info(f"[{idx}/{len(discovered_invites)}]")
+            success, chat_id, chat_title = await join_by_invite_link(client, invite_hash, meta)
+            
+            if success:
+                await save_chat(chat_id, chat_title, is_member=True)
+            
+            if idx < len(discovered_invites):
+                delay = random.randint(60, 90)
+                logging.info(f"⏳ {delay} сек...\n")
+                await asyncio.sleep(delay)
+    
+    # === ФИНАЛЬНАЯ СТАТИСТИКА ===
+    total_joined = stats["joined_channels"] + stats["joined_invites"]
+    
+    logging.info("\n" + "="*50)
+    logging.info("📊 === ФИНАЛЬНАЯ СТАТИСТИКА ===")
+    logging.info("="*50)
+    logging.info(f"✅ Вступил в публичные каналы: {stats['joined_channels']}")
+    logging.info(f"✅ Вступил через invite links: {stats['joined_invites']}")
+    logging.info(f"🎯 ВСЕГО ВСТУПИЛ: {total_joined}")
+    logging.info(f"❌ Ошибок/пропусков: {stats['errors']}")
+    logging.info("="*50 + "\n")
+    
+    # === ПОВТОРНОЕ СКАНИРОВАНИЕ ===
+    if total_joined > 0:
+        await scan_new_chats(client)
+    
+    logging.info("\n🎉 === СКРИПТ ЗАВЕРШЁН ===")
+    await client.disconnect()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

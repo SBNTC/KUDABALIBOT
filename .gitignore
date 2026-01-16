@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Sessions
+*.session
+*.session-journal
+
+# Environment
+.env
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# Backups
+*.tar.gz
+*.zip
+*_backup.*
+bot_backup.tar.gz
+
+# Mac
+.DS_Store
+
+# Archives старых версий
+bali_bot_*.tar.gz
+bot_code_*.tar.gz
+full_bot_code_complete.txt

@@ -1,0 +1,148 @@
+[
+  {
+    "name": "Country Textile Canggu",
+    "description": "Ткани, текстиль",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Foxy Activewear",
+    "description": "Спортивная одежда",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3036866",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Foxy Activewear Ubud",
+    "description": "Филиал в Убуде",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Periplus Bookshop",
+    "description": "Книжный магазин",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops"
+  },
+  {
+    "name": "Hedonist store Bali",
+    "description": "Дизайнерские вещи",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops"
+  },
+  {
+    "name": "Bali Hijack Sandals",
+    "description": "Сандалии ручной работы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops"
+  },
+  {
+    "name": "Muka Concepts",
+    "description": "Концепт-стор",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops"
+  },
+  {
+    "name": "Indigo",
+    "description": "Магазин одежды",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops"
+  },
+  {
+    "name": "Jet Black Ginger",
+    "description": "Интерьер, декор",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops",
+    "mentions": [
+      {
+        "link": "https://t.me/balibeauty/47101",
+        "chat": "balibeauty"
+      },
+      {
+        "link": "https://t.me/balibeauty/39703",
+        "chat": "balibeauty"
+      }
+    ]
+  },
+  {
+    "name": "Mimpi Grocery",
+    "description": "Органические продукты",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops"
+  },
+  {
+    "name": "Pepito Market Canggu",
+    "description": "Супермаркет, импортные продукты",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "shops",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  }
+]

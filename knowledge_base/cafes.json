@@ -1,0 +1,590 @@
+[
+  {
+    "name": "The Avocado Factory – Canggu",
+    "description": "Кафе для завтраков в Чангу, специализирующееся на авокадо, предлагает креативные бранч-позиции, смузи-боулы и блюда с авокадо на весь день.",
+    "address": "Jl Batu Mejan, Canggu",
+    "price": "IDR 60,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "KYND – Seminyak, Canggu & Uluwatu",
+    "description": "Популярное в Instagram веганское кафе с красочными завтраками на растительной основе, смузи-боулами и десертами без молока.",
+    "address": "Jl Raya Petitenget No. 12x",
+    "price": "IDR 70,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Ours Bali – Uluwatu",
+    "description": "Стильное кафе на весь день, сочетающее средиземноморские вкусы, качественный кофе и местные сезонные продукты в скандинавском интерьере.",
+    "address": "Jl Labuansait No. 39, Pecatu",
+    "price": "IDR 62,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293149",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Melali Ubud – Ubud",
+    "description": "Непринужденное кафе в районе Убуда, предлагающее полезные завтраки в средиземноморском стиле и атмосферу для цифровых кочевников.",
+    "address": "Jl Sri Wedari No. 58, Tegallantang, Ubud",
+    "price": "IDR 58,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Sensorium Bali",
+    "description": "Инновационный ресторан для бранча, предлагающий современную австралийскую кухню с яркими азиатскими акцентами и интересными текстурами.",
+    "address": "Jl Batu Mejan, Canggu",
+    "price": "IDR 49,000",
+    "verified": true
+  },
+  {
+    "name": "The Shady Shack",
+    "description": "Популярное вегетарианское и веганское кафе, где подают питательные завтраки, смузи-боулы и уютную растительную еду.",
+    "address": "Jl Tanah Barak No. 57, Canggu",
+    "price": "IDR 42,000"
+  },
+  {
+    "name": "Crate Café",
+    "description": "Культовое кафе для бранча в Чангу, известное быстрым обслуживанием, яркими вкусами, доступными завтраками и оживленной атмосферой.",
+    "address": "Jl Canggu Padang Linjong No. 49, Canggu",
+    "price": "IDR 70,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "BAKED.",
+    "description": "Пекарня-кафе, где с раннего утра подают слоеную выпечку, завтраки на закваске и специальный кофе.",
+    "address": "Jl Pantai Pererenan No. 118, Pererenan,Jl Raya Semat Gg. Kupu kupu No. 1, Berawa",
+    "price": "IDR 75,000",
+    "verified": true
+  },
+  {
+    "name": "Hut Bali by Shelter Café",
+    "description": "Тропический уголок в Семиньяке, предлагающий завтраки в средиземноморском стиле в просторном саду.",
+    "address": "Jl Drupadi 1 No. 2b, Seminyak",
+    "price": "IDR 45,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3289767",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Revolver Espresso",
+    "description": "Заведение спешелти кофе, где подают премиальные индонезийские зерна и классические блюда для бранча.",
+    "address": "Jl Kayu Aya Gang 51, Oberoi",
+    "price": "IDR 60,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/41700",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Sisterfields",
+    "description": "Икона бранча в мельбурнском стиле, предлагающая отточенные классические завтраки и неизменно отличный сервис.",
+    "address": "Jl Kayu Cendana No. 7, Seminyak",
+    "price": "IDR 95,000"
+  },
+  {
+    "name": "The Cashew Tree",
+    "description": "Кафе, ориентированное на здоровое питание, с семейной атмосферой недалеко от скал Бингин. Подают органические завтраки и смузи.",
+    "address": "Jl Pantai Bingin No. 9, Pecatu",
+    "price": "IDR 85,000"
+  },
+  {
+    "name": "Artisan",
+    "description": "Кафе, популярное у серферов, предлагающее улучшенные классические завтраки и кофе от мастеров.",
+    "address": "Jl Pantai Labuansait Suluban",
+    "price": "IDR 55,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2971340",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Suka Espresso",
+    "description": "Доступное кафе в Улувату, известное отличным кофе, сытными завтраками и непринужденными блюдами для бранча.",
+    "address": "Jl Labuansait No. 10, Uluwatu",
+    "price": "IDR 60,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2834208",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/2824458",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Pison",
+    "description": "Кафе на рисовых полях, предлагающее азиатско-европейские завтраки, фирменный кофе и живописные виды.",
+    "address": "Jl Hanoman No. 10x, UbudWhatsApp",
+    "price": "IDR 75,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/2339966",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Milk & Madu",
+    "description": "Популярное семейное кафе для поздних завтраков с блюдами на весь день, комфортной едой и пиццей из дровяной печи.",
+    "address": "Jl Suweta No. 3, UbudWhatsApp",
+    "price": "IDR 45,000",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3274577",
+        "chat": "БалиЧат | Балифорум"
+      }
+    ]
+  },
+  {
+    "name": "Alchemy",
+    "description": "Сырое веганское кафе, специализирующееся на питательных завтраках, сырых десертах и полезной пище.",
+    "address": "Jl Penestanan Kelod No. 75, SayanWhatsApp",
+    "price": "IDR 69,000",
+    "mentions": [
+      {
+        "link": "https://t.me/blizkie_eventss/28164",
+        "chat": "Мероприятия для близких н"
+      },
+      {
+        "link": "https://t.me/balidating/444704",
+        "chat": "Знакомства на Бали 🏝 | CH"
+      },
+      {
+        "link": "https://t.me/blizkie_eventss/28147",
+        "chat": "Мероприятия для близких н"
+      }
+    ]
+  },
+  {
+    "name": "Clear Café",
+    "description": "Кафе здорового питания с вегетарианскими и пескетарианскими завтраками, тониками, смузи и сытными боулами.",
+    "address": "Jl Hanoman No. 8, UbudWhatsApp",
+    "price": "IDR 40,000"
+  },
+  {
+    "name": "Genius Cafe",
+    "description": "Прибрежное кафе в Сануре с полезными завтраками, включая веганские, безглютеновые и семейные опции.",
+    "address": "",
+    "price": "IDR 70,000"
+  },
+  {
+    "name": "Sala Bistro",
+    "description": "Любимое местное кафе для бранчей в австралийском стиле, со свежими салатами и фирменным кофе.",
+    "address": "Jl Danau Tamblingan No. 180, SanurWhatsApp",
+    "price": "IDR 55,000"
+  },
+  {
+    "name": "Upcoming Events",
+    "description": "15 декабря 2025 — 10 января 2026. Время сиять.",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Free Bali neighbourhood guide",
+    "description": "Планируете отпуск на Бали? Скачайте наши бесплатные путеводители по самым популярным районам!",
+    "address": "",
+    "price": ""
+  },
+  {
+    "name": "Blacklist Coffee Roasters",
+    "description": "Спешелти кофе, своя обжарка",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "HUGO ESPRESSO",
+    "description": "Качественный эспрессо",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "Revolver Canggu",
+    "description": "Культовая кофейня, скрытая локация",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Bread Basket Bakery - Canggu Bali",
+    "description": "Свежая выпечка, хлеб",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "ZIN Cafe",
+    "description": "Кафе при йога-центре",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "Ettore Gelato Berawa",
+    "description": "Итальянское мороженое",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3288487",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260391",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "SATUSATU COFFEE COMPANY",
+    "description": "Локальный спешелти кофе",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "Butterman",
+    "description": "Кафе, выпечка, сэндвичи",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "Usha cafe&bakery Kerobokan",
+    "description": "Пекарня, здоровые завтраки",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "Cafe Coach",
+    "description": "Кофе, работа с ноутбуком",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "Lusa By/Suka",
+    "description": "От команды Suka Espresso",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293855",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balidating/136971",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "BGS Bali Canggu",
+    "description": "Кофе-бар + сёрф-шоп",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "The Common",
+    "description": "Кофейня, коворкинг вайб",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "MIEL SPECIALTY COFFEE CANGGU",
+    "description": "Спешелти кофе, коворкинг",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "BAKED. Berawa",
+    "description": "Филиал популярной пекарни",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3288487",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichatsurfing/260391",
+        "chat": "balichatsurfing"
+      },
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      }
+    ]
+  },
+  {
+    "name": "Hungry Bird Coffee Roaster",
+    "description": "Своя обжарка, отличный кофе",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "Copenhagen",
+    "description": "Скандинавский стиль, выпечка",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "Crate Cafe",
+    "description": "Популярные завтраки, всегда очередь",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balidating/433047",
+        "chat": "balidating"
+      },
+      {
+        "link": "https://t.me/balichat/3018027",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Rise & Shine Cafe Canggu",
+    "description": "Завтраки, здоровая еда",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Suka Espresso Ubud",
+    "description": "Австралийский кофе в Убуде",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293065",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3292709",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "I Am Vegan Babe",
+    "description": "Веганское кафе, боулы",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "Starbucks Reserve Dewata",
+    "description": "Самый большой Старбакс в мире",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  },
+  {
+    "name": "STARBUCKS CANGGU",
+    "description": "Старбакс с хорошим wifi",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293203",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293199",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293191",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Guna N Buah",
+    "description": "Фрукты, смузи, здоровая еда",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "cafes"
+  }
+]

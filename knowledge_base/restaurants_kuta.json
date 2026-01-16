@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Kuta Social Club",
+    "description": "Рофтоп, морепродукты и гриль. Идеальное место для свидания с коктейлями и видом на закат.",
+    "address": "Mamaka by Ovolo, Jl. Pantai Kuta",
+    "price": "150k++",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293229",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293207",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      }
+    ]
+  },
+  {
+    "name": "Poppies Restaurant",
+    "description": "Международная и индонезийская кухня. Романтический ужин в саду.",
+    "address": "Poppies Lane I, Kuta",
+    "price": "95k++"
+  },
+  {
+    "name": "Made's Warung",
+    "description": "Классическая индонезийская еда. Место с историей, подходит для семейного посещения.",
+    "address": "Jl. Pantai Kuta, Banjar Pande Mas",
+    "price": "60k++"
+  },
+  {
+    "name": "Fat Chow",
+    "description": "Паназиатский фьюжн. Вкусный и недорогой ужин.",
+    "address": "Poppies Lane II No.7C",
+    "price": "85k++"
+  },
+  {
+    "name": "Hard Rock Cafe",
+    "description": "Американская кухня и бургеры. Музыкальная атмосфера для всей семьи.",
+    "address": "Jl. Pantai Kuta",
+    "price": "180k++"
+  },
+  {
+    "name": "Warung Laota",
+    "description": "Гонконгская китайская каша и супы. Отличное место для ужина компанией.",
+    "address": "Jl. Raya Kuta No.530, Tuban",
+    "price": "60k++"
+  }
+]

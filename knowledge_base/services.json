@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Quick Laundry",
+    "description": "Прачечная, быстро",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "services"
+  },
+  {
+    "name": "7 Days Laundry",
+    "description": "Прачечная",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "services"
+  },
+  {
+    "name": "Central Kuta Money Exchange",
+    "description": "Обмен валют, хороший курс",
+    "address": "",
+    "price": "",
+    "verified": true,
+    "category": "services",
+    "mentions": [
+      {
+        "link": "https://t.me/balichat/3293229",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293207",
+        "chat": "balichat"
+      },
+      {
+        "link": "https://t.me/balichat/3293087",
+        "chat": "balichat"
+      }
+    ]
+  }
+]
