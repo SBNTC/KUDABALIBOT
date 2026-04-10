@@ -1,45 +1,54 @@
 import asyncio
 import logging
 from aiogram_dialog import setup_dialogs
+from logging_config import setup_logging
 from loader import bot, dp
-from database.models import init_db
 from handlers import get_main_router
-from middlewares import DbSessionMiddleware
-from services.scheduler import setup_scheduler
-from dialogs.feed_menu import feed_dialog
-
-# Подключаем НАШУ новую админку
+from middlewares import ThrottlingMiddleware
+from services.scheduler import setup_scheduler, scheduler
+from services.telethon_client import close_client
+from dialogs.feed import feed_dialog
 from handlers.admin_panel import admin_router
+from database.session import engine, init_db
 
-async def main():
-    # Настройка логов
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
-    )
+
+async def main() -> None:
+    setup_logging()
     logging.info("🤖 Запуск бота...")
 
     await init_db()
-    
-    # Middleware
-    dp.update.middleware(DbSessionMiddleware())
-    
-    # --- РЕГИСТРАЦИЯ РОУТЕРОВ ---
-    # Важен порядок! Специфичные роутеры (админка) должны быть выше общих.
-    
-    dp.include_router(admin_router)   # 1. Сначала админка
-    dp.include_router(feed_dialog)    # 2. Меню пользователя
-    dp.include_router(get_main_router()) # 3. Основные хендлеры (start и т.д.)
-    
+
+    dp.message.middleware(ThrottlingMiddleware())
+
+    # Порядок важен: специфичные роутеры (админка) выше общих
+    dp.include_router(admin_router)
+    dp.include_router(feed_dialog)
+    dp.include_router(get_main_router())
+
     setup_dialogs(dp)
     await setup_scheduler()
-    
+
     logging.info("✅ Бот запущен!")
     await bot.delete_webhook(drop_pending_updates=True)
-    await dp.start_polling(bot)
+
+    try:
+        await dp.start_polling(bot)
+    finally:
+        logging.info("🛑 Завершение работы...")
+        if scheduler.running:
+            scheduler.shutdown(wait=False)
+        await close_client()
+        await bot.session.close()
+        await engine.dispose()
+        logging.info("✅ Остановлено чисто.")
+
 
 if __name__ == "__main__":
-    try: 
+    try:
+        import uvloop  # type: ignore[import]
+        uvloop.run(main())
+    except ImportError:
+        # uvloop не поддерживается на Windows — используем стандартный loop
         asyncio.run(main())
-    except KeyboardInterrupt: 
+    except KeyboardInterrupt:
         pass

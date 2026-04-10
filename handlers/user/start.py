@@ -5,7 +5,8 @@ from aiogram_dialog import DialogManager, StartMode
 from sqlalchemy import select
 
 from states import FeedMenuStates
-from database.models import AsyncSessionMaker, User
+from database.models import User
+from database.session import AsyncSessionMaker
 
 router = Router()
 

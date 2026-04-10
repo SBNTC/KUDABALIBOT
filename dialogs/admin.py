@@ -11,9 +11,9 @@ from database.requests import (
     get_all_events, get_event_by_id, delete_event_by_id, 
     update_event_category, update_event_date, update_event_summary
 )
-from database.models import AsyncSessionMaker
 from data.categories import EventCategory, CATEGORY_ICONS
 from states import AdminSG
+from database.session import AsyncSessionMaker
 
 # --- Handlers ---
 

@@ -3,8 +3,10 @@ import logging
 from telethon import TelegramClient
 from telethon.errors import MessageIdInvalidError, ChannelPrivateError
 from sqlalchemy import select, delete
-from database.models import AsyncSessionMaker, ScrapedEvent
+from database.models import ScrapedEvent
+from data.statuses import EventStatus
 from config import config
+from database.session import AsyncSessionMaker
 
 
 async def check_dead_links():
@@ -16,7 +18,7 @@ async def check_dead_links():
     
     async with AsyncSessionMaker() as session:
         result = await session.execute(
-            select(ScrapedEvent).where(ScrapedEvent.status == "processed")
+            select(ScrapedEvent).where(ScrapedEvent.status == EventStatus.APPROVED)
         )
         events = result.scalars().all()
         

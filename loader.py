@@ -7,12 +7,6 @@ from aiogram.enums import ParseMode
 
 from config import config
 
-# Настройка логирования
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-
 # Инициализация бота
 bot = Bot(
     token=config.bot_token.get_secret_value(),

@@ -8,18 +8,21 @@ Collector: сканирование Telegram-чатов.
 import asyncio
 import logging
 from datetime import datetime, timedelta, timezone
-from telethon import TelegramClient, events
+from telethon import events, TelegramClient
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 
 from config import config
+from data.statuses import EventStatus
+from services.telethon_client import get_client
 from config.chats import (
     CHATS_TO_LISTEN,
     KEYWORDS_REGEX,
-    STOP_WORDS,
+    STOP_RE,
     MIN_TEXT_LENGTH,
 )
-from database.models import AsyncSessionMaker, ScrapedEvent, compute_text_hash, init_db
+from database.models import ScrapedEvent, compute_text_hash
+from database.session import AsyncSessionMaker, init_db
 
 
 logger = logging.getLogger(__name__)
@@ -29,14 +32,9 @@ def _passes_filters(text: str) -> bool:
     """Мусор/нерелевантное отсекаем ДО keywords."""
     if not text or len(text) < MIN_TEXT_LENGTH:
         return False
-    text_lower = text.lower()
-    # Стоп-слова — проверяем первыми
-    if any(stop in text_lower for stop in STOP_WORDS):
+    if STOP_RE.search(text):
         return False
-    # Ключевые слова
-    if not KEYWORDS_REGEX.search(text):
-        return False
-    return True
+    return bool(KEYWORDS_REGEX.search(text))
 
 
 async def save_message(
@@ -61,7 +59,7 @@ async def save_message(
                 link=link,
                 raw_text=text,
                 text_hash=text_hash,
-                status="pending",
+                status=EventStatus.PENDING,
                 created_at=msg_date or datetime.now(timezone.utc),
             )
             session.add(new_event)
@@ -144,27 +142,22 @@ async def scan_target_chats(client: TelegramClient) -> int:
 
 
 async def scheduled_chat_scan() -> int:
-    """Одноразовый прогон сканера (для APScheduler)."""
+    """
+    Одноразовый прогон сканера (для APScheduler).
+
+    Сканируем только CHATS_TO_LISTEN — кюрированный список.
+    scan_history (все диалоги аккаунта) убрана из расписания:
+    она использовалась при первом запуске и дублировала CHATS_TO_LISTEN.
+    """
     await init_db()
-    client = TelegramClient(
-        "anon_session", int(config.telegram_api_id), config.telegram_api_hash
-    )
-    await client.start()
-    try:
-        saved_dialogs = await scan_history(client)
-        saved_targets = await scan_target_chats(client)
-        return saved_dialogs + saved_targets
-    finally:
-        await client.disconnect()
+    client = await get_client()
+    return await scan_target_chats(client)
 
 
 async def start_collector():
     """Долгоживущий real-time слушатель (опционально, не обязателен)."""
     await init_db()
-    client = TelegramClient(
-        "anon_session", int(config.telegram_api_id), config.telegram_api_hash
-    )
-    await client.start()
+    client = await get_client()
 
     # Первичный сбор
     await scan_history(client)

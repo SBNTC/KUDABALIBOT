@@ -1,11 +1,14 @@
+import asyncio
 import json
 import logging
 import re
 from datetime import date
 from sqlalchemy import select, update, delete
 from openai import AsyncOpenAI
-from database.models import AsyncSessionMaker, ScrapedEvent
+from database.models import ScrapedEvent
+from data.statuses import EventStatus
 from config import config
+from database.session import AsyncSessionMaker
 
 client = AsyncOpenAI(
     api_key=config.deepseek_api_key.get_secret_value(),
@@ -46,18 +49,24 @@ DATA_PLACEHOLDER
 """
 
 
-async def call_deepseek(prompt: str) -> str:
-    try:
-        response = await client.chat.completions.create(
-            model=config.deepseek_model,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.1,
-            max_tokens=3000
-        )
-        return response.choices[0].message.content or ""
-    except Exception as e:
-        logging.error(f"DeepSeek Error: {e}")
-        return ""
+async def call_deepseek(prompt: str, retries: int = 3) -> str:
+    for attempt in range(retries):
+        try:
+            response = await client.chat.completions.create(
+                model=config.deepseek_model,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.1,
+                max_tokens=3000,
+            )
+            return response.choices[0].message.content or ""
+        except Exception as e:
+            if attempt < retries - 1:
+                wait = 2 ** attempt
+                logging.warning(f"DeepSeek attempt {attempt + 1}/{retries} failed, retry in {wait}s: {e}")
+                await asyncio.sleep(wait)
+            else:
+                logging.error(f"DeepSeek failed after {retries} attempts: {e}")
+    return ""
 
 
 def parse_event_date(date_str: str | None) -> date | None:
@@ -90,11 +99,9 @@ async def run_batch_analysis(auto_approve: bool = False) -> str:
     auto_approve=True -> сразу в approved (первичный сбор)
     auto_approve=False -> в review (на модерацию)
     """
-    await cleanup_old_events()
-    
     async with AsyncSessionMaker() as session:
         result = await session.execute(
-            select(ScrapedEvent).where(ScrapedEvent.status == "pending")
+            select(ScrapedEvent).where(ScrapedEvent.status == EventStatus.PENDING)
         )
         batch = result.scalars().all()
         
@@ -109,7 +116,7 @@ async def run_batch_analysis(auto_approve: bool = False) -> str:
         total_spam = 0
         total_errors = 0
 
-        target_status = "approved" if auto_approve else "review"
+        target_status = EventStatus.APPROVED if auto_approve else EventStatus.REVIEW
 
         for i in range(0, total, BATCH_SIZE):
             chunk = batch[i:i+BATCH_SIZE]
@@ -139,7 +146,7 @@ async def run_batch_analysis(auto_approve: bool = False) -> str:
                         await session.execute(
                             update(ScrapedEvent)
                             .where(ScrapedEvent.id == e.id)
-                            .values(status="rejected", category="Spam")
+                            .values(status=EventStatus.REJECTED, category="Spam")
                         )
                         total_spam += 1
                     else:
@@ -169,7 +176,7 @@ async def analyze_realtime_event(event_id: int) -> None:
     """Анализ одного события в реальном времени -> review"""
     async with AsyncSessionMaker() as session:
         ev = await session.get(ScrapedEvent, event_id)
-        if not ev or ev.status != "pending":
+        if not ev or ev.status != EventStatus.PENDING:
             return
         
         text = re.sub(r'\s+', ' ', (ev.raw_text or "")[:500]).strip()
@@ -191,10 +198,10 @@ async def analyze_realtime_event(event_id: int) -> None:
             res = ai_results[0]
             
             if res.get("category") == "Spam":
-                ev.status = "rejected"
+                ev.status = EventStatus.REJECTED
                 ev.category = "Spam"
             else:
-                ev.status = "review"
+                ev.status = EventStatus.REVIEW
                 ev.category = res.get("category", "Unknown")
                 ev.summary = res.get("summary", "")
                 ev.event_date = parse_event_date(res.get("event_date"))

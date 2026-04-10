@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import ast, sys; [ast.parse\\(open\\(f, encoding='utf-8'\\).read\\(\\), f\\) for f in ['bot.py','config/__init__.py','config/settings.py','config/chats.py','services/collector.py','services/scheduler.py','services/dedup.py','services/analyzer.py','services/site_parser.py','handlers/admin_panel.py','handlers/__init__.py','handlers/user/__init__.py','database/models.py']]; print\\('OK'\\)\")",
+      "Bash(py --version)",
+      "Bash(python -c 'import ast; ast.parse\\(open\\('\\\\''__TRACKED_VAR__'\\\\'', encoding='\\\\''utf-8'\\\\''\\).read\\(\\)\\)')"
+    ]
+  }
+}

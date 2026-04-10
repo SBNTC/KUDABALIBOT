@@ -6,7 +6,9 @@ from uuid import uuid4
 
 from sqlalchemy import select, update, delete, or_
 from sqlalchemy.ext.asyncio import AsyncSession
-from database.models import ScrapedEvent, compute_text_hash, AsyncSessionMaker
+from database.models import ScrapedEvent, compute_text_hash
+from data.statuses import EventStatus
+from database.session import AsyncSessionMaker
 
 # --- GET (Получение) ---
 
@@ -81,7 +83,7 @@ async def create_manual_event(
         link=link,
         raw_text=raw_text,
         text_hash=text_hash,
-        status="approved",
+        status=EventStatus.APPROVED,
         category=category,
         summary=summary,
         event_date=event_date,

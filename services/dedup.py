@@ -11,7 +11,9 @@ import logging
 from difflib import SequenceMatcher
 from sqlalchemy import select, delete
 
-from database.models import AsyncSessionMaker, ScrapedEvent
+from database.models import ScrapedEvent
+from data.statuses import EventStatus
+from database.session import AsyncSessionMaker
 
 
 logger = logging.getLogger(__name__)
@@ -26,7 +28,7 @@ def _normalize(text: str | None) -> str:
     return " ".join(text.lower().split())[:FUZZY_PREFIX]
 
 
-async def exact_dedup(statuses: tuple[str, ...] = ("pending", "review")) -> int:
+async def exact_dedup(statuses: tuple[str, ...] = (EventStatus.PENDING, EventStatus.REVIEW)) -> int:
     """Удаляет точные дубликаты raw_text внутри указанных статусов."""
     removed = 0
     async with AsyncSessionMaker() as session:
@@ -59,14 +61,17 @@ async def exact_dedup(statuses: tuple[str, ...] = ("pending", "review")) -> int:
     return removed
 
 
+_FUZZY_MAX_EVENTS = 2000  # O(n²) — ограничиваем окно во избежание лагов
+
+
 async def fuzzy_dedup(
-    statuses: tuple[str, ...] = ("pending", "review"),
+    statuses: tuple[str, ...] = (EventStatus.PENDING, EventStatus.REVIEW),
     threshold: float = FUZZY_THRESHOLD,
 ) -> int:
     """
     Удаляет сообщения, похожие на другие по первым FUZZY_PREFIX символам.
     Оставляет самое старое (первое встреченное) — у него больше шансов быть
-    оригиналом.
+    оригиналом. Обрабатывает не более _FUZZY_MAX_EVENTS за один прогон.
     """
     removed = 0
     async with AsyncSessionMaker() as session:
@@ -75,6 +80,7 @@ async def fuzzy_dedup(
             .where(ScrapedEvent.status.in_(statuses))
             .where(ScrapedEvent.raw_text.isnot(None))
             .order_by(ScrapedEvent.created_at.asc())
+            .limit(_FUZZY_MAX_EVENTS)
         )
         events = result.scalars().all()
 

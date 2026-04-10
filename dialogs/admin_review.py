@@ -9,7 +9,8 @@ from aiogram_dialog.widgets.kbd import Button, Calendar, Cancel, Column, Row, Se
 from aiogram_dialog.widgets.text import Const, Format, Jinja
 
 from data.categories import EventCategory, CATEGORY_ICONS
-from database.models import AsyncSessionMaker, ScrapedEvent
+from data.statuses import EventStatus
+from database.models import ScrapedEvent
 from database.requests import (
     create_manual_event,
     update_event_category,
@@ -20,6 +21,7 @@ from database.requests import (
 from sqlalchemy import select
 
 from states import AdminCreateSG, AdminReviewSG
+from database.session import AsyncSessionMaker
 
 
 # ---------- GETTERS ----------
@@ -28,7 +30,7 @@ async def get_next_review_event(dialog_manager: DialogManager, **kwargs):
     async with AsyncSessionMaker() as session:
         ev: Optional[ScrapedEvent] = await session.scalar(
             select(ScrapedEvent)
-            .where(ScrapedEvent.status == "review")
+            .where(ScrapedEvent.status == EventStatus.REVIEW)
             .order_by(ScrapedEvent.created_at.asc())
             .limit(1)
         )
@@ -64,7 +66,7 @@ def _require_event_id(manager: DialogManager) -> int:
 async def on_approve(c: CallbackQuery, button: Button, manager: DialogManager):
     event_id = _require_event_id(manager)
     async with AsyncSessionMaker() as session:
-        await update_event_status(session, event_id, "approved")
+        await update_event_status(session, event_id, EventStatus.APPROVED)
     await c.answer("✅ Подтверждено")
     await manager.switch_to(AdminReviewSG.view)
 
@@ -72,7 +74,7 @@ async def on_approve(c: CallbackQuery, button: Button, manager: DialogManager):
 async def on_reject(c: CallbackQuery, button: Button, manager: DialogManager):
     event_id = _require_event_id(manager)
     async with AsyncSessionMaker() as session:
-        await update_event_status(session, event_id, "rejected")
+        await update_event_status(session, event_id, EventStatus.REJECTED)
     await c.answer("❌ Отклонено")
     await manager.switch_to(AdminReviewSG.view)
 
@@ -93,15 +95,7 @@ async def on_summary_input(message: Message, widget: MessageInput, manager: Dial
 
 
 async def on_clear_date_review(c: CallbackQuery, button, manager: DialogManager):
-    """Убрать дату"""
-    event_id = manager.dialog_data.get("event_id")
-    async with AsyncSessionMaker() as session:
-        await update_event_date(session, event_id, None)
-    await c.answer("✅ Дата убрана")
-    await manager.switch_to(AdminReviewSG.view)
-
-async def on_clear_date_review(c: CallbackQuery, button, manager: DialogManager):
-    """Убрать дату в review"""
+    """Убрать дату в review."""
     event_id = _require_event_id(manager)
     async with AsyncSessionMaker() as session:
         await update_event_date(session, event_id, None)

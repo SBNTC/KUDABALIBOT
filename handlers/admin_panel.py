@@ -7,14 +7,16 @@ from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
 from aiogram_dialog import DialogManager, StartMode
-from sqlalchemy import delete, select, func
+from sqlalchemy import delete, select, func, case
 
 from config import config
-from database.models import AsyncSessionMaker, ScrapedEvent
+from data.statuses import EventStatus
+from database.models import ScrapedEvent
 from dialogs.admin import admin_dialog
 from dialogs.admin_review import review_dialog, create_dialog
 from services.dedup import exact_dedup, fuzzy_dedup
 from states import AdminCreateSG, AdminReviewSG, AdminSG
+from database.session import AsyncSessionMaker
 
 
 admin_router = Router()
@@ -62,7 +64,7 @@ async def cmd_clean_old(message: Message):
     async with AsyncSessionMaker() as session:
         result = await session.execute(
             delete(ScrapedEvent)
-            .where(ScrapedEvent.status == "review")
+            .where(ScrapedEvent.status == EventStatus.REVIEW)
             .where(ScrapedEvent.event_date < date.today())
         )
         await session.commit()
@@ -139,30 +141,49 @@ async def cmd_add_mention(message: Message):
 # ---------------------------------------------------------------------------
 @admin_router.message(Command("stats"))
 async def cmd_stats(message: Message):
-    """Статистика базы."""
+    """Статистика базы — один запрос с conditional aggregation."""
     async with AsyncSessionMaker() as session:
-        total = await session.scalar(select(func.count(ScrapedEvent.id)))
-        pending = await session.scalar(
-            select(func.count(ScrapedEvent.id)).where(ScrapedEvent.status == "pending")
+        row = await session.execute(
+            select(
+                func.count(ScrapedEvent.id).label("total"),
+                func.sum(case((ScrapedEvent.status == EventStatus.PENDING, 1), else_=0)).label("pending"),
+                func.sum(case((ScrapedEvent.status == EventStatus.REVIEW, 1), else_=0)).label("review"),
+                func.sum(case((ScrapedEvent.status == EventStatus.APPROVED, 1), else_=0)).label("approved"),
+                func.sum(case((ScrapedEvent.status == EventStatus.REJECTED, 1), else_=0)).label("rejected"),
+            )
         )
-        review = await session.scalar(
-            select(func.count(ScrapedEvent.id)).where(ScrapedEvent.status == "review")
-        )
-        approved = await session.scalar(
-            select(func.count(ScrapedEvent.id)).where(ScrapedEvent.status == "approved")
-        )
-        rejected = await session.scalar(
-            select(func.count(ScrapedEvent.id)).where(ScrapedEvent.status == "rejected")
-        )
+        s = row.one()
 
     await message.answer(
         "📊 <b>Статистика базы:</b>\n"
-        f"Всего событий: {total}\n"
-        f"⏳ Pending: {pending}\n"
-        f"👀 На модерации: {review}\n"
-        f"✅ Опубликовано: {approved}\n"
-        f"🗑 Отклонено: {rejected}",
+        f"Всего событий: {s.total}\n"
+        f"⏳ Pending: {s.pending}\n"
+        f"👀 На модерации: {s.review}\n"
+        f"✅ Опубликовано: {s.approved}\n"
+        f"🗑 Отклонено: {s.rejected}",
         parse_mode="HTML",
+    )
+
+
+@admin_router.message(Command("reload_kb"))
+async def cmd_reload_kb(message: Message):
+    """Принудительно сбросить TTL-кэш базы знаний."""
+    from services.ai_assistant import _get_knowledge
+    from services.reviews_analyzer import _get_place_names
+    import services.ai_assistant as _ai_mod
+    import services.reviews_analyzer as _rev_mod
+
+    # Сбрасываем TTL — следующий вызов перечитает с диска
+    _ai_mod._knowledge_loaded_at = 0.0
+    _rev_mod._place_names_loaded_at = 0.0
+
+    # Прогреваем кэш сразу
+    kb = _get_knowledge()
+    pn = _get_place_names()
+    await message.answer(
+        f"♻️ База знаний перезагружена:\n"
+        f"• {len(kb)} категорий мест\n"
+        f"• {len(pn)} названий для review-анализа"
     )
 
 
@@ -183,6 +204,7 @@ async def cmd_help(message: Message):
         "/addmention &lt;место&gt; &lt;ссылка&gt; — добавить обсуждение\n\n"
         "<b>Сервис:</b>\n"
         "/stats — статистика бота\n"
+        "/reload_kb — перезагрузить базу знаний\n"
         "/help — эта справка",
         parse_mode="HTML",
     )

@@ -1,5 +1,7 @@
-import os
+import json
 import math
+import os
+from pathlib import Path
 from aiogram.types import CallbackQuery, Message, ContentType
 from aiogram_dialog import Dialog, Window, DialogManager
 from aiogram_dialog.widgets.text import Const, Format
@@ -9,10 +11,12 @@ from aiogram_dialog.widgets.input import MessageInput
 from sqlalchemy import select, func, or_
 from datetime import date
 
-from database.models import AsyncSessionMaker, ScrapedEvent, User, UserAction, compute_text_hash
+from database.models import ScrapedEvent, User, UserAction, compute_text_hash
 from data.categories import CATEGORY_ICONS
+from data.statuses import EventStatus
 from states import FeedMenuStates
 from services.ai_assistant import get_ai_response
+from database.session import AsyncSessionMaker
 
 EVENTS_PER_PAGE = 5
 MENU_PHOTO_PATH = "assets/menu.jpg"
@@ -121,7 +125,7 @@ async def get_category_events(dialog_manager: DialogManager, **kwargs):
 
     async with AsyncSessionMaker() as session:
         today = date.today()
-        base_query = select(ScrapedEvent).where(ScrapedEvent.status == "approved")
+        base_query = select(ScrapedEvent).where(ScrapedEvent.status == EventStatus.APPROVED)
 
         if category != "All":
             base_query = base_query.where(ScrapedEvent.category == category)
@@ -212,10 +216,6 @@ async def on_places_category_selected(callback: CallbackQuery, widget, manager: 
     await manager.switch_to(FeedMenuStates.places_list)
 
 async def get_places_list_data(dialog_manager: DialogManager, **kwargs):
-    import json
-    import math
-    from pathlib import Path
-    
     category = dialog_manager.dialog_data.get("places_category", "beaches")
     PLACES_PER_PAGE = 10
     
@@ -299,9 +299,9 @@ async def on_suggest_input(message: Message, widget: MessageInput, manager: Dial
             link=f"user:{message.from_user.id}:{message.message_id}",
             raw_text=text,
             text_hash=compute_text_hash(text),
-            status="review",
+            status=EventStatus.REVIEW,
             category="Unknown",
-            summary=text[:100]
+            summary=text[:100],
         )
         session.add(ev)
         await session.commit()

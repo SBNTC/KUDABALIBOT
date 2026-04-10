@@ -41,3 +41,17 @@ bot_backup.tar.gz
 bali_bot_*.tar.gz
 bot_code_*.tar.gz
 full_bot_code_complete.txt
+*.txt.gz
+
+# Debug dumps
+all_messages.txt
+debug_report.txt
+discussions_filtered.json
+joined_list.txt
+pending.json
+pending_messages.txt
+posts_dump.txt
+raw_discussions.json
+sample.json
+full_bot_code.txt
+full_code.txt

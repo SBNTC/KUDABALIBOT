@@ -6,7 +6,7 @@
   - После каждого сбора — dedup → analyzer(pending -> review)
 """
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 
@@ -46,7 +46,7 @@ async def _dedup_and_analyze(origin: str) -> None:
 
 
 async def scheduled_site_parse() -> None:
-    logger.info(f"⏰ [{datetime.now()}] Парсинг baliforum.ru...")
+    logger.info(f"⏰ [{datetime.now(timezone.utc)}] Парсинг baliforum.ru...")
     try:
         saved = await run_site_parser()
         logger.info(f"🌐 site_parser сохранил: {saved}")
@@ -57,7 +57,7 @@ async def scheduled_site_parse() -> None:
 
 
 async def scheduled_chat_parse() -> None:
-    logger.info(f"⏰ [{datetime.now()}] Сканирование Telegram-чатов...")
+    logger.info(f"⏰ [{datetime.now(timezone.utc)}] Сканирование Telegram-чатов...")
     try:
         saved = await scheduled_chat_scan()
         logger.info(f"📡 collector сохранил: {saved}")
@@ -67,7 +67,7 @@ async def scheduled_chat_parse() -> None:
     await _dedup_and_analyze("collector")
 
 
-async def setup_scheduler() -> None:
+async def setup_scheduler() -> None:  # noqa: F401 — публичный API
     # 1 раз в день — baliforum.ru
     scheduler.add_job(
         scheduled_site_parse,

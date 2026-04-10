@@ -25,9 +25,6 @@ class Settings(BaseSettings):
     history_days: int = 2
     scan_interval_hours: int = 6
 
-    # Расписание анализа (cron format)
-    analysis_cron: str = "0 */6 * * *"
-
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

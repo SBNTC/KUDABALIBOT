@@ -3,7 +3,8 @@ import re
 import logging
 from pathlib import Path
 from sqlalchemy import select, func
-from database.models import AsyncSessionMaker, ScrapedEvent
+from database.models import ScrapedEvent
+from database.session import AsyncSessionMaker
 
 KNOWLEDGE_DIR = Path("knowledge_base")
 

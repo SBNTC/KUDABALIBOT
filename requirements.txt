@@ -1,9 +1,15 @@
 aiogram>=3.14
+uvloop; sys_platform != "win32"
+aiogram-dialog>=2.0
 telethon
 sqlalchemy>=2.0
 aiosqlite
-google-generativeai
+alembic>=1.13
 python-dotenv
 pydantic>=2.0
 pydantic-settings
 apscheduler
+playwright
+openai>=1.0
+pytest
+pytest-asyncio
