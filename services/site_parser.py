@@ -1,6 +1,8 @@
 import asyncio
+import json
 import logging
 import random
+import re
 from playwright.async_api import async_playwright
 from datetime import datetime, date, timedelta
 from sqlalchemy import select
@@ -44,14 +46,37 @@ async def parse_event_details(browser, link: str) -> dict | None:
             }""")
 
             await page.close()
+
+            # Извлекаем структурированные данные из JSON-LD
+            event_date_str = None
+            event_name = None
+            event_description = None
+            if json_ld:
+                for block in json_ld.split("\n\n"):
+                    try:
+                        ld = json.loads(block.strip())
+                        if isinstance(ld, dict):
+                            event_name = event_name or ld.get("name")
+                            event_description = event_description or ld.get("description")
+                            event_date_str = event_date_str or ld.get("startDate")
+                    except (json.JSONDecodeError, TypeError):
+                        pass
+
+            # Чистый текст для AI вместо технического дампа
+            clean_title = (event_name or title or "").strip()
+            # Убираем мусорные суффиксы типа "на Бали - описание, фото, отзывы"
+            clean_title = re.sub(r"\s*на Бали\s*[-—]\s*описание.*$", "", clean_title, flags=re.IGNORECASE)
+            description = event_description or meta_desc or ""
+            # Берём только полезную часть content (без навигации и пр.)
+            content_clean = re.sub(r"\s+", " ", content[:2000]).strip()
+
+            raw_text = f"{clean_title}\n\n{description}\n\n{content_clean}".strip()
+
             return {
                 "link": link,
-                "raw_text": (
-                    f"TITLE: {title}\nLINK: {link}\n"
-                    f"JSON_LD: {json_ld}\nMETA_DESC: {meta_desc}\n"
-                    f"CONTENT:\n{content[:4000]}"
-                ),
+                "raw_text": raw_text,
                 "chat_title": "baliforum.ru",
+                "event_date": event_date_str,
             }
         except Exception as e:
             await page.close()
@@ -134,13 +159,26 @@ async def save_site_events(events: list[dict]) -> int:
             if exists:
                 continue
             
+            # Парсинг даты из JSON-LD
+            event_date = None
+            raw_date = event.get("event_date")
+            if raw_date:
+                try:
+                    event_date = datetime.fromisoformat(raw_date.replace("Z", "+00:00")).date()
+                except (ValueError, TypeError):
+                    try:
+                        event_date = date.fromisoformat(raw_date[:10])
+                    except (ValueError, TypeError):
+                        pass
+
             try:
                 new_event = ScrapedEvent(
                     chat_title=event["chat_title"],
                     link=event["link"],
                     raw_text=event["raw_text"],
                     text_hash=text_hash,
-                    status="pending"
+                    status="pending",
+                    event_date=event_date,
                 )
                 session.add(new_event)
                 await session.commit()

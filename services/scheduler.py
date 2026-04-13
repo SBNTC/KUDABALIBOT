@@ -67,6 +67,20 @@ async def scheduled_chat_parse() -> None:
     await _dedup_and_analyze("collector")
 
 
+async def retry_stale_pending() -> None:
+    """Повторная обработка pending-событий старше 1 часа."""
+    from sqlalchemy import select, update
+    from database.models import ScrapedEvent
+    from database.session import AsyncSessionMaker
+
+    logger.info("🔄 Retry stale pending events...")
+    try:
+        result = await run_batch_analysis()
+        logger.info(f"📊 Retry pending: {result}")
+    except Exception as e:
+        logger.error(f"retry_stale_pending: {e}")
+
+
 async def setup_scheduler() -> None:  # noqa: F401 — публичный API
     # 1 раз в день — baliforum.ru
     scheduler.add_job(
@@ -84,8 +98,16 @@ async def setup_scheduler() -> None:  # noqa: F401 — публичный API
         replace_existing=True,
     )
 
+    # Раз в день — повторная обработка застрявших pending
+    scheduler.add_job(
+        retry_stale_pending,
+        trigger=CronTrigger(hour=14, minute=0),
+        id="retry_pending_daily",
+        replace_existing=True,
+    )
+
     scheduler.start()
     logger.info(
         "📅 Планировщик запущен: "
-        "site_parser=06:00, chat_scan=08:00/20:00 (Asia/Makassar)"
+        "site_parser=06:00, chat_scan=08:00/20:00, retry_pending=14:00 (Asia/Makassar)"
     )
